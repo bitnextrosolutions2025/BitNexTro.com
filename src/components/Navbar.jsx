@@ -17,7 +17,7 @@ const servicesData = [
       "Maintenance & Testing — ongoing support and QA",
     ],
   },
-    {
+  {
     id: "networking",
     title: "Networking & Connectivity",
     items: [
@@ -113,29 +113,33 @@ export default function Navbar() {
   const delayedCloseMega = () => {
     megaTimeout.current = setTimeout(() => setIsMegaOpen(false), 150);
   };
+  const handlescroll = () => {
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
 
-  return (  
+  }
+  return (
     <div>
       <nav className="fixed w-full md:h-[155px] z-40 transition-all duration-300 bg-[#f3f3f1] shadow-lg">
         <Head />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-             <Link to="/"> <img className=" w-[220px] md:w-[280px] md:mt-[18px]" src={logo_final_p} alt="logo" /></Link>
+              <Link to="/"> <img className=" w-[220px] md:w-[280px] md:mt-[18px]" src={logo_final_p} alt="logo" /></Link>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center mt-5 space-x-8">
-              <a
-                href="#home"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                to="/"
+                onClick={handlescroll}
                 className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
               >
                 Home
-              </a>
+              </Link>
 
               <div
                 className="relative"
@@ -169,11 +173,10 @@ export default function Navbar() {
                             onFocus={() => setActiveCategory(cat.id)}
                           >
                             <button
-                              className={`w-full text-left px-3 py-2 rounded-md text-sm font-semibold transition-colors ${
-                                activeCategory === cat.id
+                              className={`w-full text-left px-3 py-2 rounded-md text-sm font-semibold transition-colors ${activeCategory === cat.id
                                   ? "bg-[#eef6ff] text-[#0b63a8]"
                                   : "text-gray-700 hover:bg-gray-50"
-                              }`}
+                                }`}
                             >
                               {cat.title}
                             </button>
@@ -191,9 +194,8 @@ export default function Navbar() {
                             <div
                               key={cat.id}
                               aria-hidden={!isActive}
-                              className={`transition-all duration-300 transform ${
-                                isActive ? "opacity-100 translate-y-0 block" : "opacity-0 -translate-y-2 hidden"
-                              }`}
+                              className={`transition-all duration-300 transform ${isActive ? "opacity-100 translate-y-0 block" : "opacity-0 -translate-y-2 hidden"
+                                }`}
                             >
                               <h4 className="text-lg font-bold mb-2">{cat.title}</h4>
                               <ul className="list-disc pl-5 space-y-1 text-gray-700">
@@ -222,7 +224,8 @@ export default function Navbar() {
               </a>
 
               <Link
-              to="/career"
+                to="/career"
+                onClick={handlescroll}
                 className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
               >
                 Career
