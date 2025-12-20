@@ -2,9 +2,10 @@ import React from 'react'
 import logo_final from "../assets/f_logo.jpg"
 import { Award, CloudUpload, Code, Facebook, Globe, Linkedin, Shield, Twitter } from 'lucide-react'
 export default function Footer() {
-      const handleclick = (e) => {
-    e.preventDefault(); // Prevent default anchor jump
-    const target = document.querySelector('#services');
+    const handleclick = (e,link) => {
+    e.preventDefault();
+    const llink=link.toLocaleLowerCase()// Prevent default anchor jump
+    const target = document.querySelector(`#${llink}`);
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
@@ -43,9 +44,9 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                {['Home', 'About', 'Service', 'Contact'].map((link) => (
-                  <li key={link}>
-                    <a href={`#${link.toLocaleLowerCase()}`} onClick={(e) => { handlelink(link, e) }} className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                {['Home', 'About', 'Service', 'Contact'].map((link,i) => (
+                  <li key={i}>
+                    <a href={`#${link.toLocaleLowerCase()}`} onClick={(e) => { handleclick(e,link) }} className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {link}
                     </a>
@@ -65,8 +66,8 @@ export default function Footer() {
                   { icon: <Shield />, text: 'Cybersecurity', color: 'text-green-400 ' },
                   { icon: <Globe />, text: 'Digital & Marketing ', color: 'text-blue-400 ' },
 
-                ].map((service) => (
-                  <a href="#services" onClick={handleclick}><li key={service.text} className=" cursor-pointer flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 mb-2">
+                ].map((service,i) => (
+                  <a href="#services" onClick={handleclick} key={i}><li key={service.text} className=" cursor-pointer flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 mb-2">
                     <span className={`text-lg ${service.color} `}>{service.icon}</span>
                     {service.text}
                   </li>
