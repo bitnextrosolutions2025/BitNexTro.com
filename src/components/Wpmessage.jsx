@@ -6,7 +6,7 @@ export default function WhatsAppContact() {
   const [message, setMessage] = useState('');
   const [isHovered, setIsHovered] = useState(false);
 
-  const phoneNumber = '919635013952';
+  const phoneNumber = '919330855877';
   const defaultMessage = 'Hello! I would like to inquire about your services.';
 
   const handleSendMessage = () => {
