@@ -212,8 +212,8 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <a
-                href="#about"
+              <Link
+                to="/#about"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
@@ -221,7 +221,7 @@ export default function Navbar() {
                 className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
               >
                 About
-              </a>
+              </Link>
 
               <Link
                 to="/career"
@@ -257,17 +257,13 @@ export default function Navbar() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden pb-4">
-              <a
-                href="#home"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
-                  setIsMenuOpen(false);
-                }}
+              <Link
+                to="/"
+                onClick={handlescroll}
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
                 Home
-              </a>
+              </Link>
 
               {/* Mobile Services Accordion */}
               <div className="px-4">
@@ -308,17 +304,13 @@ export default function Navbar() {
                 About
               </a>
 
-              <a
-                href="#career"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  setIsMenuOpen(false);
-                }}
+              <Link
+                to="/career"
+                onClick={handlescroll}
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
                 Career
-              </a>
+              </Link>
               <a
                 href="#contact"
                 onClick={(e) => {
