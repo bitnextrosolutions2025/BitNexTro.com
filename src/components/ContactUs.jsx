@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-
+import { handleError, handleSuccess } from './ErrorMessage';
 const ContactSectionLight = () => {
+    const form = useRef(null);
+    const [loder,setloder]=useState(false)
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyTMstU-QSoR-copgHz3ipUrfsKz00o6VJU_dQV0RI7tjbLimY71GIKPazrLZZuIay3/exec';
+    const onsubmit = (e) => {
+        e.preventDefault();
+        setloder(true)
+        fetch(scriptURL, { method: 'POST', body: new FormData(form.current) })
+            .then((response) => {
+                handleSuccess("Message sent successfully! we contact you soon.")
+                form.current.reset();
+                setloder(false)
+            })
+            .catch((error) => {console.error('Error!', error.message); handleError("Some error is occurred")});
+    };
     return (
         <div className="w-full min-h-screen  flex items-center justify-center bg-sky-400 py-20 px-4">
             <div className="max-w-5xl w-full mx-auto">
@@ -14,39 +28,48 @@ const ContactSectionLight = () => {
                     <div className="p-4 pl-7 md:p-12 bg-white" style={{ padding: "30px" }}>
                         <h2 className="text-3xl font-bold text-gray-800 mb-1">Get in Touch</h2>
                         <p className="text-gray-500 mb-2">We would love to hear from you!</p>
+                        <form name='submit-to-google-sheet' onSubmit={onsubmit} ref={form} >
+                            <div className="space-y-2">
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600 mb-1 block">Full Name</label>
+                                    <input
+                                        type="text"
+                                        name='fullname'
+                                        required
+                                        className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600 mb-1 block">Email Address</label>
+                                    <input
+                                        type="email"
+                                        name='email'
+                                        required
+                                        className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200"
+                                    />
+                                </div>
 
-                        <div className="space-y-2">
-                            <div>
-                                <label className="text-sm font-medium text-gray-600 mb-1 block">Full Name</label>
-                                <input
-                                    type="text"
-                                    className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200"
-                                />
-                            </div>
-                            <div>
-                                <label className="text-sm font-medium text-gray-600 mb-1 block">Email Address</label>
-                                <input
-                                    type="email"
-                                    className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200"
-                                />
-                            </div>
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600 mb-1 block">Message</label>
+                                    <textarea
+                                        rows="4"
+                                        name='message'
+                                        required
+                                        className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200 resize-none"
+                                    ></textarea>
+                                </div>
 
-                            <div>
-                                <label className="text-sm font-medium text-gray-600 mb-1 block">Message</label>
-                                <textarea
-                                    rows="4"
-                                    className="w-full px-5 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-200 resize-none"
-                                ></textarea>
-                            </div>
+                                <button
+                                    type='submit'
+                                    className="w-full bg-green-600 text-white py-4 rounded-xl font-semibold hover:bg-green-700 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
+                                >
+                                    {loder?<div className='border-4 border-dashed rounded-full border-[#001bec] h-10 w-10 animate-spin'>
 
-                            <button
-                                onClick={() => alert('Message sent!')}
-                                className="w-full bg-green-600 text-white py-4 rounded-xl font-semibold hover:bg-green-700 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
-                            >
-                                Send Message
-                                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </div>
+                                    </div>:<>Send Message
+                                    <Send size={18} className="group-hover:translate-x-1 transition-transform" /></>}
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div className="bg-linear-to-br from-[#05c45e] to-[#137644] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
                         {/* Background Shapes */}
