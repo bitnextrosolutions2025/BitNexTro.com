@@ -1,6 +1,6 @@
 import React from 'react'
 import logo_final from "../assets/f_logo.jpg"
-import { Award, CloudUpload, Code, Facebook, Globe, Linkedin, Shield, Twitter } from 'lucide-react'
+import { Award, CloudUpload, Code, Facebook, Globe, Linkedin, Shield, Twitter, X } from 'lucide-react'
 export default function Footer() {
     const handleclick = (e,link) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ export default function Footer() {
                   <span className="text-xl"><Linkedin /></span>
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <span className="text-xl"><Twitter /></span>
+                  <span className="text-xl"><X /></span>
                 </a>
               </div>
             </div>
@@ -44,7 +44,7 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                {['Home', 'About', 'Service', 'Contact'].map((link,i) => (
+                {['Home', 'About', 'Service','Contact'].map((link,i) => (
                   <li key={i}>
                     <a href={`#${link.toLocaleLowerCase()}`} onClick={(e) => { handleclick(e,link) }} className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -67,7 +67,7 @@ export default function Footer() {
                   { icon: <Globe />, text: 'Digital & Marketing ', color: 'text-blue-400 ' },
 
                 ].map((service,i) => (
-                  <a href="#services" onClick={handleclick} key={i}><li key={service.text} className=" cursor-pointer flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 mb-2">
+                  <a href="#service" onClick={handleclick} key={i}><li key={service.text} className=" cursor-pointer flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 mb-2">
                     <span className={`text-lg ${service.color} `}>{service.icon}</span>
                     {service.text}
                   </li>

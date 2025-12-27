@@ -1,4 +1,4 @@
-import { Facebook, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
+import { Facebook, Linkedin, Mail, Phone, Twitter, X } from 'lucide-react'
 import React from 'react'
 
 export default function Head() {
@@ -12,7 +12,7 @@ export default function Head() {
       </div>
       <div className='flex justify-between gap-4 items-center mr-4 text-white cursor-pointer  '>
         <Linkedin />
-        <Twitter />
+        <X />
         <Facebook />
       </div>
 
