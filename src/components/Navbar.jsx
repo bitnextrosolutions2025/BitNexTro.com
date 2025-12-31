@@ -114,7 +114,7 @@ export default function Navbar() {
     megaTimeout.current = setTimeout(() => setIsMegaOpen(false), 150);
   };
   const handlescroll = () => {
-    
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -174,8 +174,8 @@ export default function Navbar() {
                           >
                             <button
                               className={`w-full text-left px-3 py-2 rounded-md text-sm font-semibold transition-colors ${activeCategory === cat.id
-                                  ? "bg-[#eef6ff] text-[#0b63a8]"
-                                  : "text-gray-700 hover:bg-gray-50"
+                                ? "bg-[#eef6ff] text-[#0b63a8]"
+                                : "text-gray-700 hover:bg-gray-50"
                                 }`}
                             >
                               {cat.title}
@@ -240,6 +240,13 @@ export default function Navbar() {
                 className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
               >
                 Contact
+              </a>
+              <a
+                href="https://bitnextro.freshdesk.com/support/home"
+                target="_blank"
+                className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
+              >
+                Support
               </a>
             </div>
 
@@ -321,6 +328,13 @@ export default function Navbar() {
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
                 Contact
+              </a>
+              <a
+                href="https://bitnextro.freshdesk.com/support/home"
+                target="_blank"
+                className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
+              >
+                Support
               </a>
             </div>
           )}
