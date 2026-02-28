@@ -98,17 +98,17 @@ export default function Remote() {
 
         {/* Header */}
         <div className="header-anim text-center mb-14">
-          <span
+          {/* <span
             className="badge-anim inline-block text-blue-300 border border-blue-500/40 rounded-full px-5 py-1.5 mb-6 text-xs font-semibold tracking-[3px] uppercase"
             style={{ background: "rgba(37,99,235,0.1)" }}
           >
             ALWAYS ON
-          </span>
+          </span> */}
 
           <h1
             className="text-white font-extrabold leading-[1.05] mb-5 tracking-tight"
             style={{
-              fontFamily: "'Syne', sans-serif",
+              fontFamily: ", sans-serif",
               fontSize: "clamp(40px, 6vw, 72px)",
             }}
           >
@@ -192,7 +192,7 @@ export default function Remote() {
                 <h3
                   className="font-bold mb-2 transition-colors duration-300"
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'', sans-serif",
                     fontSize: "16px",
                     letterSpacing: "0.2px",
                     color: hovered === i ? "#bfdbfe" : "#fff",
@@ -232,7 +232,7 @@ export default function Remote() {
           <button
             className="font-bold tracking-widest uppercase text-white rounded-full px-14 py-5 border transition-all duration-300 text-sm"
             style={{
-              fontFamily: "'Syne', sans-serif",
+              fontFamily: "'', sans-serif",
               letterSpacing: "2px",
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.15)",

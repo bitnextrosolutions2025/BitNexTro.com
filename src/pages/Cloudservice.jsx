@@ -498,20 +498,20 @@ export default function Cloudservice() {
     },
   ]
 
-  const stats = [
-    {
-      icon: <IconServer/>, num: '99.9%', label: 'Guaranteed uptime across all service tiers',
-      badge: 'SLA Backed', wide: true,
-    },
-    {
-      icon: <IconShield/>, num: '256-bit', label: 'Enterprise-grade AES encryption standard',
-      badge: 'Security', wide: false,
-    },
-    {
-      icon: <IconGlobe/>, num: '∞ Scale', label: 'Limitless elastic infrastructure on demand',
-      badge: 'Scalable', wide: false,
-    },
-  ]
+  // const stats = [
+  //   {
+  //     icon: <IconServer/>, num: '99.9%', label: 'Guaranteed uptime across all service tiers',
+  //     badge: 'SLA Backed', wide: true,
+  //   },
+  //   {
+  //     icon: <IconShield/>, num: '256-bit', label: 'Enterprise-grade AES encryption standard',
+  //     badge: 'Security', wide: false,
+  //   },
+  //   {
+  //     icon: <IconGlobe/>, num: '∞ Scale', label: 'Limitless elastic infrastructure on demand',
+  //     badge: 'Scalable', wide: false,
+  //   },
+  // ]
 
   return (
     <>
@@ -604,7 +604,7 @@ export default function Cloudservice() {
               </div>
 
               {/* RIGHT: stat cards */}
-              <div className="cs-why-right">
+              {/* <div className="cs-why-right">
                 {stats.map((s, i) => (
                   <div className={`cs-stat-card${s.wide ? ' cs-stat-wide' : ''}`} key={i}
                     style={s.wide ? {gridColumn:'span 2'} : {}}>
@@ -616,7 +616,7 @@ export default function Cloudservice() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
             </div>
           </section>

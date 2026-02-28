@@ -32,7 +32,7 @@ import Artifical from './pages/Artifical'
 import Devops from './pages/Devops'
 import Digital from './pages/Digital'
 import Amc from './pages/Amc'
-
+import Servervirtual from './pages/Servervirtual'
 
 
 function App() {
@@ -66,6 +66,8 @@ function App() {
           <Route path='/devops' element={<Devops />} />
           <Route path='/digital' element={<Digital />} />
            <Route path='/amc' element={<Amc />} />
+             <Route path='/server' element={<Servervirtual />} />
+          
 
 
 

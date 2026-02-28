@@ -51,8 +51,8 @@ const feats = [
 ]
 
 const metrics = [
-  { name:'Network Uptime (30d)', val:'99.97%' },
-  { name:'Avg. Response Time',   val:'11 min' },
+  { name:'Network Uptime (30d)', val:'80%' },
+  { name:'Avg. Response Time',   val:'48 hours' },
   { name:'Patch Compliance',     val:'98.4%'  },
   { name:'Active Endpoints',     val:'247'    },
   { name:'Open Critical Alerts', val:'0'      },
@@ -186,7 +186,7 @@ export default function Managedservice() {
         .step-cell:hover { background:rgba(29,78,216,0.12) !important; }
 
         .step-num {
-          font-family:'Syne',sans-serif; font-size:52px; font-weight:800; line-height:1;
+          font-family:'',sans-serif; font-size:52px; font-weight:800; line-height:1;
           color:rgba(59,130,246,0.12); transition:color .3s;
         }
         .step-cell:hover .step-num { color:rgba(59,130,246,0.28); }
@@ -326,8 +326,8 @@ export default function Managedservice() {
                   Managed IT Services
                 </span>
               </div>
-              <h1 className="font-syne text-5xl xl:text-[66px] font-extrabold leading-[1.05] tracking-tight text-white mb-6">
-                IT That <span className="text-grad">Never Sleeps.</span><br />
+              <h1 className="text-5xl xl:text-[66px] font-extrabold leading-[1.05] tracking-tight text-white mb-6">
+                IT That <span className="text-grad">Never Sleeps.<br /></span>
                 Partners That Never Leave.
               </h1>
               <p className="text-base leading-relaxed font-light max-w-lg mb-10" style={{ color:'rgba(191,219,254,0.45)' }}>
@@ -335,10 +335,10 @@ export default function Managedservice() {
                 infrastructure 24/7 — so your team stays focused on what truly moves the business forward.
               </p>
               <div className="flex gap-4 flex-wrap items-center">
-                <button className="btn-primary px-8 py-3.5 rounded-xl text-sm">Request Free Audit</button>
-                <button className="btn-ghost flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium">
+                <button className="btn-primary px-8 py-3.5 rounded-xl text-sm">Contact us </button>
+                {/* <button className="btn-ghost flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium">
                   View SLA Details {ic.arrow}
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -371,7 +371,7 @@ export default function Managedservice() {
             <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">
               <div>
                 <div className="eyebrow"><span className="eyebrow-line"/><span className="eyebrow-text">Core Services</span></div>
-                <h2 className="font-syne text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
+                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
                   Six Pillars of<br /><span className="text-grad">Managed Excellence</span>
                 </h2>
               </div>
@@ -404,7 +404,7 @@ export default function Managedservice() {
           <section className="px-6 md:px-16 py-24">
             <div className="mb-14">
               <div className="eyebrow"><span className="eyebrow-line"/><span className="eyebrow-text">Our Methodology</span></div>
-              <h2 className="font-syne text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
+              <h2 className="text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
                 From Discovery<br />to <span className="text-grad">Always-On</span>
               </h2>
               <p className="text-sm leading-relaxed font-light max-w-lg mt-3" style={{ color:'rgba(191,219,254,0.38)' }}>
@@ -438,7 +438,26 @@ export default function Managedservice() {
                 <div className="eyebrow"><span className="eyebrow-line"/><span className="eyebrow-text">Why Partner With Us</span></div>
                 <div className="flex flex-col gap-4">
                   {/* Big SLA stat */}
-                  <div className="glass-card flex gap-6 items-center p-7 cursor-default">
+                    <div className="glass-card p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="pulse-green w-2 h-2 rounded-full bg-green-400 shrink-0" />
+                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-blue-400/70">
+                  Live Platform Status
+                </span>
+                <div className="flex-1 h-px" style={{ background:'linear-gradient(90deg,rgba(59,130,246,0.22),transparent)' }} />
+              </div>
+              {metrics.map((m,i)=>(
+                <div key={i} className="metric-row flex items-center justify-between py-3.5 border-b last:border-0"
+                  style={{ borderColor:'rgba(59,130,246,0.08)' }}>
+                  <div className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-blue-500/50" />
+                    <span className="text-xs" style={{ color:'rgba(191,219,254,0.45)' }}>{m.name}</span>
+                  </div>
+                  <span className="font-syne text-sm font-bold text-blue-300 tracking-tight">{m.val}</span>
+                </div>
+              ))}
+            </div>
+                  {/* <div className="glass-card flex gap-6 items-center p-7 cursor-default">
                     <div className="icon-box w-14 h-14 rounded-xl flex items-center justify-center shrink-0">{ic.clock}</div>
                     <div>
                       <div className="font-syne text-5xl font-extrabold tracking-tight leading-none mb-1.5 num-grad">99.9%</div>
@@ -451,22 +470,22 @@ export default function Managedservice() {
                         SLA Guaranteed
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Mini stats */}
-                  <div className="grid grid-cols-2 gap-4">
+                  {/* <div className="grid grid-cols-2 gap-4">
                     {miniStats.map((m,i)=>(
                       <div key={i} className="glass-card p-6 cursor-default">
                         <div className="font-syne text-3xl font-extrabold tracking-tight mb-1.5 mini-grad">{m.num}</div>
                         <div className="text-xs font-light leading-snug" style={{ color:'rgba(191,219,254,0.40)' }}>{m.label}</div>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
               <div>
-                <h2 className="font-syne text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08] mb-5">
                   The Numbers<br /><span className="text-grad">Prove Everything</span>
                 </h2>
                 <p className="text-sm font-light leading-relaxed mb-9" style={{ color:'rgba(191,219,254,0.40)' }}>
@@ -495,7 +514,7 @@ export default function Managedservice() {
           <div className="px-6 md:px-16 py-16">
             <div className="cta-wrap glass-card p-10 md:p-14 flex items-center justify-between gap-9 flex-wrap">
               <div className="relative z-10">
-                <h3 className="font-syne text-3xl xl:text-4xl font-extrabold text-white mb-2 leading-tight tracking-tight">
+                <h3 className="text-3xl xl:text-4xl font-extrabold text-white mb-2 leading-tight tracking-tight">
                   Ready to Hand Off Your IT?
                 </h3>
                 <p className="text-sm font-light" style={{ color:'rgba(191,219,254,0.42)' }}>
@@ -503,7 +522,7 @@ export default function Managedservice() {
                 </p>
               </div>
               <div className="flex gap-3 shrink-0 flex-wrap relative z-10">
-                <button className="btn-primary px-8 py-3.5 rounded-xl text-sm">Book a Free Audit</button>
+                <button className="btn-primary px-8 py-3.5 rounded-xl text-sm">Contact us</button>
                 <button className="btn-ghost flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium">
                   Talk to an Engineer {ic.arrow}
                 </button>

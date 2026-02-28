@@ -293,7 +293,7 @@ export default function Cybersecurity() {
               className="text-blue-300 uppercase tracking-[3px]"
               style={{ fontFamily: "'Orbitron', monospace", fontSize: "11px" }}
             >
-              Enterprise Security Solutions
+              Bitnextro PVT.LTD Solutions
             </span>
           </div>
 
@@ -333,7 +333,7 @@ export default function Cybersecurity() {
             <button
               className="font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg text-white text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
-                fontFamily: "'Orbitron', monospace",
+                fontFamily: "'', monospace",
                 background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
                 boxShadow: "0 0 30px rgba(59,130,246,0.45), 0 4px 20px rgba(0,0,0,0.4)",
               }}
@@ -345,7 +345,8 @@ export default function Cybersecurity() {
             <button
               className="font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg text-blue-300 text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
-                fontFamily: "'Orbitron', monospace",
+               
+                fontFamily: "'',monospace ",
                 border: "1px solid rgba(59,130,246,0.4)",
                 background: "rgba(15,30,80,0.3)",
                 backdropFilter: "blur(10px)",
@@ -365,7 +366,7 @@ export default function Cybersecurity() {
         </div>
 
         {/* Stats bar */}
-        <div
+        {/* <div
           className="fade-in-5 grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden mb-20 border"
           style={{
             borderColor: "rgba(59,130,246,0.2)",
@@ -376,7 +377,7 @@ export default function Cybersecurity() {
           }}
         >
           {[
-            { val: "99.8%", label: "Uptime SLA" },
+            { val: "99%", label: "Uptime SLA" },
             { val: "<30s", label: "Response Time" },
             { val: "500+", label: "Enterprise Clients" },
             { val: "24/7", label: "SOC Monitoring" },
@@ -406,7 +407,7 @@ export default function Cybersecurity() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
@@ -452,11 +453,11 @@ export default function Cybersecurity() {
           <h2
             className="font-black uppercase tracking-widest text-white mb-4 relative z-10"
             style={{
-              fontFamily: "'Orbitron', monospace",
+              fontFamily: "'', monospace",
               fontSize: "clamp(20px, 4vw, 36px)",
             }}
           >
-            Ready to Fortify Your Defenses?
+           Secure your data from attacks?
           </h2>
           <p className="text-slate-400 mb-8 text-sm leading-relaxed max-w-md mx-auto relative z-10">
             Get a free security assessment and discover your vulnerabilities before attackers do.
@@ -464,7 +465,7 @@ export default function Cybersecurity() {
           <button
             className="relative z-10 font-bold uppercase tracking-widest px-12 py-4 rounded-lg text-white text-sm transition-all duration-300"
             style={{
-              fontFamily: "'Orbitron', monospace",
+              fontFamily: "'', monospace",
               background: "linear-gradient(135deg, #1e3a8a, #2563eb, #1e3a8a)",
               boxShadow: "0 0 40px rgba(37,99,235,0.55)",
             }}
