@@ -166,7 +166,25 @@ const servicesData = [
       "Analytics & Reporting",
     ],
   },
-];
+  {
+    
+  id: "server",
+  title: "Server & Virtualization",
+  link: "server-virtualization",
+  
+  items: [
+    "Server Installation & Configuration",
+    "Virtual Machine (VM) Setup",
+    "Cloud Server Deployment",
+    "Hypervisor Management (VMware / Hyper-V)",
+    "Server Monitoring & Performance Optimization",
+    "Backup & Disaster Recovery Solutions",
+    "Security Hardening & Firewall Configuration",
+    "Data Center Migration & Maintenance"
+  ]
+  },
+]
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile
   const [isMegaOpen, setIsMegaOpen] = useState(false); // desktop hover/focus
@@ -241,7 +259,7 @@ setIsMenuOpen(false);
                     transition-all duration-300 ease-out
                     ${isMegaOpen ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-2 invisible pointer-events-none"}`}
                 >
-                  <div className="grid grid-cols-3 gap-6 p-6">
+                  <div className="grid grid-cols-3 gap-6 p-6 max-h-[70vh] overflow-y-auto">
                     {/* Left: categories */}
                     <div className="col-span-1">
                      <ul className="space-y-2">

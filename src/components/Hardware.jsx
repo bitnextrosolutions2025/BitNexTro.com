@@ -295,7 +295,14 @@ const ServiceCard = ({ service, index }) => {
 export default function HardwareSupport() {
   const [headerVisible, setHeaderVisible] = useState(false);
   const headerRef = useRef(null);
-
+  //  const wphandle=()=>{
+     window.open(`https://wa.me/${+919330855877}`)
+  //  }
+  const wphandle=()=>{
+    // window.open()
+    console.log("Hello")
+    window.open(`https://wa.me/${+919330855877}`)
+  }
   useEffect(() => {
     const link = document.createElement("link");
     link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap";
@@ -490,6 +497,7 @@ export default function HardwareSupport() {
           }}
         >
           <button
+            onClick={wphandle}
             onMouseEnter={e => {
               e.currentTarget.style.background = "linear-gradient(135deg, #0ea5e9, #6366f1)";
               e.currentTarget.style.boxShadow = "0 16px 40px rgba(14,165,233,0.45), 0 0 0 1px rgba(99,102,241,0.4)";
@@ -518,7 +526,7 @@ export default function HardwareSupport() {
               gap: "10px",
             }}
           >
-            Get a Free Consultation
+            Contact us
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

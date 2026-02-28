@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
-    title: '24/7 Technical Support',
-    desc: 'Round-the-clock expert assistance with guaranteed response times and dedicated account managers.',
+    title: 'Proactive System Monitoring',
+    desc: 'Regular health checks, performance review and preventive maintenance..',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <circle cx="24" cy="24" r="16" stroke="#00C2A8" strokeWidth="1.6"/>
@@ -13,11 +13,11 @@ const services = [
         <path d="M40 40c-1.5-3-5-5-9-5" stroke="#00C2A8" strokeWidth="1.3" strokeLinecap="round" opacity="0.5"/>
       </svg>
     ),
-    stat: '99.9%', statLabel: 'Uptime SLA',
+    
   },
   {
-    title: 'Security & Compliance',
-    desc: 'Proactive threat monitoring, vulnerability patching, and full compliance audit support.',
+    title: 'Priority IT Support',
+    desc: 'Fast response remote support with scheduled onsite visits.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <path d="M24 6L8 12v12c0 10.5 7.2 18.8 16 21 8.8-2.2 16-10.5 16-21V12L24 6z" stroke="#00C2A8" strokeWidth="1.6" strokeLinejoin="round"/>
@@ -25,11 +25,11 @@ const services = [
         <path d="M24 10v4M16 13.5l2 3.5M32 13.5l-2 3.5" stroke="#00C2A8" strokeWidth="1.2" opacity="0.4" strokeLinecap="round"/>
       </svg>
     ),
-    stat: '100%', statLabel: 'Threat Coverage',
+  
   },
   {
-    title: 'Data Backup & Recovery',
-    desc: 'Automated daily backups with rapid disaster recovery and zero data-loss guarantees.',
+    title: 'Security & Compliance',
+    desc: 'Basic firewall review, antivirus management and patch updates.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <ellipse cx="24" cy="14" rx="14" ry="5" stroke="#00C2A8" strokeWidth="1.6"/>
@@ -38,11 +38,11 @@ const services = [
         <path d="M28 34l4 4 4-4M32 38v-8" stroke="#00C2A8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
       </svg>
     ),
-    stat: '< 1hr', statLabel: 'Recovery Time',
+    
   },
   {
-    title: 'Performance Optimization',
-    desc: 'Continuous system tuning, load balancing, and infrastructure scaling for peak efficiency.',
+    title: 'Data Backup Assistance',
+    desc: 'Daily/weekly backup configuration and recovery guidance..',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <path d="M6 38 C10 38, 12 28, 16 28 C20 28, 20 20, 24 20 C28 20, 28 12, 32 12 C36 12, 38 22, 42 22" stroke="#00C2A8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
@@ -54,11 +54,11 @@ const services = [
         <circle cx="32" cy="12" r="1.8" fill="#00C2A8" opacity="0.6"/>
       </svg>
     ),
-    stat: '3×', statLabel: 'Faster Systems',
+    
   },
   {
-    title: 'Preventive Maintenance',
-    desc: 'Scheduled hardware/software audits, patch management, and lifecycle planning.',
+    title: 'Infrastructure Optimization',
+    desc: 'Network tuning, storage cleanup and system optimization..',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <circle cx="24" cy="24" r="8" stroke="#00C2A8" strokeWidth="1.6"/>
@@ -68,11 +68,11 @@ const services = [
         <circle cx="24" cy="24" r="14" stroke="#00C2A8" strokeWidth="0.6" strokeDasharray="3 4" opacity="0.25"/>
       </svg>
     ),
-    stat: '0', statLabel: 'Unplanned Downtime',
+    
   },
   {
     title: 'Remote & On-site Support',
-    desc: 'Certified engineers available for remote diagnostics and on-site visits within 4 hours.',
+    desc: 'Remote troubleshooting plus physical visits when required..',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:40,height:40}}>
         <rect x="6" y="10" width="36" height="24" rx="3" stroke="#00C2A8" strokeWidth="1.6"/>
@@ -84,18 +84,19 @@ const services = [
         <line x1="10" y1="25" x2="20" y2="25" stroke="#00C2A8" strokeWidth="1.2" opacity="0.3"/>
       </svg>
     ),
-    stat: '4hr', statLabel: 'On-site Response',
+   
   },
 ]
 
 const plans = [
-  { name: 'Silver', price: '₹12,000', per: '/year', color: '#94a3b8', features: ['Email Support', 'Monthly Reports', 'Quarterly Audits', 'Basic Monitoring'] },
-  { name: 'Gold', price: '₹28,000', per: '/year', color: '#00C2A8', features: ['24/7 Phone & Email', 'Weekly Reports', 'Monthly Audits', 'Advanced Monitoring', 'On-site Visits (2×)'], popular: true },
-  { name: 'Platinum', price: '₹55,000', per: '/year', color: '#818cf8', features: ['Dedicated Engineer', 'Real-time Dashboard', 'Weekly Audits', 'Full Security Suite', 'Unlimited On-site', 'Priority SLA 2hr'] },
+  { name: 'Silver',  color: '#94a3b8', features: ['Email', ' Monthly health check','Remote troubleshooting','Quarterly onsite','Basic backup assistance'] },
+  { name: 'Gold', color: '#00C2A8', features: ['Phone + Email support','Monthly reports','Quarterly onsite','Patch update','Firewall basic review'], popular: true },
+  { name: 'Platinum',  color: '#818cf8', features: ['Dedicated engineer', 'Weekly visits', 'Server monitoring', 'Backup + DR', 'Priority support'] },
 ]
 
 function GridCanvas() {
   const canvasRef = useRef(null)
+
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
@@ -390,13 +391,18 @@ function PlanCard({ plan, index }) {
           else { e.target.style.background = '#00C2A8' }
         }}
       >
-        Get Started →
+        Get  Quote →
       </button>
     </div>
   )
 }
 
 export default function Amc() {
+    const wphandle=()=>{
+    // window.open()
+    console.log("Hello")
+    window.open(`https://wa.me/${+919330855877}`)
+  }
   return (
     <>
       <style>{`
@@ -583,7 +589,7 @@ export default function Amc() {
           animation:'heroIn 0.65s ease 0.42s both',
           maxWidth:680, width:'100%',
         }}>
-          {[['500+', 'Clients Protected'], ['12yr', 'Industry Experience'], ['98%', 'Renewal Rate'], ['4hr', 'Max Response']].map(([val, label], i) => (
+          {[, ,].map(([val, label], i) => (
             <div key={label} style={{
               flex:1, minWidth:130,
               padding:'20px 16px',
@@ -687,7 +693,9 @@ export default function Amc() {
             Not sure which plan? Talk to our team for a free infrastructure audit.
           </p>
           <div style={{ display:'flex', gap:14, flexWrap:'wrap', justifyContent:'center' }}>
-            <button style={{
+            <button
+            onClick={wphandle}
+             style={{
               padding:'14px 38px', borderRadius:12,
               border:'none',
               background:'linear-gradient(135deg, #00C2A8, #00a08a)',
@@ -701,7 +709,7 @@ export default function Amc() {
               onMouseEnter={e => { e.target.style.transform='translateY(-2px)'; e.target.style.boxShadow='0 14px 40px rgba(0,194,168,0.45)' }}
               onMouseLeave={e => { e.target.style.transform='translateY(0)'; e.target.style.boxShadow='0 8px 30px rgba(0,194,168,0.3)' }}
             >
-              Request  →
+              Contact us →
             </button>
             <button style={{
               padding:'14px 38px', borderRadius:12,

@@ -117,7 +117,7 @@ const style = `
   @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
   .db-hero h1 {
-    font-family: 'Syne', sans-serif;
+ 
     font-size: clamp(40px, 5.5vw, 68px);
     font-weight: 800; line-height: 1.08;
     margin-bottom: 24px;
@@ -170,7 +170,7 @@ const style = `
     margin-bottom: 12px;
   }
   .db-section-title {
-    font-family: 'Syne', sans-serif;
+    
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 800; line-height: 1.15;
     margin-bottom: 16px; letter-spacing: -0.5px;
@@ -264,7 +264,7 @@ const style = `
   }
   .db-stat:hover { border-color: rgba(168,85,247,0.4); }
   .db-stat-num {
-    font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 800;
+    font-size: 34px; font-weight: 800;
     background: linear-gradient(135deg, var(--lavender), var(--bright));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     display: block; margin-bottom: 6px;
@@ -602,7 +602,7 @@ export default function Databackup() {
               <p style={{fontSize:'16px', color:'var(--muted)', lineHeight:'1.7', fontWeight:300}}>
                 From startups to enterprises, organizations rely on VaultSync to protect their most critical assets with industry-leading guarantees and round-the-clock expert support.
               </p>
-              <div className="db-stats">
+              {/* <div className="db-stats">
                 {[
                   {num: "99.9%", label: "Guaranteed Uptime SLA"},
                   {num: "256-bit", label: "AES Encryption Standard"},
@@ -614,7 +614,7 @@ export default function Databackup() {
                     <span className="db-stat-label">{s.label}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             <div className="db-why-visual">
