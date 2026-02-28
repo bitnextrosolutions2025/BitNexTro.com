@@ -11,7 +11,6 @@ const items = [
 
 export default function Remote() {
   const [hovered, setHovered] = useState(null);
-
   return (
     <div
       className="relative min-h-screen overflow-hidden flex items-center justify-center px-5 py-16"
@@ -162,7 +161,7 @@ export default function Remote() {
               />
 
               {/* Icon */}
-              <div className="relative flex-shrink-0">
+              <div className="relative shrink-0">
                 <div
                   className="flex items-center justify-center w-13 h-13 rounded-xl border text-2xl transition-all duration-300"
                   style={{

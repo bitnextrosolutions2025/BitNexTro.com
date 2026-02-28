@@ -65,13 +65,7 @@ function App() {
           <Route path='/artifical' element={<Artifical />} />
           <Route path='/devops' element={<Devops />} />
           <Route path='/digital' element={<Digital />} />
-           <Route path='/amc' element={<Amc />} />
-
-
-
-
-
-
+          <Route path='/amc' element={<Amc />} />
         </Routes>
         <Footer />
       </BrowserRouter>
