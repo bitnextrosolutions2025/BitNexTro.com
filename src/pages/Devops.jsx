@@ -208,7 +208,7 @@ export default function Devops() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
         @keyframes cardIn {
           from { opacity: 0; transform: translateY(30px) scale(0.97); }
           to { opacity: 1; transform: translateY(0) scale(1); }
@@ -226,7 +226,7 @@ export default function Devops() {
       <div style={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #050b18 0%, #071020 40%, #060d1c 70%, #04080f 100%)',
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "'', sans-serif",
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -273,11 +273,12 @@ export default function Devops() {
             border: '1px solid rgba(0,229,255,0.25)',
             borderRadius: 100, padding: '6px 16px',
             marginBottom: 28,
+            marginTop:'20px',
             animation: 'fadeUp 0.5s ease both',
           }}>
             <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#00e5ff', animation: 'pulse 2s infinite' }} />
             <span style={{ color: 'rgba(0,229,255,0.9)', fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', fontFamily: "'JetBrains Mono', monospace" }}>
-              Enterprise Cloud Services
+              BITNEXTRO Cloud Services
             </span>
           </div>
 
@@ -317,7 +318,7 @@ export default function Devops() {
             animation: 'fadeUp 0.6s ease both',
             animationDelay: '0.15s',
           }}>
-            {[['99.9%', 'Uptime SLA'], ['10x', 'Faster Deploy'], ['< 5min', 'MTTR']].map(([val, label]) => (
+            {[['70%', 'Uptime SLA'], ['10x', 'Faster Deploy'], ].map(([val, label]) => (
               <div key={label}>
                 <div style={{ fontSize: 28, fontWeight: 800, color: '#00e5ff', letterSpacing: '-0.02em' }}>{val}</div>
                 <div style={{ fontSize: 12, color: 'rgba(160,200,230,0.6)', marginTop: 2, letterSpacing: '0.06em', fontFamily: "'JetBrains Mono', monospace" }}>{label}</div>
@@ -353,7 +354,7 @@ export default function Devops() {
                 padding: '14px 32px', borderRadius: 12, border: 'none', cursor: 'pointer',
                 background: 'linear-gradient(135deg, #00e5ff, #0099cc)',
                 color: '#04080f', fontWeight: 700, fontSize: 15,
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'', sans-serif",
                 letterSpacing: '0.01em',
                 boxShadow: '0 8px 30px rgba(0,229,255,0.35)',
                 transition: 'all 0.25s ease',
@@ -361,15 +362,15 @@ export default function Devops() {
               onMouseEnter={e => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 14px 40px rgba(0,229,255,0.5)' }}
               onMouseLeave={e => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 8px 30px rgba(0,229,255,0.35)' }}
             >
-              Start Your Migration
+              contact us
             </button>
-            <button
+            {/* <button
               style={{
                 padding: '14px 32px', borderRadius: 12, cursor: 'pointer',
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(255,255,255,0.2)',
                 color: '#e8f4ff', fontWeight: 600, fontSize: 15,
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'', sans-serif",
                 letterSpacing: '0.01em',
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.25s ease',
@@ -378,7 +379,7 @@ export default function Devops() {
               onMouseLeave={e => { e.target.style.borderColor = 'rgba(255,255,255,0.2)'; e.target.style.background = 'rgba(255,255,255,0.06)' }}
             >
               View Architecture Docs
-            </button>
+            </button> */}
           </div>
 
         </div>
