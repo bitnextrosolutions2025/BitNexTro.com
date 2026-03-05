@@ -170,7 +170,7 @@ const servicesData = [
     
   id: "server",
   title: "Server & Virtualization",
-  link: "server-virtualization",
+  link: "Servervirtual",
   
   items: [
     "Server Installation & Configuration",

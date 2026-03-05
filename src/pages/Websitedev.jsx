@@ -214,7 +214,7 @@ export default function Websitedev() {
         }
 
         .stat-num {
-          font-family: 'Playfair Display', serif;
+          font-family: '', serif;
           font-size: 40px;
           font-weight: 900;
           background: linear-gradient(135deg, #fff 0%, #bfdbfe 55%, #60a5fa 100%);
@@ -365,7 +365,7 @@ export default function Websitedev() {
           <h1
             className="font-black text-white leading-tight mb-6"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'', serif",
               fontSize: "clamp(42px, 6vw, 82px)",
               lineHeight: 1.07,
               textShadow: "0 0 80px rgba(59,130,246,0.22)",
@@ -375,7 +375,7 @@ export default function Websitedev() {
             <br />
             <em
               style={{
-                fontStyle: "italic",
+                fontStyle: "serif",
                 background: "linear-gradient(135deg, #bfdbfe 0%, #60a5fa 45%, #3b82f6 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -396,9 +396,9 @@ export default function Websitedev() {
           {/* Stats */}
           <div className="flex justify-center gap-16 flex-wrap">
             {[
-              { num: "150+", label: "Projects Delivered" },
+              // { num: "150+", label: "Projects Delivered" },
               { num: "98%", label: "Client Satisfaction" },
-              { num: "0.8s", label: "Avg Load Time" },
+              { num: "15s", label: "Avg Load Time" },
             ].map((s, i) => (
               <div key={i} className="text-center">
                 <div className="stat-num">{s.num}</div>
@@ -489,16 +489,17 @@ export default function Websitedev() {
             >
               Let's build something
               <br />
-              <em
+              < span
                 style={{
-                  fontStyle: "italic",
+
+
                   background: "linear-gradient(135deg, #bfdbfe 0%, #60a5fa 45%, #3b82f6 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                extraordinary.
-              </em>
+                Extraordinary.
+              </span>
             </h2>
 
             <p
@@ -524,11 +525,11 @@ export default function Websitedev() {
                 letterSpacing: "0.5px",
               }}
             >
-              No commitment required · Response within 24 hrs
+              No commitment required · Response within 48 hrs
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
