@@ -55,6 +55,7 @@ function App() {
           <Route path='/refund' element={<Refund />} />
           <Route path='/b' element={<Background />} />
           <Route path='/hardware-services-kolkata' element={<HardwareSupport />} />
+
           <Route path='/network-setup-kolkata' element={<Network />} />
           <Route path='/data-backup-disaster-recovery' element={<Databackup />} />
           <Route path='/cloud-services-kolkata' element={<Cloudservice />} />
@@ -65,9 +66,9 @@ function App() {
           <Route path='/artifical-services-kolkata' element={<Artifical />} />
           <Route path='/devops-services-kolkata' element={<Devops />} />
           <Route path='/digital-services-kolkata' element={<Digital />} />
-           <Route path='/it-amc-services-Kolkata' element={<Amc />} />
-             <Route path='/server-support-kolkata' element={<Servervirtual />} />
-          
+          <Route path='/it-amc-services-Kolkata' element={<Amc />} />
+          <Route path='/server-support-kolkata' element={<Servervirtual />} />
+
 
 
 
