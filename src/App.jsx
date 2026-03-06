@@ -55,7 +55,6 @@ function App() {
           <Route path='/refund' element={<Refund />} />
           <Route path='/b' element={<Background />} />
           <Route path='/hardware-services-kolkata' element={<HardwareSupport />} />
-
           <Route path='/network-setup-kolkata' element={<Network />} />
           <Route path='/data-backup-disaster-recovery' element={<Databackup />} />
           <Route path='/cloud-services-kolkata' element={<Cloudservice />} />

@@ -1,6 +1,6 @@
 import React from 'react'
 import logo_final from "../assets/f_logo.jpg"
-import { Award, CloudUpload, Code, Facebook, Globe, Linkedin, Shield, Twitter, X } from 'lucide-react'
+import { Award, CloudUpload, Code, Facebook, Globe, Instagram, Linkedin, Shield, Twitter, X } from 'lucide-react'
 import { Link } from 'react-router'
 export default function Footer() {
   const lastitem=[
@@ -50,6 +50,9 @@ export default function Footer() {
                 </a>
                 <a href="https://x.com/bitnextro" target='_blank' className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110">
                   <span className="text-xl"><X /></span>
+                </a>
+                <a href="https://www.instagram.com/bitnextro/" target='_blank' className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <span className="text-xl"><Instagram /></span>
                 </a>
               </div>
             </div>
