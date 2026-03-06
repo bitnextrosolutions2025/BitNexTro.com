@@ -54,20 +54,20 @@ function App() {
           <Route path='/service' element={<Servicepage />} />
           <Route path='/refund' element={<Refund />} />
           <Route path='/b' element={<Background />} />
-          <Route path='/hardware' element={<HardwareSupport />} />
-          <Route path='/network' element={<Network />} />
-          <Route path='/databackup' element={<Databackup />} />
-          <Route path='/cloudservice' element={<Cloudservice />} />
-          <Route path='/managedservice' element={<Managedservice />} />
-          <Route path='/cybersecurity' element={<Cybersecurity />} />
-          <Route path='/remote' element={<Remote />} />
-          <Route path='/website' element={<Websitedev />} />
-          <Route path='/artifical' element={<Artifical />} />
-          <Route path='/devops' element={<Devops />} />
-          <Route path='/digital' element={<Digital />} />
-          <Route path='/amc' element={<Amc />} />
-          <Route path='/server' element={<Servervirtual />} />
-          
+          <Route path='/hardware-services-kolkata' element={<HardwareSupport />} />
+          <Route path='/network-setup-kolkata' element={<Network />} />
+          <Route path='/data-backup-disaster-recovery' element={<Databackup />} />
+          <Route path='/cloud-services-kolkata' element={<Cloudservice />} />
+          <Route path='/managed-services-kolkata' element={<Managedservice />} />
+          <Route path='/cyber-security-services-kolkata' element={<Cybersecurity />} />
+          <Route path='/remote-services-kolkata' element={<Remote />} />
+          <Route path='/website-services-kolkata' element={<Websitedev />} />
+          <Route path='/artifical-services-kolkata' element={<Artifical />} />
+          <Route path='/devops-services-kolkata' element={<Devops />} />
+          <Route path='/digital-services-kolkata' element={<Digital />} />
+          <Route path='/it-amc-services-Kolkata' element={<Amc />} />
+          <Route path='/server-support-kolkata' element={<Servervirtual />} />
+
 
 
 

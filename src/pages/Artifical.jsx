@@ -365,13 +365,13 @@ export default function Artifical() {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: '#00F5FF',
-          }}>Enterprise AI Platform</span>
+          }}>BITNEXTRO AI Platform</span>
         </div>
 
         {/* Title */}
         <h1 style={{
           position: 'relative', zIndex: 2,
-          fontFamily: '"Syne", sans-serif',
+          fontFamily: '"", sans-serif',
           fontWeight: 800,
           fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
           letterSpacing: '-0.02em',
@@ -445,7 +445,7 @@ export default function Artifical() {
               border: 'none',
               background: 'linear-gradient(135deg, #00F5FF 0%, #9D4EDD 100%)',
               color: '#0F0C29',
-              fontFamily: '"Syne", sans-serif',
+              fontFamily: '"", sans-serif',
               fontWeight: 700,
               fontSize: '0.95rem',
               letterSpacing: '0.03em',
@@ -462,7 +462,7 @@ export default function Artifical() {
               e.target.style.boxShadow = '0 8px 32px rgba(0,245,255,0.3)'
             }}
           >
-            Get Started
+            Contact us
           </button>
           <button
             style={{

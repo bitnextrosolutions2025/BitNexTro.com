@@ -465,8 +465,8 @@ export default function Digital() {
         >
           {[
             ["340%", "Avg. ROAS"],
-            ["2M+", "Leads Generated"],
-            ["98%", "Client Retention"],
+            ["1M+", "Leads Generated"],
+            ["70%", "Client Retention"],
           ].map(([val, label]) => (
             <div
               key={label}
@@ -552,7 +552,7 @@ export default function Digital() {
               e.target.style.boxShadow = "0 8px 32px rgba(29,78,216,0.45)";
             }}
           >
-            Grow My Brand →
+            Contact us →
           </button>
           <button
             className="px-10 py-4 rounded-xl text-white font-semibold text-base transition-all duration-200"

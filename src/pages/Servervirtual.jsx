@@ -332,7 +332,7 @@ export default function Servervirtual() {
           letterSpacing: '0.4px',
           cursor: 'pointer',
         }}>
-          Get Started →
+          Contact us →
         </button>
       </div>
     </div>
