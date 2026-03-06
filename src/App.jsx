@@ -65,8 +65,8 @@ function App() {
           <Route path='/artifical' element={<Artifical />} />
           <Route path='/devops' element={<Devops />} />
           <Route path='/digital' element={<Digital />} />
-           <Route path='/amc' element={<Amc />} />
-             <Route path='/server' element={<Servervirtual />} />
+          <Route path='/amc' element={<Amc />} />
+          <Route path='/server' element={<Servervirtual />} />
           
 
 

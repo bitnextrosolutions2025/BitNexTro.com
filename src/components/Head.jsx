@@ -1,4 +1,4 @@
-import { Facebook, Linkedin, Mail, Phone, Twitter, X } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter, X } from 'lucide-react'
 import React from 'react'
 
 export default function Head() {
@@ -14,6 +14,7 @@ export default function Head() {
         <a href=" https://www.linkedin.com/in/bitnextro-solutions-private-limited-a3409a3a5" target='_blank'><Linkedin /></a>
        <a href="https://x.com/bitnextro" target='_blank'> <X /></a>
         <a href="https://www.facebook.com/profile.php?id=61585936040133" target='_blank'><Facebook /></a>
+        <a href="https://www.instagram.com/bitnextro/" target='_blank'><Instagram /></a>
       </div>
 
     </div>
