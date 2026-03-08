@@ -17,7 +17,6 @@ import Contactpage from './pages/Contactpage';
 import Aboutpage from './pages/Aboutpage';
 import Privacypolicy from './pages/Privacypolicy';
 import Termspage from './pages/Termspage';
-import Servicepage from './pages/Servicepage';
 import Refund from './pages/Refund';
 import Background from './pages/Background';
 import HardwareSupport from './components/Hardware';
@@ -51,22 +50,21 @@ function App() {
           <Route path='/about' element={<Aboutpage />} />
           <Route path='/privacy' element={<Privacypolicy />} />
           <Route path='/terms' element={<Termspage />} />
-          <Route path='/service' element={<Servicepage />} />
           <Route path='/refund' element={<Refund />} />
           <Route path='/b' element={<Background />} />
-          <Route path='/hardware-services-kolkata' element={<HardwareSupport />} />
-          <Route path='/network-setup-kolkata' element={<Network />} />
-          <Route path='/data-backup-disaster-recovery' element={<Databackup />} />
-          <Route path='/cloud-services-kolkata' element={<Cloudservice />} />
-          <Route path='/managed-services-kolkata' element={<Managedservice />} />
-          <Route path='/cyber-security-services-kolkata' element={<Cybersecurity />} />
-          <Route path='/remote-services-kolkata' element={<Remote />} />
-          <Route path='/website-services-kolkata' element={<Websitedev />} />
-          <Route path='/artifical-services-kolkata' element={<Artifical />} />
-          <Route path='/devops-services-kolkata' element={<Devops />} />
-          <Route path='/digital-services-kolkata' element={<Digital />} />
-          <Route path='/it-amc-services-Kolkata' element={<Amc />} />
-          <Route path='/server-support-kolkata' element={<Servervirtual />} />
+          <Route path='/service/hardware-services-kolkata' element={<HardwareSupport />} />
+          <Route path='/service/network-setup-kolkata' element={<Network />} />
+          <Route path='/service/data-backup-disaster-recovery' element={<Databackup />} />
+          <Route path='/service/cloud-services-kolkata' element={<Cloudservice />} />
+          <Route path='/service/managed-services-kolkata' element={<Managedservice />} />
+          <Route path='/service/cyber-security-services-kolkata' element={<Cybersecurity />} />
+          <Route path='/service/remote-services-kolkata' element={<Remote />} />
+          <Route path='/service/website-services-kolkata' element={<Websitedev />} />
+          <Route path='/service/artifical-services-kolkata' element={<Artifical />} />
+          <Route path='/service/devops-services-kolkata' element={<Devops />} />
+          <Route path='/service/digital-services-kolkata' element={<Digital />} />
+          <Route path='/service/it-amc-services-kolkata' element={<Amc />} />
+          <Route path='/service/server-support-kolkata' element={<Servervirtual />} />
 
 
 
