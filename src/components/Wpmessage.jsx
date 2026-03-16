@@ -61,7 +61,7 @@ export default function WhatsAppContact() {
                 <div className="absolute bottom-0 right-0 h-3 w-3 bg-green-400 rounded-full border-2 border-white"></div>
               </div>
               <div>
-                <h3 className="text-white font-semibold text-lg">Chat with us</h3>
+                <h1 className="text-white font-semibold text-lg">Chat with us</h1>
                 <p className="text-green-100 text-sm">We typically reply instantly</p>
               </div>
             </div>

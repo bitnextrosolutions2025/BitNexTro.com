@@ -348,7 +348,7 @@ export default function HardwareSupport() {
       >
         {/* Animated particle canvas */}
         <ParticleField />
-
+      
         {/* Ambient blobs */}
         <div style={{
           position: "absolute", top: "10%", left: "5%",
@@ -420,7 +420,7 @@ export default function HardwareSupport() {
             }}
           >
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#38bdf8", display: "inline-block", boxShadow: "0 0 8px #38bdf8" }} />
-            IT Services
+           <h1>IT Services</h1> 
           </div>
 
           {/* Title */}

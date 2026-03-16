@@ -33,9 +33,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand Section */}
             <div>
-              <h3 className="text-3xl font-bold mb-4 bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold mb-4 bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                 <img className="h-28 rounded-[10px] object-cover " src={logo_final} alt="" />
-              </h3>
+              </h1>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                 Empowering
                 The next generation of IT

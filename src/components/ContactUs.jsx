@@ -53,7 +53,7 @@ const ContactSectionLight = () => {
 
                     {/* Right Side: The Form */}
                     <div className="p-4 pl-7 md:p-12 bg-white" style={{ padding: "30px" }}>
-                        <h2 className="text-3xl font-bold text-gray-800 mb-1">Get in Touch</h2>
+                        <h1 className="text-3xl font-bold text-gray-800 mb-1">Get in Touch</h1>
                         <p className="text-gray-500 mb-2">We would love to hear from you!</p>
                         <form name='submit-to-google-sheet' onSubmit={onsubmit} ref={form} >
                             <div className="space-y-2">

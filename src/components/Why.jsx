@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
         
         {/* Mobile Header (Hidden on Desktop) */}
         <div className="md:hidden mb-8 text-center">
-          <h2 className="text-3xl font-bold text-white ">Why Choose Us?</h2>
+          <h1 className="text-3xl font-bold text-white ">Why Choose Us?</h1>
           <p className="text-green-500 mt-2">Discover our key advantages</p>
         </div>
 

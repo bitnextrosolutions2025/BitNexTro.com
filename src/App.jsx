@@ -11,14 +11,11 @@ import {
 import Career from './pages/Career';
 
 import { Flip, ToastContainer } from 'react-toastify'
-import PdfUpload from './components/PdfUpload';
-import LoginComponent from './components/Login';
 import Contactpage from './pages/Contactpage';
 import Aboutpage from './pages/Aboutpage';
 import Privacypolicy from './pages/Privacypolicy';
 import Termspage from './pages/Termspage';
 import Refund from './pages/Refund';
-import Background from './pages/Background';
 import HardwareSupport from './components/Hardware';
 import Network from './pages/Network'
 import Databackup from './pages/Databackup'
@@ -44,14 +41,11 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/career' element={<Career />} />
-          <Route path='/Pdf' element={<PdfUpload />} />
-          <Route path='/login' element={<LoginComponent />} />
           <Route path='/contact' element={<Contactpage />} />
           <Route path='/about' element={<Aboutpage />} />
           <Route path='/privacy' element={<Privacypolicy />} />
           <Route path='/terms' element={<Termspage />} />
           <Route path='/refund' element={<Refund />} />
-          <Route path='/b' element={<Background />} />
           <Route path='/service/hardware-services-kolkata' element={<HardwareSupport />} />
           <Route path='/service/network-setup-kolkata' element={<Network />} />
           <Route path='/service/data-backup-disaster-recovery' element={<Databackup />} />
