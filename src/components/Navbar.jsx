@@ -346,13 +346,14 @@ setIsMenuOpen(false);
               >
                 Support
               </a>
-              {/* <Link
-                to="/login"
+              <Link
+                to="/blog-support-kolkata"
                 onClick={handlescroll}
-                className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
+                className={`text-gray-700 text-xl p-2  font-[play] hover:text-[#168acc] font-medium ${location.pathname=="/blog-support-kolkata"? "bg-teal-500  rounded-2xl text-white":""}`}
+                
               >
-                login
-              </Link> */}
+                Blog
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -437,11 +438,11 @@ setIsMenuOpen(false);
                 Support
               </a>
               <Link
-                to="/login"
+                to="/blog-support-kolkata"
                 onClick={handlescroll}
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
-                Login
+                Blog
               </Link>
             </div>
           )}
@@ -449,7 +450,7 @@ setIsMenuOpen(false);
       </nav>
 
       {/* spacer so page content isn't hidden behind fixed nav */}
-      <div className="h-20" />
+      <div className="h-[100px] md:h-[155px]" />
     </div>
   );
 }

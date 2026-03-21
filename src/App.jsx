@@ -33,6 +33,7 @@ import Devops from './pages/Devops'
 import Digital from './pages/Digital'
 import Amc from './pages/Amc'
 import Servervirtual from './pages/Servervirtual'
+import Blog from './pages/Blog'
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
           <Route path='/digital-services-kolkata' element={<Digital />} />
           <Route path='/it-amc-services-Kolkata' element={<Amc />} />
           <Route path='/server-support-kolkata' element={<Servervirtual />} />
+           <Route path='/blog-support-kolkata' element={<Blog />} />
+          
 
 
 
