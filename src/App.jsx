@@ -17,7 +17,6 @@ import Contactpage from './pages/Contactpage';
 import Aboutpage from './pages/Aboutpage';
 import Privacypolicy from './pages/Privacypolicy';
 import Termspage from './pages/Termspage';
-import Servicepage from './pages/Servicepage';
 import Refund from './pages/Refund';
 import Background from './pages/Background';
 import HardwareSupport from './components/Hardware';
@@ -52,7 +51,6 @@ function App() {
           <Route path='/about' element={<Aboutpage />} />
           <Route path='/privacy' element={<Privacypolicy />} />
           <Route path='/terms' element={<Termspage />} />
-          <Route path='/service' element={<Servicepage />} />
           <Route path='/refund' element={<Refund />} />
           <Route path='/b' element={<Background />} />
           <Route path='/hardware-services-kolkata' element={<HardwareSupport />} />

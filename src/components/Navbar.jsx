@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router";
 const servicesData = [
   {
     id: "hardware",
-    link:"hardware-services-kolkata",
+    link:"service/hardware-services-kolkata",
     title: "Hardware Support",
     items: [
       "On-Site Hardware Repair",
@@ -20,7 +20,7 @@ const servicesData = [
 {
   id: "network",
   title: "Network Services",
-  link:"network-setup-kolkata",
+  link:"service/network-setup-kolkata",
   items: [
     "LAN & WAN Setup and Configuration",
     "Router & Switch Installation",
@@ -37,7 +37,7 @@ const servicesData = [
 {
   id: "amc",
   title: "Annual Maintenance Contract (AMC)",
-  link:"it-amc-services-Kolkata",
+  link:"service/it-amc-services-kolkata",
   items: [
     "24/7 Technical Support",
     "Scheduled Preventive Maintenance",
@@ -51,7 +51,7 @@ const servicesData = [
   {
     id: "backup",
     title: "Data Backup & Recovery",
-    link:"data-backup-disaster-recovery",
+    link:"service/data-backup-disaster-recovery",
     items: [
       "Automated Cloud Backup",
       "Disaster Recovery Planning",
@@ -64,7 +64,7 @@ const servicesData = [
   {
     id: "cloud",
     title: "Cloud Services",
-    link:"cloud-services-kolkata",
+    link:"service/cloud-services-kolkata",
     items: [
       "Cloud Migration",
       "Microsoft 365 (O365)",
@@ -77,7 +77,7 @@ const servicesData = [
   {
     id: "managed",
     title: "Managed Services",
-    link:"managed-services-kolkata",
+    link:"service/managed-services-kolkata",
     items: [
       "Managed IT Support",
       "Network Monitoring & Management",
@@ -90,7 +90,7 @@ const servicesData = [
   {
     id: "security",
     title: "Cybersecurity",
-    link:"cyber-security-services-kolkata",
+    link:"service/cyber-security-services-kolkata",
     items: [
       "Threat Detection & Response",
       "Security Audits & Assessments",
@@ -103,7 +103,7 @@ const servicesData = [
   {
     id: "remote",
     title: "24/7 Remote Support",
-    link:"remote-services-kolkata",
+    link:"service/remote-services-kolkata",
     items: [
       "24/7 Helpdesk",
       "Remote Desktop Support",
@@ -116,7 +116,7 @@ const servicesData = [
   {
     id: "webdev",
     title: "Website & App Development",
-    link:"website-services-kolkata",
+    link:"service/website-services-kolkata",
     items: [
       "Custom Website Design",
       "Web Application Development",
@@ -129,7 +129,7 @@ const servicesData = [
   {
   id: "artificial",
   title: "Artificial Intelligence",
-  link:"artifical-services-kolkata",
+  link:"service/artifical-services-kolkata",
   items: [
     "Machine Learning Solutions",
     "Natural Language Processing (NLP)",
@@ -143,7 +143,7 @@ const servicesData = [
   {
     id: "devops",
     title: "DevOps & Automation",
-    link:"devops-services-kolkata",
+    link:"service/devops-services-kolkata",
     items: [
       "CI/CD Pipeline Setup",
       "Infrastructure as Code",
@@ -156,7 +156,7 @@ const servicesData = [
   {
     id: "marketing",
     title: "Digital Marketing",
-    link:"digital-services-kolkata",
+    link:"service/digital-services-kolkata",
     items: [
       "Search Engine Optimization",
       "Pay-Per-Click Advertising",
@@ -170,7 +170,7 @@ const servicesData = [
     
   id: "server",
   title: "Server & Virtualization",
-  link: "server-support-kolkata",
+  link: "service/server-support-kolkata",
   
   items: [
     "Server Installation & Configuration",
