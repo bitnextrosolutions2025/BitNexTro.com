@@ -35,7 +35,7 @@ const ClientCard = ({ client }) => {
       {/* Header: Logo & Industry Tag */}
       <div className="flex items-start justify-center mb-6 relative z-10">
         <div className={`p-3 rounded-xl ${client.color} bg-opacity-90 shadow-sm transition-transform duration-300 group-hover:scale-110`}>
-          <img className='h-18' src={client.logo} alt="" />
+          <img className='h-18' src={client.logo} alt="bitnextro-client-logo" />
         </div>
       </div>
 

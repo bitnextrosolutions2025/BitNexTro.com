@@ -225,7 +225,7 @@ setIsMenuOpen(false);
         <h1 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <Link to="/"> <img className=" w-[220px] md:w-[280px] md:mt-[18px]" src={logo_final_p} alt="logo" /></Link>
+              <Link to="/"> <img className=" w-[220px] md:w-[280px] md:mt-[18px]" src={logo_final_p} alt="bitnextro-logo" /></Link>
             </div>
 
             {/* Desktop Menu */}

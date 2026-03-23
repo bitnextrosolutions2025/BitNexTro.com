@@ -34,7 +34,7 @@ export default function Footer() {
             {/* Brand Section */}
             <div>
               <h1 className="text-3xl font-bold mb-4 bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                <img className="h-28 rounded-[10px] object-cover " src={logo_final} alt="" />
+                <img className="h-28 rounded-[10px] object-cover " src={logo_final} alt="bitnextro-footer-logo" />
               </h1>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                 Empowering
