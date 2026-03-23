@@ -59,13 +59,6 @@ function App() {
           <Route path='/service/digital-services-kolkata' element={<Digital />} />
           <Route path='/service/it-amc-services-kolkata' element={<Amc />} />
           <Route path='/service/server-support-kolkata' element={<Servervirtual />} />
-
-
-
-
-
-
-
         </Routes>
         <Footer />
       </BrowserRouter>

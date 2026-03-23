@@ -208,7 +208,7 @@ function ServiceCard({ service, index }) {
     >
       {/* Blue glow corner */}
       <div
-        className="absolute bottom-[-20px] right-[-20px] w-28 h-28 rounded-full pointer-events-none transition-opacity duration-400"
+        className="absolute -bottom-5 -right-5 w-28 h-28 rounded-full pointer-events-none transition-opacity duration-400"
         style={{
           background: "radial-gradient(circle, rgba(59,130,246,0.35), transparent 65%)",
           opacity: hovered ? 1 : 0,
