@@ -222,7 +222,7 @@ setIsMenuOpen(false);
     <div>
       <nav className="fixed w-full md:h-[155px] z-40 transition-all duration-300 bg-[#f3f3f1] shadow-lg">
         <Head />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
               <Link to="/"> <img className=" w-[220px] md:w-[280px] md:mt-[18px]" src={logo_final_p} alt="logo" /></Link>
@@ -445,7 +445,7 @@ setIsMenuOpen(false);
               </Link>
             </div>
           )}
-        </div>
+        </h1>
       </nav>
 
       {/* spacer so page content isn't hidden behind fixed nav */}

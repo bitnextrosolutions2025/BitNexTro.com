@@ -96,8 +96,8 @@ function ServiceCard({ service, index }) {
       <div
         className={`absolute top-0 left-1/4 right-1/4 h-px transition-all duration-400 ${
           hovered
-            ? "bg-gradient-to-r from-transparent via-blue-400/90 to-transparent"
-            : "bg-gradient-to-r from-transparent via-blue-700/30 to-transparent"
+            ? "bg-linear-to-r from-transparent via-blue-400/90 to-transparent"
+            : "bg-linear-to-r from-transparent via-blue-700/30 to-transparent"
         }`}
       />
 
@@ -158,7 +158,7 @@ export default function Cybersecurity() {
     <div
       className="min-h-screen text-white relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #020818 0%, #050d24 40%, #030a1a 70%, #020510 100%)",
+        background: "linear-linear(135deg, #020818 0%, #050d24 40%, #030a1a 70%, #020510 100%)",
         fontFamily: "'Share Tech Mono', monospace",
       }}
     >
@@ -206,8 +206,8 @@ export default function Cybersecurity() {
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)
+            linear-linear(rgba(59,130,246,0.05) 1px, transparent 1px),
+            linear-linear(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)
           `,
           backgroundSize: "50px 50px",
         }}
@@ -222,7 +222,7 @@ export default function Cybersecurity() {
           transform: "translate(-50%, -50%)",
           width: "900px",
           height: "900px",
-          background: "radial-gradient(circle, rgba(30,64,175,0.2) 0%, transparent 70%)",
+          background: "radial-linear(circle, rgba(30,64,175,0.2) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -233,7 +233,7 @@ export default function Cybersecurity() {
         style={{
           width: "400px",
           height: "400px",
-          background: "radial-gradient(circle at top right, rgba(59,130,246,0.12) 0%, transparent 60%)",
+          background: "radial-linear(circle at top right, rgba(59,130,246,0.12) 0%, transparent 60%)",
         }}
       />
       <div
@@ -241,7 +241,7 @@ export default function Cybersecurity() {
         style={{
           width: "400px",
           height: "400px",
-          background: "radial-gradient(circle at bottom left, rgba(99,102,241,0.1) 0%, transparent 60%)",
+          background: "radial-linear(circle at bottom left, rgba(99,102,241,0.1) 0%, transparent 60%)",
         }}
       />
 
@@ -310,7 +310,7 @@ export default function Cybersecurity() {
             <br />
             <span
               style={{
-                background: "linear-gradient(135deg, #60a5fa, #3b82f6, #818cf8, #60a5fa)",
+                background: "linear-linear(135deg, #60a5fa, #3b82f6, #818cf8, #60a5fa)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -334,7 +334,7 @@ export default function Cybersecurity() {
               className="font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg text-white text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
                 fontFamily: "'', monospace",
-                background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
+                background: "linear-linear(135deg, #1d4ed8, #3b82f6)",
                 boxShadow: "0 0 30px rgba(59,130,246,0.45), 0 4px 20px rgba(0,0,0,0.4)",
               }}
               onMouseEnter={e => e.target.style.boxShadow = "0 0 50px rgba(96,165,250,0.75), 0 4px 20px rgba(0,0,0,0.4)"}
@@ -411,14 +411,14 @@ export default function Cybersecurity() {
 
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-blue-700/40" />
+          <div className="flex-1 h-px bg-linear-to-r from-transparent to-blue-700/40" />
           <span
             className="text-blue-500/80 uppercase tracking-[4px] text-xs"
             style={{ fontFamily: "'Orbitron', monospace" }}
           >
             Our Services
           </span>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-blue-700/40" />
+          <div className="flex-1 h-px bg-linear-to-l from-transparent to-blue-700/40" />
         </div>
 
         {/* Services grid */}
@@ -439,7 +439,7 @@ export default function Cybersecurity() {
         >
           <div
             className="absolute top-0 left-1/4 right-1/4 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(96,165,250,0.7), transparent)" }}
+            style={{ background: "linear-linear(90deg, transparent, rgba(96,165,250,0.7), transparent)" }}
           />
           {/* Glow orb */}
           <div
@@ -447,7 +447,7 @@ export default function Cybersecurity() {
             style={{
               width: "400px",
               height: "200px",
-              background: "radial-gradient(ellipse, rgba(30,64,175,0.15) 0%, transparent 70%)",
+              background: "radial-linear(ellipse, rgba(30,64,175,0.15) 0%, transparent 70%)",
             }}
           />
           <h2
@@ -466,7 +466,7 @@ export default function Cybersecurity() {
             className="relative z-10 font-bold uppercase tracking-widest px-12 py-4 rounded-lg text-white text-sm transition-all duration-300"
             style={{
               fontFamily: "'', monospace",
-              background: "linear-gradient(135deg, #1e3a8a, #2563eb, #1e3a8a)",
+              background: "linear-linear(135deg, #1e3a8a, #2563eb, #1e3a8a)",
               boxShadow: "0 0 40px rgba(37,99,235,0.55)",
             }}
             onMouseEnter={e => {
