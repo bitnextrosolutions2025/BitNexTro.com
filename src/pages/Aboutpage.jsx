@@ -189,7 +189,7 @@ export default function AboutPage() {
             {/* Right Image/Graphic */}
             <div className="relative lg:h-[600px] h-[400px] w-full hidden md:block">
                {/* Abstract Tech Visualization */}
-               <img className='rounded-2xl' src={aboutpic} alt="" />
+               <img className='rounded-2xl' src={aboutpic} alt="bitnextro-company-about" />
             </div>
           </div>
         </div>

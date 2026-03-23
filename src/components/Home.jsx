@@ -208,7 +208,7 @@ const HomePage = () => {
 
             {/* RIGHT VISUAL / STATS */}
             <div className="relative">
-              <img className='rounded-2xl' src={img3} alt="" />
+              <img className='rounded-2xl' src={img3} alt="binextro-homepage-pic" />
             </div>
 
           </div>
