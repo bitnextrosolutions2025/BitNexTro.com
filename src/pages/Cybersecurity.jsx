@@ -156,7 +156,7 @@ function ServiceCard({ service, index }) {
 export default function Cybersecurity() {
   return (
     <div
-      className="min-h-screen text-white relative overflow-hidden"
+      className="min-h-screen  text-white relative overflow-hidden"
       style={{
         background: "linear-linear(135deg, #020818 0%, #050d24 40%, #030a1a 70%, #020510 100%)",
         fontFamily: "'Share Tech Mono', monospace",
@@ -203,7 +203,7 @@ export default function Cybersecurity() {
 
       {/* Background grid */}
       <div
-        className="fixed inset-0 pointer-events-none z-0"
+        className="fixed bg-blue-950 inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `
             linear-linear(rgba(59,130,246,0.05) 1px, transparent 1px),
@@ -247,7 +247,7 @@ export default function Cybersecurity() {
 
       {/* Ticker bar */}
       <div
-        className="relative z-10 overflow-hidden py-2 border-b"
+        className="relative z-10 overflow-hidden py-2 border-b bg-blue-950 mt-44"
         style={{
           background: "rgba(15,30,80,0.7)",
           backdropFilter: "blur(10px)",
@@ -255,7 +255,7 @@ export default function Cybersecurity() {
         }}
       >
         <div
-          className="flex gap-16 whitespace-nowrap"
+          className="flex gap-16 whitespace-nowrap "
           style={{ animation: "ticker 25s linear infinite" }}
         >
           {[...tickerItems, ...tickerItems].map((item, i) => (
