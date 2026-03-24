@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import logo_final_p from "../assets/f_logo.png"
-import { ChevronDown, Library, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowLeftRight, ArrowRight, ChevronDown, Library, Menu, X } from "lucide-react";
 import Head from "./Head";
 import { Link, useLocation } from "react-router";
 const servicesData = [
@@ -193,7 +193,15 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation()
   const handleno=()=>{
+    console.log("kkkkkkkkk")
      setIsMegaOpen(false)
+
+  }
+  const handlenophone=()=>{
+    handlescroll()
+     setMobileServicesOpen(false)
+     setIsMenuOpen(false)
+     setIsMenuOpen(false)
   }
   const openMega = () => {
     if (megaTimeout.current) clearTimeout(megaTimeout.current);
@@ -347,11 +355,11 @@ setIsMenuOpen(false);
                 Support
               </a>
               {/* <Link
-                to="/login"
+                to="/blog"
                 onClick={handlescroll}
-                className="text-gray-700 text-xl font-[play] hover:text-[#168acc] font-medium"
+               className={`text-gray-700 text-xl p-2  font-[play] hover:text-[#168acc] font-medium ${location.pathname=="/blog"? "bg-teal-500  rounded-2xl text-white":""}`}
               >
-                login
+                Blog
               </Link> */}
             </div>
 
@@ -401,6 +409,7 @@ setIsMenuOpen(false);
                             <li key={i} className="text-sm py-0.5">{it}</li>
                           ))}
                         </ul>
+                       <Link to={`/${cat.link}`}> <button  onClick={handlenophone} className="text-blue-600"><div className="flex gap-2">Go to the page <span className="mt-0.5"><ArrowRight/></span></div></button></Link>
                       </details>
                     ))}
                   </div>
@@ -436,13 +445,13 @@ setIsMenuOpen(false);
               >
                 Support
               </a>
-              <Link
-                to="/login"
+              {/* <Link
+                to="/blog"
                 onClick={handlescroll}
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
-                Login
-              </Link>
+                Blog
+              </Link> */}
             </div>
           )}
         </h1>
