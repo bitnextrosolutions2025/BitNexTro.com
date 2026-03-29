@@ -354,13 +354,13 @@ setIsMenuOpen(false);
               >
                 Support
               </a>
-              {/* <Link
+              <Link
                 to="/blog"
                 onClick={handlescroll}
                className={`text-gray-700 text-xl p-2  font-[play] hover:text-[#168acc] font-medium ${location.pathname=="/blog"? "bg-teal-500  rounded-2xl text-white":""}`}
               >
                 Blog
-              </Link> */}
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -445,13 +445,13 @@ setIsMenuOpen(false);
               >
                 Support
               </a>
-              {/* <Link
+              <Link
                 to="/blog"
                 onClick={handlescroll}
                 className="block px-4 py-2 text-gray-700 hover:text-blue-600"
               >
                 Blog
-              </Link> */}
+              </Link>
             </div>
           )}
         </h1>
