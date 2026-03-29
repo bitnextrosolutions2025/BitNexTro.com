@@ -30,6 +30,7 @@ import Digital from './pages/Digital'
 import Amc from './pages/Amc'
 import Servervirtual from './pages/Servervirtual'
 import Blog from './pages/Blog'
+import DetailBlogPage from './pages/DetailBlogPage'
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route path='/service/it-amc-services-kolkata' element={<Amc />} />
           <Route path='/service/server-support-kolkata' element={<Servervirtual />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/blog/:id' element={<DetailBlogPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
