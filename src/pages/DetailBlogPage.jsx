@@ -74,7 +74,7 @@ export default function DetailBlogPage() {
         </header>
 
         {/* Featured Image */}
-        <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden mb-12 shadow-2xl border border-slate-800/50 bg-[#0d1526]">
+        <div className="relative w-full aspect-video md:aspect-21/9 rounded-2xl md:rounded-3xl overflow-hidden mb-12 shadow-2xl border border-slate-800/50 bg-[#0d1526]">
           <img 
             src={blog_image_url} 
             alt={blog_title} 
@@ -85,7 +85,7 @@ export default function DetailBlogPage() {
             }}
           />
           {/* Subtle gradient overlay at the bottom of the image for depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-[#070b14] via-transparent to-transparent opacity-60"></div>
         </div>
 
         {/* Article Body */}
