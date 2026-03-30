@@ -208,7 +208,7 @@ const HomePage = () => {
 
             {/* RIGHT VISUAL / STATS */}
             <div className="relative">
-              <img className='rounded-2xl' src={img3} alt="binextro-homepage-pic" />
+              <img className='rounded-2xl' src={img3} alt="binextro-homepage-pic" loading="lazy" decoding="async" />
             </div>
 
           </div>
@@ -224,7 +224,7 @@ const HomePage = () => {
           <div className="grid md:grid-cols-2 md:gap-12 items-center">
             <div className="relative order-2 md:order-1">
               <div className="w-full flex items-center justify-center h-96 bg-linear-to-br rounded-3xl ">
-                <img src={pic1} alt="" className='md:h-[350px] ' />
+                <img src={pic1} alt="BitNextro IT services team" className='md:h-[350px] ' loading="lazy" decoding="async" />
               </div>
             </div>
             <div className="order-1 md:order-2">

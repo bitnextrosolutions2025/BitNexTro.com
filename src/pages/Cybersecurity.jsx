@@ -1,4 +1,6 @@
 import { useState } from "react";
+import usePageMeta from "../hooks/usePageMeta";
+import { getServiceMetadata, getServiceSchema } from "../config/serviceMetadata";
 
 const services = [
   {
@@ -154,6 +156,19 @@ function ServiceCard({ service, index }) {
 }
 
 export default function Cybersecurity() {
+  const metadata = getServiceMetadata('cybersecurity');
+  const schema = getServiceSchema('Cyber Security Services', 'Expert cybersecurity services including threat detection, penetration testing, security audits, endpoint protection, email security, and compliance management.', 'cybersecurity');
+  
+  usePageMeta({
+    ...metadata,
+    ogImage: "https://www.bitnextro.com/og-image.png",
+    ogUrl: metadata.canonicalUrl,
+    twitterImage: "https://www.bitnextro.com/og-image.png",
+    twitterTitle: metadata.ogTitle,
+    twitterDescription: metadata.ogDescription,
+    schema
+  });
+  
   return (
     <div
       className="min-h-screen  text-white relative overflow-hidden"

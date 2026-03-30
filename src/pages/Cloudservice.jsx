@@ -524,7 +524,7 @@ export default function Cloudservice() {
           {/* ══ SECTION 1: OUR CLOUD SOLUTIONS ══ */}
           <section className="cs-section cs-solutions">
             <div className="cs-solutions-head">
-              <h1 className="cs-eyebrow">What We Deliver</h1>
+              <h2 className="cs-eyebrow">What We Deliver</h2>
               <h1 className="cs-title cs-title-grad">Our Cloud Solutions</h1>
               <p className="cs-sub">
                 Purpose-built cloud services engineered for the demands of modern enterprise IT — secure, scalable, and always on.
