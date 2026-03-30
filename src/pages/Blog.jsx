@@ -12,6 +12,7 @@ import {
   PlayCircle
 } from 'lucide-react';
 import Blogload from '../components/Blogload';
+import { Link } from 'react-router';
 
 // --- MOCK DATA ---
 
@@ -27,14 +28,14 @@ export default function Blog() {
   return (
     // Main Container with dark background, centered content, and hidden overflow for background effects
     <div className="min-h-screen bg-[#070b14] text-slate-300 font-sans selection:bg-[#00DF82] selection:text-[#050B14] flex flex-col items-center justify-center relative overflow-hidden p-6">
-      
+
       {/* Decorative Background Orbs (Glowing Blurs) */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-[#00DF82]/10 rounded-full blur-[100px] md:blur-[128px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-teal-600/10 rounded-full blur-[100px] md:blur-[128px] pointer-events-none"></div>
 
       {/* Main Content Wrapper */}
       <div className="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
-        
+
         {/* Pulsing "Work in Progress" Badge */}
         <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-800/40 border border-slate-700/50 mb-10 backdrop-blur-md shadow-lg transition-transform hover:scale-105 duration-300 cursor-default">
           <span className="relative flex h-3 w-3">
@@ -67,10 +68,10 @@ export default function Blog() {
         <button className="group relative px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-1">
           {/* Button Outer Glow on Hover */}
           <span className="absolute inset-0 w-full h-full bg-linear-to-br from-[#00DF82] to-teal-600 rounded-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300 blur-md"></span>
-          
+
           {/* Button Border / Base background */}
           <span className="absolute inset-0 w-full h-full bg-[#070b14] rounded-xl border border-[#00DF82]/50 group-hover:border-[#00DF82] group-hover:bg-[#00DF82]/10 transition-colors duration-300"></span>
-          
+
           {/* Button Content */}
           <span className="relative flex items-center gap-3 text-[#00DF82] group-hover:text-white transition-colors duration-300">
             Notify Me When It's Ready
@@ -88,8 +89,12 @@ export default function Blog() {
 // export default function Blog() {
 //   const [isLoaded, setIsLoaded] = useState(false);
 //   const [blogPosts, setBlogPosts] = useState([])
+//   const handlescroll = () => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   };
+
 //   const dataformat = (date) => {
-//    const formattedDate = new Date(date).toLocaleString("en-IN", {
+//     const formattedDate = new Date(date).toLocaleString("en-IN", {
 //       timeZone: "Asia/Kolkata",
 //       day: "2-digit",
 //       month: "long",
@@ -98,7 +103,7 @@ export default function Blog() {
 //       minute: "2-digit",
 //     });
 //     // safely extract first two parts for short date
-//    const shortUDate = formattedDate.split(" ").slice(0, 2).join(" ");
+//     const shortUDate = formattedDate.split(" ").slice(0, 2).join(" ");
 //     return shortUDate;
 //   }
 
@@ -122,7 +127,7 @@ export default function Blog() {
 
 
 //   return (
-//     <div className="min-h-screen text-slate-300 font-sans selection:bg-[#00DF82] selection:text-[#050B14]">
+//     <div className="min-h-screen bg-[#070b14] text-slate-300 font-sans selection:bg-[#00DF82] selection:text-[#050B14]">
 //       {/* --- INLINE STYLES FOR EXACT MATCHING & ANIMATIONS --- */}
 //       <style dangerouslySetInnerHTML={{
 //         __html: `
@@ -151,16 +156,17 @@ export default function Blog() {
 //       `}} />
 
 //       {/* Main Wrapper with Dot Background */}
-//       <div className="dot-bg min-h-screen pb-24">
+//       <div className="dot-bg min-h-screen pb-20">
 
 
 //         {/* --- FEATURED VIDEO SECTION --- */}
 
 //         {/* --- LATEST BLOG POSTS --- */}
-//         <section className="max-w-7xl mx-auto px-6 mb-32 mt-18">
+
+//         <section className="max-w-7xl mx-auto px-6 mb-32 ">
 //           <div className="flex items-center justify-between mb-10">
 //             <div className="flex items-center gap-4 flex-1">
-//               <h2 className="text-3xl font-bold text-white tracking-tight  pt-2.5">Latest <span className="text-[#00DF82]">Blog</span></h2>
+//               <h2 className="text-3xl font-bold text-white tracking-tight  pt-[55px]">Latest <span className="text-[#00DF82]">Blog</span></h2>
 //               <div className="h-px flex-1 bg-linear-to-r from-[#1e293b] to-transparent max-w-md"></div>
 //             </div>
 
@@ -171,7 +177,7 @@ export default function Blog() {
 //               <article key={post._id} className="group bg-[#0a0f1c] border border-[#1e293b] rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-[#00DF82]/30 transition-all duration-300 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,223,130,0.15)] flex flex-col">
 //                 {/* Image Container */}
 //                 <div className="relative h-56 overflow-hidden">
-                  
+
 //                   <img
 //                     src={post.blog_image_url}
 //                     alt={post.blog_title}
@@ -191,9 +197,9 @@ export default function Blog() {
 //                   <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
 //                     {post.blog_description}
 //                   </p>
-//                   <div className="pt-4 border-t border-[#1e293b] flex items-center text-[#00DF82] text-sm font-semibold mt-auto">
+//                   <Link to={`/blog/${post._id}`} onClick={handlescroll} className="pt-4 border-t border-[#1e293b] flex items-center text-[#00DF82] text-sm font-semibold mt-auto">
 //                     Read Article <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform" />
-//                   </div>
+//                   </Link>
 //                 </div>
 //               </article>
 //             ))}
