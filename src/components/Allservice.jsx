@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Code, Layout, Smartphone, Zap, ArrowRight, Briefcase,
   Cpu, Globe, Shield, Database, HardDrive, MonitorCloud,
@@ -142,7 +143,7 @@ const services = [
       "DLP & Security Monitoring",
       "Identity & Compliance Management"
     ],
-        color: "text-rose-400",
+    color: "text-rose-400",
     glow: "group-hover:shadow-rose-500/20",
     linear: "from-rose-500 to-red-400",
     bg: "bg-rose-500/10"
@@ -156,7 +157,7 @@ const services = [
       "SEO & Social Media Management",
       "Email & Digital Advertising"
     ],
-   color: "text-amber-400",
+    color: "text-amber-400",
     glow: "group-hover:shadow-amber-500/20",
     linear: "from-amber-500 to-orange-400",
     bg: "bg-amber-500/10"
@@ -170,7 +171,7 @@ const services = [
       "IoT & Smart Systems",
       "AR/VR & RPA Solutions"
     ],
-       color: "text-indigo-400",
+    color: "text-indigo-400",
     glow: "group-hover:shadow-indigo-500/20",
     linear: "from-indigo-500 to-violet-400",
     bg: "bg-indigo-500/10"
