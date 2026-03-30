@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 // Mocking the data you provided
 const blogData = {
@@ -19,6 +20,23 @@ const formatDate = (isoString) => {
 
 // Main Page Component
 export default function DetailBlogPage() {
+  const { id } = useParams()
+  const [BlogData,setBlogData]=useState({})
+  useEffect(()=>{
+     const FetchWholeBlogData=async()=>{
+      const url = `${import.meta.env.VITE_BACKEND_URL}/api/v5/blog/details-blog/${id}`;
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      const data = await response.json();
+      setBlogData(data.Blogdata)
+      console.log(data)
+     }
+     FetchWholeBlogData();
+  },[])
   // Using the mock data
   const { blog_title, blog_description, blog_image_url, createdAt } = blogData;
 
@@ -26,7 +44,7 @@ export default function DetailBlogPage() {
     <div className="min-h-screen bg-[#070b14] text-slate-200 font-sans selection:bg-teal-500/30">
       
       {/* Simple Navigation Bar */}
-      <nav className="border-b border-slate-800/50 bg-[#070b14]/80 backdrop-blur-md sticky top-0 z-10">
+      <nav className="border-b border-slate-800/50 bg-[#070b14]/80 backdrop-blur-md sticky top-[155px] z-10">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center">
           <button className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
@@ -44,14 +62,9 @@ export default function DetailBlogPage() {
         {/* Article Header */}
         <header className="mb-10">
           {/* Category/Tags (Optional placeholder since it's not in the JSON yet) */}
-          <div className="mb-6 flex gap-3">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 rounded-full border border-teal-400/20">
-              Technology
-            </span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 capitalize">
-            {blog_title === "test" ? "The Future of Cloud Computing Infrastructure" : blog_title} 
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 mt-4 capitalize">
+            {BlogData.blog_title} 
             {/* Note: Added a fallback realistic title if it's just "test" for better visual preview */}
           </h1>
 
@@ -61,7 +74,7 @@ export default function DetailBlogPage() {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
               </svg>
-              <span>{formatDate(createdAt)}</span>
+              <span>{formatDate(BlogData.createdAt)}</span>
             </div>
             
             <div className="flex items-center gap-2">
@@ -76,12 +89,12 @@ export default function DetailBlogPage() {
         {/* Featured Image */}
         <div className="relative w-full aspect-video md:aspect-21/9 rounded-2xl md:rounded-3xl overflow-hidden mb-12 shadow-2xl border border-slate-800/50 bg-[#0d1526]">
           <img 
-            src={blog_image_url} 
+            src={BlogData.blog_image_url} 
             alt={blog_title} 
             className="w-full h-full object-cover"
             onError={(e) => {
               // Fallback if the Cloudinary image fails to load
-              e.target.src = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop";
+              e.target.src =`${BlogData.blog_image_url}`;
             }}
           />
           {/* Subtle gradient overlay at the bottom of the image for depth */}
@@ -94,16 +107,16 @@ export default function DetailBlogPage() {
             If you start using rich text (HTML) later, you would use dangerouslySetInnerHTML here.
           */}
           <p className="whitespace-pre-wrap text-lg md:text-xl text-slate-300 leading-loose">
-            {blog_description}
+            {BlogData.blog_description}
           </p>
 
           {/* Dummy paragraphs to show how a full article looks */}
-          <p className="mt-8 text-slate-300 leading-loose">
+          {/* <p className="mt-8 text-slate-300 leading-loose">
             As organizations continue to scale their digital operations, the underlying architecture must evolve to meet unprecedented demands for speed, security, and reliability. This transformation is not just about adopting new technologies, but fundamentally rethinking how data flows through enterprise networks.
           </p>
           <p className="mt-8 text-slate-300 leading-loose">
             The integration of distributed systems and edge computing nodes represents a significant leap forward. By processing information closer to its source, latency is drastically reduced, enabling real-time analytics and more responsive user experiences across global platforms.
-          </p>
+          </p> */}
         </article>
 
       </main>
