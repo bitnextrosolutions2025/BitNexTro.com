@@ -109,7 +109,7 @@ export default function DetailBlogPage() {
           <img
             src={BlogData.blog_image_url}
             alt={blog_title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             onError={(e) => {
               // Fallback if the Cloudinary image fails to load
               e.target.src = `${BlogData.blog_image_url}`;
