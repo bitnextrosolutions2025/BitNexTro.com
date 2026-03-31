@@ -108,7 +108,7 @@ const formatDate = (isoString) => {
                   <img
                     src={post.blog_image_url}
                     alt={post.blog_title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    className="w-full h-full  transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0a0f1c] to-transparent opacity-80"></div>
                 </div>
