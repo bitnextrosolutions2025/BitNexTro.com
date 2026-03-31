@@ -819,7 +819,7 @@ export default function Navbar() {
               <Link to="/contact" onClick={handlescrollmob} className={`mobile-link ${isActive("/contact") ? "mobile-link-active" : ""}`}>
                 Contact
               </Link>
-              <Link to="/blog" onClick={handlescroll} className={`mobile-link ${isActive("/blog") ? "mobile-link-active" : ""}`}>
+              <Link to="/blog" onClick={handlescrollmob} className={`mobile-link ${isActive("/blog") ? "mobile-link-active" : ""}`}>
                 Blog
               </Link>
               <div style={{ padding: "8px 16px" }}>
