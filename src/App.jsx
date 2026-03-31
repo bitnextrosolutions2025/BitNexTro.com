@@ -37,7 +37,7 @@ const DetailBlogPage = lazy(() => import('./pages/DetailBlogPage'));
 
 // Loading fallback component
 const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+  <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-gray-900 via-gray-900 to-gray-800">
     <div className="text-center">
       <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400 mb-4"></div>
       <p className="text-white text-lg font-semibold">Loading...</p>
