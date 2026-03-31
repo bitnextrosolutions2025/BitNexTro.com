@@ -55,7 +55,7 @@ export default function DetailBlogPage() {
     <div className="min-h-screen bg-[#070b14] text-slate-200 font-sans selection:bg-teal-500/30">
 
       {/* Simple Navigation Bar */}
-      <nav className="backdrop-blur-md relative top-[70px] z-10">
+      <nav className="relative top-[70px] z-10">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center">
           <Link to="/blog" className='cursor-pointer'> <button className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
