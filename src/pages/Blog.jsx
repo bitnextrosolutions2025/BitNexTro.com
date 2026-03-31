@@ -93,7 +93,7 @@ const formatDate = (isoString) => {
         <section className="max-w-7xl mx-auto px-6 mb-32 ">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-4 flex-1">
-              <h2 className="text-3xl font-bold text-white tracking-tight  pt-[55px]">Latest <span className="text-[#00DF82]">Blog</span></h2>
+              <h2 className="text-3xl font-bold text-white tracking-tight  pt-[77px]">Latest <span className="text-[#00DF82]">Blog</span></h2>
               <div className="h-px flex-1 bg-linear-to-r from-[#1e293b] to-transparent max-w-md"></div>
             </div>
 
