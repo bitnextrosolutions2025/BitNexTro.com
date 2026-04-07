@@ -46,7 +46,8 @@ const formatDate = (isoString) => {
         },
       });
       const data = await response.json();
-      setBlogPosts(data.blogdata);
+      const revBlogdata= data.blogdata.reverse();
+      setBlogPosts(revBlogdata);
       setIsLoaded(false)
     }
     FetchBlogData();
@@ -99,9 +100,9 @@ const formatDate = (isoString) => {
 
           </div>
 
-          {isLoaded ? <Blogload /> : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {isLoaded ? <Blogload /> : <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post._id} className="group bg-[#0a0f1c] border border-[#1e293b] rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-[#00DF82]/30 transition-all duration-300 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,223,130,0.15)] flex flex-col-reverse">
+              <article key={post._id} className="group bg-[#0a0f1c] border border-[#1e293b] rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-[#00DF82]/30 transition-all duration-300 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,223,130,0.15)] flex flex-col">
                 {/* Image Container */}
                 <div className="relative h-56 overflow-hidden">
 
