@@ -122,37 +122,73 @@ const HomePage = () => {
       <WhatsAppContact />
       {/* Hero Section */}
       <section
-        id="home"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
-      >
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover  md:block"
-          playsInline
-          muted
-          autoPlay
-          loop
+  id="home"
+  className="relative h-screen flex items-center justify-center overflow-hidden"
+>
+  {/* Background Video */}
+  <video
+    className="absolute inset-0 w-full h-full object-cover md:block"
+    playsInline
+    muted
+    autoPlay
+    loop
+  >
+    <source src={vedio} type="video/mp4" />
+  </video>
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/40"></div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
+    <h1
+      className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-[#26f437] via-[#49fb58] to-[#25df34] text-transparent bg-clip-text animate-fade-in-up"
+      style={{ fontFamily: "Lato" }}
+    >
+      Empowering <br /> The next generation of IT <br /> With Zero compromise
+    </h1>
+
+    <p className="text-xl md:text-3xl text-[#26f437] font-bold mb-8 bg-[#0733d0c4] inline-block px-4 py-2 rounded-xl animate-bounce">
+      Professional services that drive growth, innovation, and success
+    </p>
+    <br />
+
+    {/* Glassmorphic Floating Buttons */}
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
+      
+      {/* Button 1: Urgent Work (Green Highlight) */}
+      <button className="relative px-8 py-3 rounded-full bg-[#26f437]/10 backdrop-blur-lg border border-[#26f437]/50 text-white font-bold tracking-wide shadow-[0_0_15px_rgba(38,244,55,0.3)] hover:shadow-[0_0_25px_rgba(38,244,55,0.6)] hover:bg-[#26f437]/20 transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 cursor-pointer">
+        {/* Pulsing indicator for "Urgent" */}
+        <span className="relative flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#26f437] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#26f437]"></span>
+        </span>
+        Urgent Work
+      </button>
+
+      {/* Button 2: Get a call (Blue Highlight) */}
+      <button className="relative px-8 py-3 rounded-full bg-[#0733d0c4]/20 backdrop-blur-lg border border-[#0733d0c4]/50 text-[#26f437] font-bold tracking-wide shadow-[0_0_15px_rgba(7,51,208,0.4)] hover:shadow-[0_0_25px_rgba(7,51,208,0.7)] hover:bg-[#0733d0c4]/40 transition-all duration-300 flex items-center gap-2 group hover:-translate-y-1 cursor-pointer">
+        Get a call
+        {/* Phone Icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 group-hover:rotate-12 transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <source src={vedio} type="video/mp4" />
-        </video>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-[#26f437] via-[#49fb58] to-[#25df34] text-transparent bg-clip-text  animate-fade-in-up" style={{ fontFamily: "Lato" }}>
-            Empowering <br /> The next generation of IT <br /> With Zero compromise
-          </h1>
-
-          <p className="text-xl md:text-3xl text-[#26f437] font-bold mb-8 bg-[#0733d0c4] inline-block px-4 py-2 rounded-xl animate-bounce">
-            Professional services that drive growth, innovation, and success
-          </p>
-          <br />
-
-        </div>
-      </section>
-
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          />
+        </svg>
+      </button>
+      
+    </div>
+  </div>
+</section>
 
       {/* <div className='mt-8 h-[600px]  animate-fade-in-up '>
 
