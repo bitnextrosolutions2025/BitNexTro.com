@@ -11,6 +11,7 @@ import {
 import { HelmetProvider } from 'react-helmet-async'
 
 import { Flip, ToastContainer } from 'react-toastify'
+import FandQ from './components/FandQ'
 
 // Lazy load all service and utility pages
 const Career = lazy(() => import('./pages/Career'));
@@ -77,6 +78,7 @@ function App() {
             <Route path='/service/it-amc-services-kolkata' element={<Amc />} />
             <Route path='/service/server-support-kolkata' element={<Servervirtual />} />
             <Route path='/blog' element={<Blog />} />
+            <Route path='/fq' element={<FandQ />} />
             <Route path='/blog/:id' element={<DetailBlogPage />} />
           </Routes>
         </Suspense>

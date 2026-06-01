@@ -727,6 +727,10 @@ export default function Navbar() {
                 <Link to="/blog" onClick={handlescroll} className={`nav-link ${isActive("/blog") ? "nav-link-active" : ""}`}>
                   Blog
                 </Link>
+                
+                <Link to="/fq" onClick={handlescroll} className={`nav-link ${isActive("/fq") ? "nav-link-active" : ""}`}>
+                  F&Q
+                </Link>
 
                 <a
                   href="https://support.bitnextro.com/"
@@ -821,6 +825,9 @@ export default function Navbar() {
               </Link>
               <Link to="/blog" onClick={handlescrollmob} className={`mobile-link ${isActive("/blog") ? "mobile-link-active" : ""}`}>
                 Blog
+              </Link>
+              <Link to="/fq" onClick={handlescrollmob} className={`mobile-link ${isActive("/fq") ? "mobile-link-active" : ""}`}>
+                F&Q
               </Link>
               <div style={{ padding: "8px 16px" }}>
                 <a
