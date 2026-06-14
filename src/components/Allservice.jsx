@@ -199,14 +199,14 @@ const ServiceCard = ({ service }) => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 }
       }}
-      className={`group relative h-full flex flex-col p-6 rounded-3xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/80 transition-all duration-500 hover:border-slate-600/50 hover:-translate-y-1 shadow-lg ${service.glow}`}
+      className={`group relative h-full flex flex-col p-6 rounded-3xl border border-slate-200 bg-white hover:bg-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-1 shadow-lg ${service.glow}`}
     >
       {/* Glow Effect on Hover */}
       <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-linear-to-br ${service.linear}`} />
 
       {/* Header: Icon & Title */}
       <div className="relative z-10 flex items-start justify-between mb-6">
-        <div className={`p-3 rounded-2xl ${service.bg} ring-1 ring-inset ring-white/5`}>
+        <div className={`p-3 rounded-2xl ${service.bg} ring-1 ring-inset ring-slate-900/5`}>
           <div className={`${service.color}`}>
             {service.icon}
           </div>
@@ -221,7 +221,7 @@ const ServiceCard = ({ service }) => {
       </div>
 
       <div className="relative z-10 grow">
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-100 transition-colors">
+        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
           {service.title}
         </h3>
 
@@ -230,7 +230,7 @@ const ServiceCard = ({ service }) => {
           {service.desc.map((item, idx) => (
             <span
               key={idx}
-              className="px-2.5 py-1 text-xs font-medium rounded-md border border-slate-700 bg-slate-800/50 text-slate-400 group-hover:border-slate-600 group-hover:text-slate-300 transition-colors"
+              className="px-2.5 py-1 text-xs font-medium rounded-md border border-slate-200 bg-slate-50 text-slate-700 group-hover:border-blue-200 group-hover:text-blue-700 transition-colors"
             >
               {item}
             </span>
@@ -246,7 +246,7 @@ const ServiceCard = ({ service }) => {
 
 const ServicesSection = () => {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-950 overflow-hidden min-h-screen font-sans">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white text-gray-900 overflow-hidden min-h-screen font-sans">
 
       {/* Background Decor: Grid */}
       <div className="absolute inset-0 bg-[linear-linear(to_right,#80808012_1px,transparent_1px),linear-linear(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
@@ -263,7 +263,7 @@ const ServicesSection = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-blue-400 text-sm font-medium mb-6 shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-medium mb-6 shadow-sm"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -277,7 +277,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 tracking-tight"
           >
             Future-Proof <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-400">Solutions</span> <br />
             For Modern Enterprises.
@@ -288,7 +288,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 text-lg md:text-xl leading-relaxed"
+            className="text-slate-600 text-lg md:text-xl leading-relaxed"
           >
             We blend cutting-edge engineering with strategic innovation to deliver
             scalable, secure, and high-impact digital ecosystems.

@@ -186,11 +186,11 @@ const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
 
   .nav-glass {
-    background: rgba(8, 12, 22, 0.72);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    box-shadow: 0 4px 32px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.05) inset;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 32px rgba(59, 130, 246, 0.1), 0 1px 0 rgba(59, 130, 246, 0.05) inset;
   }
 
   .nav-link {
@@ -199,7 +199,7 @@ const styles = `
     font-weight: 500;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
-    color: rgba(200, 210, 230, 0.85);
+    color: rgba(31, 41, 55, 0.85);
     padding: 6px 12px;
     border-radius: 8px;
     transition: color 0.2s ease, background 0.2s ease;
@@ -215,14 +215,14 @@ const styles = `
     transform: translateX(-50%) scaleX(0);
     width: 60%;
     height: 2px;
-    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    background: linear-gradient(90deg, #0ea5e9, #22c55e);
     border-radius: 2px;
     transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
   }
 
   .nav-link:hover {
-    color: #e2eaf8;
-    background: rgba(255,255,255,0.05);
+    color: #000;
+    background: rgba(59, 130, 246, 0.1);
   }
 
   .nav-link:hover::after {
@@ -231,12 +231,12 @@ const styles = `
 
   .nav-link:active {
     transform: scale(0.96);
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(59, 130, 246, 0.2);
   }
 
   .nav-link-active {
-    color: #38bdf8 !important;
-    background: rgba(56, 189, 248, 0.1) !important;
+    color: #0ea5e9 !important;
+    background: rgba(59, 130, 246, 0.1) !important;
   }
 
   .nav-link-active::after {
@@ -248,7 +248,7 @@ const styles = `
     font-weight: 500;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
-    color: rgba(200, 210, 230, 0.85);
+    color: rgba(31, 41, 55, 0.85);
     padding: 6px 12px;
     border-radius: 8px;
     border: none;
@@ -262,8 +262,8 @@ const styles = `
   }
 
   .services-btn:hover {
-    color: #e2eaf8;
-    background: rgba(255,255,255,0.05);
+    color: #000;
+    background: rgba(59, 130, 246, 0.1);
   }
 
   .services-btn:active {
@@ -279,11 +279,11 @@ const styles = `
   }
 
   .mega-glass {
-    background: rgba(10, 15, 28, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(28px) saturate(200%);
     -webkit-backdrop-filter: blur(28px) saturate(200%);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06) inset;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 24px 64px rgba(59, 130, 246, 0.15), 0 1px 0 rgba(59, 130, 246, 0.1) inset;
   }
 
   .mega-cat-btn {
@@ -297,14 +297,14 @@ const styles = `
     font-family: 'Outfit', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
-    color: rgba(180, 195, 220, 0.8);
+    color: rgba(55, 65, 81, 0.8);
     transition: all 0.18s ease;
     letter-spacing: 0.02em;
   }
 
   .mega-cat-btn:hover {
-    background: rgba(56, 189, 248, 0.08);
-    color: #e2eaf8;
+    background: rgba(59, 130, 246, 0.1);
+    color: #000;
   }
 
   .mega-cat-btn:active {
@@ -312,21 +312,21 @@ const styles = `
   }
 
   .mega-cat-btn-active {
-    background: rgba(56, 189, 248, 0.12) !important;
-    color: #38bdf8 !important;
-    box-shadow: inset 2px 0 0 #38bdf8;
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #0ea5e9 !important;
+    box-shadow: inset 2px 0 0 #0ea5e9;
   }
 
   .mega-item {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.78rem;
-    color: rgba(160, 175, 205, 0.8);
+    color: rgba(55, 65, 81, 0.8);
     padding: 3px 0;
     transition: color 0.15s ease;
   }
 
   .mega-item:hover {
-    color: #94d8fb;
+    color: #0ea5e9;
   }
 
   .support-btn {
@@ -360,10 +360,10 @@ const styles = `
 
   /* Mobile */
   .mobile-menu-glass {
-    background: rgba(8, 12, 22, 0.97);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
   }
 
   .mobile-link {
@@ -372,7 +372,7 @@ const styles = `
     font-family: 'Outfit', sans-serif;
     font-size: 0.92rem;
     font-weight: 500;
-    color: rgba(190, 205, 230, 0.85);
+    color: rgba(55, 65, 81, 0.85);
     text-decoration: none;
     border-radius: 8px;
     margin: 2px 8px;
@@ -381,18 +381,18 @@ const styles = `
   }
 
   .mobile-link:hover {
-    background: rgba(56, 189, 248, 0.08);
-    color: #e2eaf8;
+    background: rgba(59, 130, 246, 0.1);
+    color: #000;
   }
 
   .mobile-link:active {
-    background: rgba(56, 189, 248, 0.15);
+    background: rgba(59, 130, 246, 0.15);
     transform: scale(0.98);
   }
 
   .mobile-link-active {
-    color: #38bdf8 !important;
-    background: rgba(56, 189, 248, 0.1) !important;
+    color: #0ea5e9 !important;
+    background: rgba(59, 130, 246, 0.1) !important;
   }
 
   .mobile-services-toggle {
@@ -402,7 +402,7 @@ const styles = `
     font-family: 'Outfit', sans-serif;
     font-size: 0.92rem;
     font-weight: 500;
-    color: rgba(190, 205, 230, 0.85);
+    color: rgba(55, 65, 81, 0.85);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -416,8 +416,8 @@ const styles = `
   }
 
   .mobile-services-toggle:hover {
-    background: rgba(56, 189, 248, 0.08);
-    color: #e2eaf8;
+    background: rgba(59, 130, 246, 0.1);
+    color: #000;
   }
 
   .mobile-services-toggle:active {
@@ -428,7 +428,7 @@ const styles = `
     font-family: 'Outfit', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(160, 190, 230, 0.9);
+    color: rgba(31, 41, 55, 0.9);
     padding: 8px 10px;
     cursor: pointer;
     border-radius: 6px;
@@ -444,7 +444,7 @@ const styles = `
     margin-right: 6px;
     transition: transform 0.2s ease;
     font-size: 1rem;
-    color: #38bdf8;
+    color: #0ea5e9;
   }
 
   .mobile-details[open] summary::before {
@@ -679,7 +679,7 @@ export default function Navbar() {
                                   className="text-sm font-bold mb-3"
                                   style={{
                                     fontFamily: "Outfit, sans-serif",
-                                    color: "#e2eaf8",
+                                    color: "black",
                                     letterSpacing: "0.02em",
                                   }}
                                 >

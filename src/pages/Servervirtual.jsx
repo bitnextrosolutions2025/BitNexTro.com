@@ -53,7 +53,7 @@ export default function Servervirtual() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(160deg, #0a1628 0%, #0d1f3c 45%, #0a1a35 75%, #071220 100%)',
+      background: '#ffffff',
       fontFamily: "'Poppins', sans-serif",
       padding: '72px 24px',
       position: 'relative',
@@ -79,7 +79,7 @@ export default function Servervirtual() {
         }
         .srv-card:hover {
           transform: translateY(-5px);
-          background: rgba(10, 40, 80, 0.75) !important;
+          background: rgba(239, 246, 255, 0.95) !important;
           border-color: rgba(56, 189, 248, 0.45) !important;
           box-shadow: 0 16px 48px rgba(4, 18, 45, 0.6), 0 0 0 1px rgba(56,189,248,0.1) !important;
         }
@@ -89,7 +89,7 @@ export default function Servervirtual() {
           color: #38bdf8 !important;
         }
         .srv-card:hover .card-label {
-          color: #ffffff !important;
+          color: #0f172a !important;
         }
         .srv-card:hover .card-bar {
           opacity: 1 !important;
@@ -99,7 +99,7 @@ export default function Servervirtual() {
         }
         .srv-cta:hover {
           background: linear-gradient(135deg, #0ea5e9, #38bdf8) !important;
-          color: #fff !important;
+          color: #0f172a !important;
           border-color: transparent !important;
           box-shadow: 0 8px 28px rgba(14,165,233,0.4) !important;
           transform: translateY(-2px);
@@ -172,7 +172,7 @@ export default function Servervirtual() {
           fontWeight: 800,
           lineHeight: 1.08,
           letterSpacing: '-0.5px',
-          color: '#ffffff',
+          color: '#0f172a',
         }}>
           Server &{' '}
           <span style={{
@@ -201,7 +201,7 @@ export default function Servervirtual() {
           fontSize: '16px',
           fontWeight: 300,
           lineHeight: 1.75,
-          color: 'rgba(186,230,253,0.6)',
+          color: '#475569',
           letterSpacing: '0.15px',
         }}>
           Reliable and Professional IT Server &amp; Virtualization Services — scalable infrastructure built for performance.
@@ -225,7 +225,7 @@ export default function Servervirtual() {
             style={{
               animationDelay: `${i * 65}ms`,
               padding: '30px 24px 24px',
-              background: 'rgba(10, 25, 55, 0.55)',
+              background: '#ffffff',
               backdropFilter: 'blur(18px)',
               WebkitBackdropFilter: 'blur(18px)',
               border: '1px solid rgba(56,189,248,0.1)',
@@ -266,7 +266,7 @@ export default function Servervirtual() {
                 fontSize: '15px',
                 fontWeight: 600,
                 lineHeight: 1.45,
-                color: 'rgba(220,238,255,0.82)',
+                color: '#0f172a',
                 transition: 'color 0.3s ease',
               }}
             >
@@ -306,7 +306,7 @@ export default function Servervirtual() {
             <span key={tag} className="tag-pill" style={{
               padding: '5px 16px',
               borderRadius: '999px',
-              background: 'rgba(10,25,55,0.6)',
+              background: '#f8fafc',
               border: '1px solid rgba(56,189,248,0.16)',
               fontSize: '12px',
               fontWeight: 500,

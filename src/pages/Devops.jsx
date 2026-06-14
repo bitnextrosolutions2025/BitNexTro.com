@@ -159,13 +159,13 @@ function ServiceCard({ service, index }) {
         position: 'relative',
         borderRadius: 20,
         padding: '38px 30px 34px',
-        background: hovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)',
+        background: hovered ? 'rgba(239,246,255,0.96)' : '#ffffff',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        border: hovered ? '1px solid rgba(0,229,255,0.55)' : '1px solid rgba(255,255,255,0.1)',
+        border: hovered ? '1px solid rgba(0,229,255,0.55)' : '1px solid rgba(148,163,184,0.24)',
         boxShadow: hovered
-          ? '0 16px 48px rgba(0,229,255,0.2), 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2)'
-          : '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
+          ? '0 16px 48px rgba(0,229,255,0.16), 0 4px 20px rgba(59,130,246,0.12), inset 0 1px 0 rgba(255,255,255,0.2)'
+          : '0 4px 24px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.08)',
         transform: hovered ? 'translateY(-10px) scale(1.04)' : 'translateY(0) scale(1)',
         transition: 'all 0.4s cubic-bezier(0.23,1,0.32,1)',
         cursor: 'default',
@@ -182,7 +182,7 @@ function ServiceCard({ service, index }) {
       <div style={{
         position: 'absolute', top: 0, right: 0,
         width: 80, height: 80,
-        background: hovered ? 'radial-gradient(circle at top right, rgba(0,229,255,0.18), transparent 70%)' : 'none',
+        background: hovered ? 'radial-gradient(circle at top right, rgba(0,229,255, transparent 70%)' : 'none',
         transition: 'all 0.4s',
         borderRadius: '0 20px 0 0',
         pointerEvents: 'none',
@@ -197,7 +197,7 @@ function ServiceCard({ service, index }) {
         {service.icon}
       </div>
       {/* Text */}
-      <div style={{ color: '#e8f4ff', fontSize: 17, fontWeight: 600, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+      <div style={{ color: 'black', fontSize: 17, fontWeight: 600, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
         {service.title}
       </div>
     </div>
@@ -225,7 +225,7 @@ export default function Devops() {
 
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #050b18 0%, #071020 40%, #060d1c 70%, #04080f 100%)',
+        background: '#ffffff',
         fontFamily: "'', sans-serif",
         position: 'relative',
         overflow: 'hidden',
@@ -288,7 +288,7 @@ export default function Devops() {
             fontWeight: 800,
             lineHeight: 1.05,
             letterSpacing: '-0.03em',
-            color: '#ffffff',
+            color: '#0f172a',
             marginBottom: 20,
             maxWidth: 700,
             animation: 'fadeUp 0.6s ease both',
@@ -301,7 +301,7 @@ export default function Devops() {
           {/* Subtitle */}
           <p style={{
             fontSize: 18,
-            color: 'rgba(180,210,240,0.75)',
+            color: '#475569',
             maxWidth: 520,
             lineHeight: 1.6,
             marginBottom: 44,

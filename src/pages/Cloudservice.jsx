@@ -6,21 +6,21 @@ const css = `
  
 
   :root {
-    --p0: #09020f;
-    --p1: #100520;
-    --p2: #1a0838;
+    --p0: #ffffff;
+    --p1: #f8fafc;
+    --p2: #eff6ff;
     --p3: #270d52;
     --primary: #6D28D9;
     --vivid: #7c3aed;
     --accent: #C4B5FD;
     --glow: #a78bfa;
     --lavender: #ede9fe;
-    --white: #ffffff;
-    --muted: #c4b5fd;
-    --dim: rgba(196,181,253,0.6);
-    --glass: rgba(109,40,217,0.12);
-    --glass-border: rgba(167,139,250,0.18);
-    --glass-hover: rgba(109,40,217,0.22);
+    --white: #0f172a;
+    --muted: #475569;
+    --dim: rgba(71,85,105,0.8);
+    --glass: rgba(255,255,255,0.92);
+    --glass-border: rgba(59,130,246,0.18);
+    --glass-hover: rgba(239,246,255,0.96);
   }
 
   .cs-wrap {
@@ -29,7 +29,7 @@ const css = `
       radial-gradient(ellipse 90% 60% at 80% 10%, rgba(109,40,217,0.22) 0%, transparent 55%),
       radial-gradient(ellipse 60% 50% at 10% 90%, rgba(76,29,149,0.28) 0%, transparent 55%),
       radial-gradient(ellipse 40% 40% at 50% 50%, rgba(109,40,217,0.08) 0%, transparent 60%),
-      linear-gradient(170deg, #09020f 0%, #130628 35%, #1b0940 65%, #0d0320 100%);
+      linear-gradient(170deg, #ffffff 0%, #f8fafc 45%, #eff6ff 100%);
     min-height: 100vh;
     color: var(--white);
     position: relative;
@@ -73,7 +73,7 @@ const css = `
     letter-spacing: -1px;
   }
   .cs-title-grad {
-    background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+    background: black;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .cs-sub {
@@ -189,7 +189,7 @@ const css = `
   @media (max-width: 500px) { .cs-feat-grid { grid-template-columns: 1fr; } }
 
   .cs-feat {
-    background: rgba(9,2,15,0.7);
+    background: rgba(255,255,255,0.94);
     padding: 44px 36px;
     display: flex; flex-direction: column;
     gap: 20px;

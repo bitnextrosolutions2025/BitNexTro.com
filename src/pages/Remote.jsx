@@ -15,7 +15,7 @@ export default function Remote() {
     <div
       className="relative min-h-screen overflow-hidden flex items-center justify-center px-5 py-16"
       style={{
-        background: "linear-gradient(135deg, #020818 0%, #050d24 35%, #071030 65%, #020818 100%)",
+        background: "#ffffff",
         fontFamily: "'DM Sans', sans-serif",
       }}
     >
@@ -105,7 +105,7 @@ export default function Remote() {
           </span> */}
 
           <h1
-            className="text-white font-extrabold leading-[1.05] mb-5 tracking-tight"
+            className="text-slate-900 font-extrabold leading-[1.05] mb-5 tracking-tight"
             style={{
               fontFamily: ", sans-serif",
               fontSize: "clamp(40px, 6vw, 72px)",
@@ -125,7 +125,7 @@ export default function Remote() {
           </h1>
 
           <p
-            className="text-slate-400 max-w-lg mx-auto leading-relaxed font-light"
+            className="text-slate-600 max-w-lg mx-auto leading-relaxed font-light"
             style={{ fontSize: "17px", lineHeight: "1.75" }}
           >
             Enterprise-grade remote assistance, engineered for zero downtime and maximum peace of mind.
@@ -139,10 +139,10 @@ export default function Remote() {
               key={i}
               className="relative flex items-start gap-5 rounded-2xl p-8 overflow-hidden cursor-pointer border transition-all duration-300"
               style={{
-                background: hovered === i ? "rgba(30,58,138,0.25)" : "rgba(255,255,255,0.04)",
+                background: hovered === i ? "rgba(219,234,254,0.85)" : "#ffffff",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                borderColor: hovered === i ? "rgba(96,165,250,0.45)" : "rgba(255,255,255,0.08)",
+                borderColor: hovered === i ? "rgba(96,165,250,0.45)" : "rgba(148,163,184,0.28)",
                 transform: hovered === i ? "translateY(-6px) scale(1.02)" : "translateY(0) scale(1)",
                 boxShadow: hovered === i
                   ? "0 20px 60px rgba(29,78,216,0.3), 0 0 0 1px rgba(96,165,250,0.25)"
@@ -194,13 +194,13 @@ export default function Remote() {
                     fontFamily: "'', sans-serif",
                     fontSize: "16px",
                     letterSpacing: "0.2px",
-                    color: hovered === i ? "#bfdbfe" : "#fff",
+                    color: hovered === i ? "#1d4ed8" : "#0f172a",
                   }}
                 >
                   {item.label}
                 </h3>
                 <p
-                  className="text-slate-400 leading-relaxed font-light transition-all duration-300"
+                  className="text-slate-600 leading-relaxed font-light transition-all duration-300"
                   style={{
                     fontSize: "13.5px",
                     lineHeight: "1.6",
@@ -229,12 +229,12 @@ export default function Remote() {
         {/* CTA */}
         <div className="text-center">
           <button
-            className="font-bold tracking-widest uppercase text-white rounded-full px-14 py-5 border transition-all duration-300 text-sm"
+            className="font-bold tracking-widest uppercase text-slate-900 rounded-full px-14 py-5 border transition-all duration-300 text-sm"
             style={{
               fontFamily: "'', sans-serif",
               letterSpacing: "2px",
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              background: "#ffffff",
+              border: "1px solid rgba(148,163,184,0.35)",
               backdropFilter: "blur(10px)",
               boxShadow: "0 0 20px rgba(59,130,246,0.3)",
             }}
@@ -245,7 +245,7 @@ export default function Remote() {
               e.currentTarget.style.letterSpacing = "3px";
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.background = "#ffffff";
               e.currentTarget.style.boxShadow = "0 0 20px rgba(59,130,246,0.3)";
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
               e.currentTarget.style.letterSpacing = "2px";

@@ -55,13 +55,13 @@ const formatDate = (isoString) => {
 
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-slate-300 font-sans selection:bg-[#00DF82] selection:text-[#050B14]">
+    <div className="min-h-screen bg-white text-slate-700 font-sans selection:bg-[#00DF82] selection:text-slate-900">
       {/* --- INLINE STYLES FOR EXACT MATCHING & ANIMATIONS --- */}
       <style dangerouslySetInnerHTML={{
         __html: `
         .dot-bg {
-          background-color: #050B14;
-          background-image: radial-linear(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+          background-color: #ffffff;
+          background-image: radial-linear(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
           background-size: 32px 32px;
         }
         @keyframes fadeInUp {
@@ -94,7 +94,7 @@ const formatDate = (isoString) => {
         <section className="max-w-7xl mx-auto px-6 mb-32 ">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-4 flex-1">
-              <h2 className="text-3xl font-bold text-white tracking-tight  pt-[77px]">Latest <span className="text-[#00DF82]">Blog</span></h2>
+              <h2 className="text-3xl font-bold text-slate-900 tracking-tight  pt-[77px]">Latest <span className="text-[#00DF82]">Blog</span></h2>
               <div className="h-px flex-1 bg-linear-to-r from-[#1e293b] to-transparent max-w-md"></div>
             </div>
 
@@ -102,7 +102,7 @@ const formatDate = (isoString) => {
 
           {isLoaded ? <Blogload /> : <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post._id} className="group bg-[#0a0f1c] border border-[#1e293b] rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-[#00DF82]/30 transition-all duration-300 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,223,130,0.15)] flex flex-col">
+              <article key={post._id} className="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-[#00DF82]/30 transition-all duration-300 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,223,130,0.15)] flex flex-col">
                 {/* Image Container */}
                 <div className="relative h-56 overflow-hidden">
 
@@ -111,21 +111,21 @@ const formatDate = (isoString) => {
                     alt={post.blog_title}
                     className="w-full h-full  transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0a0f1c] to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-white to-transparent opacity-80"></div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-4 text-xs text-slate-400 mb-4">
+                  <div className="flex items-center gap-4 text-xs text-slate-600 mb-4">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {formatDate(post.createdAt)}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00DF82] transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#00DF82] transition-colors line-clamp-2">
                     {post.blog_title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
                     {post.blog_description}
                   </p>
-                  <Link to={`/blog/${post._id}`} onClick={handlescroll} className="pt-4 border-t border-[#1e293b] flex items-center text-[#00DF82] text-sm font-semibold mt-auto">
+                  <Link to={`/blog/${post._id}`} onClick={handlescroll} className="pt-4 border-t border-slate-200 flex items-center text-[#00DF82] text-sm font-semibold mt-auto">
                     Read Article <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform" />
                   </Link>
                 </div>
@@ -137,14 +137,14 @@ const formatDate = (isoString) => {
         {/* --- COMPANY PICTURE GALLERY --- */}
         <section className="max-w-7xl mx-auto px-6 mb-20">
           <div className="flex items-center gap-4 mb-10 text-center justify-center">
-            <h2 className="text-3xl font-bold text-white tracking-tight">Life at <span className="text-[#00DF82]">BitNextro</span></h2>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Life at <span className="text-[#00DF82]">BitNextro</span></h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
             {galleryImages.map((img, idx) => (
               <div
                 key={idx}
-                className={`relative rounded-2xl overflow-hidden group cursor-pointer border border-[#1e293b] bg-[#0a0f1c]
+                className={`relative rounded-2xl overflow-hidden group cursor-pointer border border-slate-200 bg-white
                   ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}
                   ${idx === 3 ? 'md:col-span-2' : ''}
                 `}
@@ -154,11 +154,11 @@ const formatDate = (isoString) => {
                   alt="Company Culture"
                   className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#050B14] via-transparent to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent opacity-60"></div>
 
                 {/* Hover overlay text */}
                 <div className="absolute bottom-0 left-0 p-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  <span className="bg-[#00DF82] text-[#050B14] text-xs font-bold px-2 py-1 rounded-sm uppercase">
+                  <span className="bg-[#00DF82] text-slate-900 text-xs font-bold px-2 py-1 rounded-sm uppercase">
                     Culture
                   </span>
                 </div>

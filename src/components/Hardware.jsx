@@ -236,7 +236,7 @@ const ServiceCard = ({ service, index }) => {
           style={{
             width: "24px",
             height: "24px",
-            color: hovered ? service.accent : "rgba(180,210,240,0.75)",
+            color: hovered ? service.accent : 'rgb(61 153 246)',
             transition: "color 0.38s",
           }}
         >
@@ -251,7 +251,7 @@ const ServiceCard = ({ service, index }) => {
             margin: 0,
             fontSize: "1.05rem",
             fontWeight: 600,
-            color: hovered ? "#e8f4ff" : "#c8dff0",
+            color: hovered ? "black" : "black",
             fontFamily: "'Poppins', sans-serif",
             letterSpacing: "0.01em",
             transition: "color 0.3s",
@@ -264,7 +264,7 @@ const ServiceCard = ({ service, index }) => {
           style={{
             margin: 0,
             fontSize: "0.82rem",
-            color: "rgba(160,195,225,0.65)",
+            color: "rgb(0 137 255 / 65%)",
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 400,
             lineHeight: 1.5,
@@ -338,7 +338,7 @@ export default function HardwareSupport() {
         style={{
           position: "relative",
           minHeight: "100vh",
-          background: "linear-gradient(135deg, #0a1628 0%, #0f2340 30%, #0d2c4a 60%, #102535 100%)",
+          background: "#ffffff",
           padding: "96px 48px",
           overflow: "hidden",
           display: "flex",

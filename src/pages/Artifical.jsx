@@ -203,8 +203,8 @@ function ServiceCard({ service, index }) {
         borderRadius: 18,
         padding: '36px 28px 32px',
         background: hovered
-          ? 'rgba(255,255,255,0.09)'
-          : 'rgba(255,255,255,0.045)',
+          ? '#eff6ff'
+          : '#ffffff',
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)',
         border: hovered
@@ -212,7 +212,7 @@ function ServiceCard({ service, index }) {
           : '1px solid rgba(0,245,255,0.13)',
         boxShadow: hovered
           ? '0 8px 48px rgba(0,245,255,0.18), 0 2px 24px rgba(157,78,221,0.18), inset 0 1px 0 rgba(255,255,255,0.1)'
-          : '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+          : '0 4px 24px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.05)',
         transform: hovered ? 'translateY(-8px) scale(1.025)' : 'translateY(0) scale(1)',
         transition: 'all 0.38s cubic-bezier(0.23,1,0.32,1)',
         cursor: 'default',
@@ -250,7 +250,7 @@ function ServiceCard({ service, index }) {
           fontWeight: 700,
           fontSize: '1.05rem',
           letterSpacing: '0.01em',
-          color: hovered ? '#ffffff' : 'rgba(255,255,255,0.88)',
+          color: hovered ? '#1d4ed8' : '#0f172a',
           textShadow: hovered ? '0 0 18px rgba(0,245,255,0.5)' : 'none',
           transition: 'all 0.3s',
           lineHeight: 1.3,
@@ -300,7 +300,7 @@ export default function Artifical() {
         position: 'relative',
         minHeight: '100vh',
         width: '100%',
-        background: 'linear-gradient(135deg, #0F0C29 0%, #1A1A40 50%, #0F0C29 100%)',
+        background: '#ffffff',
         overflow: 'hidden',
         fontFamily: '"DM Sans", sans-serif',
         display: 'flex',
@@ -342,7 +342,7 @@ export default function Artifical() {
           <span style={{
             fontFamily: '"Syne", sans-serif',
             fontWeight: 700, fontSize: '0.9rem',
-            color: 'rgba(255,255,255,0.75)',
+            color: '#0f172a',
             letterSpacing: '0.05em',
           }}>NEXUS</span>
         </div>
@@ -375,7 +375,7 @@ export default function Artifical() {
           fontWeight: 800,
           fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
           letterSpacing: '-0.02em',
-          color: '#ffffff',
+          color: '#0f172a',
           textAlign: 'center',
           animation: 'titleGlow 3s ease-in-out infinite, subtitleFade 0.7s ease 0.2s both',
           lineHeight: 1.1,
@@ -397,7 +397,7 @@ export default function Artifical() {
           fontFamily: '"DM Sans", sans-serif',
           fontWeight: 300,
           fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
-          color: 'rgba(255,255,255,0.55)',
+          color: '#475569',
           textAlign: 'center',
           letterSpacing: '0.02em',
           maxWidth: 520,
@@ -469,9 +469,9 @@ export default function Artifical() {
               padding: '14px 36px',
               borderRadius: 12,
               border: '1px solid rgba(0,245,255,0.3)',
-              background: 'rgba(255,255,255,0.04)',
+              background: '#ffffff',
               backdropFilter: 'blur(8px)',
-              color: 'rgba(255,255,255,0.8)',
+              color: '#1d4ed8',
               fontFamily: '"Syne", sans-serif',
               fontWeight: 600,
               fontSize: '0.95rem',
@@ -485,7 +485,7 @@ export default function Artifical() {
             }}
             onMouseLeave={e => {
               e.target.style.borderColor = 'rgba(0,245,255,0.3)'
-              e.target.style.background = 'rgba(255,255,255,0.04)'
+              e.target.style.background = '#ffffff'
             }}
           >
             View Case Studies

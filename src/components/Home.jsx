@@ -87,20 +87,20 @@ const HomePage = () => {
     'Commitment to long term growth'
   ];
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30 overflow-hidden relative">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-500/30 overflow-hidden relative">
 
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden bg-white">
 
         {/* Animated Gradient Waves */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient from-blue-100 via-purple-50 to-pink-100 animate-gradient-shift"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient from-blue-50 via-white to-green-50 animate-gradient-shift"></div>
         </div>
 
         {/* Floating Blobs */}
- <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-green-700/50 blur-[130px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-slate-900/50 blur-[100px]"></div>
+<div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-green-200/30 blur-[130px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-200/30 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-gray-200/20 blur-[100px]"></div>
 
         {/* Animated Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10">
@@ -142,13 +142,13 @@ const HomePage = () => {
   {/* Content */}
   <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
     <h1
-      className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-[#26f437] via-[#49fb58] to-[#25df34] text-transparent bg-clip-text animate-fade-in-up"
+      className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-[#d5ff03] via-[#40ff00] to-[#6aff00] text-transparent bg-clip-text animate-fade-in-up"
       style={{ fontFamily: "Lato" }}
     >
       Empowering <br /> The next generation of IT <br /> With Zero compromise
     </h1>
 
-    <p className="text-xl md:text-3xl text-[#26f437] font-bold mb-8 bg-[#0733d0c4] inline-block px-4 py-2 rounded-xl animate-bounce">
+    <p className="text-xl md:text-3xl text-white font-bold mb-8 bg-blue-600 inline-block px-4 py-2 rounded-xl animate-bounce">
       Professional services that drive growth, innovation, and success
     </p>
     <br />
@@ -157,17 +157,17 @@ const HomePage = () => {
     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
       
       {/* Button 1: Urgent Work (Green Highlight) */}
-      <button className="relative px-8 py-3 rounded-full bg-[#26f437]/10 backdrop-blur-lg border border-[#26f437]/50 text-white font-bold tracking-wide shadow-[0_0_15px_rgba(38,244,55,0.3)] hover:shadow-[0_0_25px_rgba(38,244,55,0.6)] hover:bg-[#26f437]/20 transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 cursor-pointer">
+      <button className="relative px-8 py-3 rounded-full bg-green-600/10 backdrop-blur-lg border border-green-600/50 text-green-700 font-bold tracking-wide shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] hover:bg-green-600/20 transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 cursor-pointer">
         {/* Pulsing indicator for "Urgent" */}
         <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#26f437] opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#26f437]"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-600 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600"></span>
         </span>
         Urgent Work
       </button>
 
       {/* Button 2: Get a call (Blue Highlight) */}
-      <button className="relative px-8 py-3 rounded-full bg-[#0733d0c4]/20 backdrop-blur-lg border border-[#0733d0c4]/50 text-[#26f437] font-bold tracking-wide shadow-[0_0_15px_rgba(7,51,208,0.4)] hover:shadow-[0_0_25px_rgba(7,51,208,0.7)] hover:bg-[#0733d0c4]/40 transition-all duration-300 flex items-center gap-2 group hover:-translate-y-1 cursor-pointer">
+      <button className="relative px-8 py-3 rounded-full bg-blue-600/20 backdrop-blur-lg border border-blue-600/50 text-blue-700 font-bold tracking-wide shadow-[0_0_15px_rgba(59,130,246,0.4)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7)] hover:bg-blue-600/40 transition-all duration-300 flex items-center gap-2 group hover:-translate-y-1 cursor-pointer">
         Get a call
         {/* Phone Icon */}
         <svg

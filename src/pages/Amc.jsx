@@ -187,13 +187,13 @@ function ServiceCard({ service, index }) {
         position: 'relative',
         borderRadius: 20,
         padding: '36px 28px 32px',
-        background: hovered ? 'rgba(0,194,168,0.07)' : 'rgba(255,255,255,0.04)',
+        background: hovered ? 'rgba(236,253,245,0.95)' : '#ffffff',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        border: hovered ? '1px solid rgba(0,194,168,0.45)' : '1px solid rgba(255,255,255,0.08)',
+        border: hovered ? '1px solid rgba(0,194,168,0.45)' : '1px solid rgba(148,163,184,0.24)',
         boxShadow: hovered
-          ? '0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,194,168,0.15), inset 0 1px 0 rgba(255,255,255,0.08)'
-          : '0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05)',
+          ? '0 20px 60px rgba(0,194,168,0.16), 0 0 0 1px rgba(0,194,168,0.15), inset 0 1px 0 rgba(255,255,255,0.08)'
+          : '0 4px 24px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.05)',
         transform: hovered ? 'translateY(-10px)' : 'translateY(0)',
         transition: 'all 0.42s cubic-bezier(0.23,1,0.32,1)',
         cursor: 'default',
@@ -245,7 +245,7 @@ function ServiceCard({ service, index }) {
           <div style={{
             fontFamily: '"DM Sans", sans-serif',
             fontWeight: 400, fontSize: '0.65rem',
-            color: 'rgba(255,255,255,0.4)',
+            color: '#64748b',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginTop: 2,
@@ -257,7 +257,7 @@ function ServiceCard({ service, index }) {
       <div style={{
         fontFamily: '"Space Grotesk", sans-serif',
         fontWeight: 700, fontSize: '1.05rem',
-        color: hovered ? '#ffffff' : 'rgba(255,255,255,0.88)',
+        color: hovered ? '#0f172a' : '#0f172a',
         letterSpacing: '-0.01em',
         lineHeight: 1.3,
         transition: 'color 0.3s',
@@ -267,10 +267,10 @@ function ServiceCard({ service, index }) {
       <div style={{
         fontFamily: '"DM Sans", sans-serif',
         fontWeight: 300, fontSize: '0.87rem',
-        color: 'rgba(255,255,255,0.45)',
+        color: '#475569',
         lineHeight: 1.65,
         transition: 'color 0.3s',
-        ...(hovered && { color: 'rgba(255,255,255,0.62)' }),
+        ...(hovered && { color: '#334155' }),
       }}>{service.desc}</div>
 
       {/* Bottom divider */}
@@ -298,15 +298,15 @@ function PlanCard({ plan, index }) {
         padding: plan.popular ? '36px 28px 32px' : '32px 28px 28px',
         background: plan.popular
           ? (hovered ? 'rgba(0,194,168,0.14)' : 'rgba(0,194,168,0.08)')
-          : (hovered ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.03)'),
+          : (hovered ? 'rgba(239,246,255,0.95)' : '#ffffff'),
         backdropFilter: 'blur(22px)',
         WebkitBackdropFilter: 'blur(22px)',
         border: plan.popular
           ? `1px solid rgba(0,194,168,${hovered ? 0.7 : 0.4})`
-          : `1px solid rgba(255,255,255,${hovered ? 0.15 : 0.07})`,
+          : `1px solid rgba(148,163,184,${hovered ? 0.35 : 0.24})`,
         boxShadow: plan.popular
           ? (hovered ? '0 24px 70px rgba(0,194,168,0.25)' : '0 8px 40px rgba(0,194,168,0.12)')
-          : (hovered ? '0 16px 50px rgba(0,0,0,0.3)' : '0 4px 20px rgba(0,0,0,0.2)'),
+          : (hovered ? '0 16px 50px rgba(59,130,246,0.14)' : '0 4px 20px rgba(15,23,42,0.08)'),
         transform: hovered ? 'translateY(-8px)' : plan.popular ? 'translateY(-4px)' : 'translateY(0)',
         transition: 'all 0.4s cubic-bezier(0.23,1,0.32,1)',
         animation: `cardIn 0.7s ease ${0.3 + index * 0.12}s both`,
@@ -338,13 +338,13 @@ function PlanCard({ plan, index }) {
         <span style={{
           fontFamily: '"Space Grotesk", sans-serif',
           fontWeight: 800, fontSize: '2.2rem',
-          color: '#ffffff',
+          color: '#0f172a',
           lineHeight: 1,
         }}>{plan.price}</span>
         <span style={{
           fontFamily: '"DM Sans", sans-serif',
           fontWeight: 400, fontSize: '0.82rem',
-          color: 'rgba(255,255,255,0.4)',
+          color: '#64748b',
         }}>{plan.per}</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
@@ -364,7 +364,7 @@ function PlanCard({ plan, index }) {
             <span style={{
               fontFamily: '"DM Sans", sans-serif',
               fontWeight: 400, fontSize: '0.85rem',
-              color: 'rgba(255,255,255,0.62)',
+              color: '#475569',
             }}>{f}</span>
           </div>
         ))}
@@ -375,7 +375,7 @@ function PlanCard({ plan, index }) {
         borderRadius: 12,
         border: `1px solid ${plan.popular ? '#00C2A8' : 'rgba(255,255,255,0.15)'}`,
         background: plan.popular ? '#00C2A8' : 'transparent',
-        color: plan.popular ? '#0B1D3A' : 'rgba(255,255,255,0.7)',
+        color: plan.popular ? '#0B1D3A' : '#1d4ed8',
         fontFamily: '"Space Grotesk", sans-serif',
         fontWeight: 700, fontSize: '0.88rem',
         letterSpacing: '0.04em',
@@ -383,11 +383,11 @@ function PlanCard({ plan, index }) {
         transition: 'all 0.25s',
       }}
         onMouseEnter={e => {
-          if (!plan.popular) { e.target.style.background = 'rgba(255,255,255,0.08)'; e.target.style.color = '#fff' }
+          if (!plan.popular) { e.target.style.background = 'rgba(219,234,254,0.9)'; e.target.style.color = '#1d4ed8' }
           else { e.target.style.background = '#00d4ba' }
         }}
         onMouseLeave={e => {
-          if (!plan.popular) { e.target.style.background = 'transparent'; e.target.style.color = 'rgba(255,255,255,0.7)' }
+          if (!plan.popular) { e.target.style.background = 'transparent'; e.target.style.color = '#1d4ed8' }
           else { e.target.style.background = '#00C2A8' }
         }}
       >
@@ -434,7 +434,7 @@ export default function Amc() {
         position: 'relative',
         minHeight: '100vh',
         width: '100%',
-        background: 'linear-gradient(145deg, #0B1D3A 0%, #0D2240 40%, #071428 75%, #0B1D3A 100%)',
+        background: '#ffffff',
         overflow: 'hidden',
         fontFamily: '"DM Sans", sans-serif',
         display: 'flex',
@@ -451,12 +451,7 @@ export default function Amc() {
           borderRadius:'50%', pointerEvents:'none',
           animation:'gradPulse 5s ease infinite',
         }}/>
-        <div style={{
-          position:'absolute', bottom:'-10%', right:'-5%',
-          width:500, height:500,
-          background:'radial-gradient(circle, rgba(11,29,58,0.9) 0%, rgba(0,100,140,0.08) 50%, transparent 70%)',
-          borderRadius:'50%', pointerEvents:'none',
-        }}/>
+        
         <div style={{
           position:'absolute', top:'38%', right:'12%',
           width:280, height:280,
@@ -517,7 +512,7 @@ export default function Amc() {
           <span style={{
             fontFamily:'"Space Grotesk", sans-serif',
             fontWeight:700, fontSize:'0.88rem',
-            color:'rgba(255,255,255,0.75)',
+            color:'#0f172a',
             letterSpacing:'0.07em',
           }}>INFRASYNC</span>
         </div>
@@ -548,7 +543,7 @@ export default function Amc() {
           fontWeight:800,
           fontSize:'clamp(2.2rem, 5.5vw, 4rem)',
           letterSpacing:'-0.03em',
-          color:'#ffffff',
+          color:'black',
           textAlign:'center',
           lineHeight:1.1,
           maxWidth:720,
@@ -568,7 +563,7 @@ export default function Amc() {
           fontFamily:'"DM Sans", sans-serif',
           fontWeight:300,
           fontSize:'clamp(0.97rem, 2vw, 1.14rem)',
-          color:'rgba(255,255,255,0.5)',
+          color:'black',
           textAlign:'center',
           maxWidth:520, lineHeight:1.7,
           animation:'heroIn 0.65s ease 0.32s both',
@@ -582,8 +577,8 @@ export default function Amc() {
           display:'flex', gap:0, flexWrap:'wrap', justifyContent:'center',
           marginTop:40,
           borderRadius:16,
-          border:'1px solid rgba(255,255,255,0.07)',
-          background:'rgba(255,255,255,0.03)',
+          border:'1px solid rgba(148,163,184,0.22)',
+          background:'rgba(255,255,255,0.95)',
           backdropFilter:'blur(14px)',
           overflow:'hidden',
           animation:'heroIn 0.65s ease 0.42s both',
@@ -594,7 +589,7 @@ export default function Amc() {
               flex:1, minWidth:130,
               padding:'20px 16px',
               textAlign:'center',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+              borderRight: i < 3 ? '1px solid rgba(148,163,184,0.2)' : 'none',
             }}>
               <div style={{
                 fontFamily:'"Space Grotesk", sans-serif',
@@ -605,7 +600,7 @@ export default function Amc() {
               <div style={{
                 fontFamily:'"DM Sans", sans-serif',
                 fontWeight:400, fontSize:'0.68rem',
-                color:'rgba(255,255,255,0.38)',
+                color:'#64748b',
                 letterSpacing:'0.07em', textTransform:'uppercase',
                 marginTop:5,
               }}>{label}</div>
@@ -626,7 +621,7 @@ export default function Amc() {
             fontFamily:'"Space Grotesk", sans-serif',
             fontWeight:600, fontSize:'0.68rem',
             letterSpacing:'0.18em', textTransform:'uppercase',
-            color:'rgba(0,194,168,0.6)',
+            color:'rgb(0 194 168)',
           }}>What's Included</span>
           <div style={{ flex:1, height:1, background:'linear-gradient(90deg, rgba(0,194,168,0.2), transparent)' }}/>
         </div>
@@ -666,7 +661,7 @@ export default function Amc() {
           position:'relative', zIndex:2,
           fontFamily:'"DM Sans", sans-serif',
           fontWeight:300, fontSize:'0.95rem',
-          color:'rgba(255,255,255,0.38)',
+          color:'#64748b',
           textAlign:'center', marginBottom:36,
         }}>Choose a plan that fits your infrastructure. All plans include onboarding &amp; SLA agreement.</p>
 
@@ -688,7 +683,7 @@ export default function Amc() {
           <p style={{
             fontFamily:'"DM Sans", sans-serif',
             fontWeight:300, fontSize:'0.92rem',
-            color:'rgba(255,255,255,0.35)', textAlign:'center',
+            color:'#64748b', textAlign:'center',
           }}>
             Not sure which plan? Talk to our team for a free infrastructure audit.
           </p>
@@ -713,17 +708,17 @@ export default function Amc() {
             </button>
             <button style={{
               padding:'14px 38px', borderRadius:12,
-              border:'1px solid rgba(255,255,255,0.12)',
-              background:'rgba(255,255,255,0.04)',
+              border:'1px solid rgba(148,163,184,0.28)',
+              background:'#ffffff',
               backdropFilter:'blur(10px)',
-              color:'rgba(255,255,255,0.7)',
+              color:'#1d4ed8',
               fontFamily:'"Space Grotesk", sans-serif',
               fontWeight:600, fontSize:'0.95rem',
               cursor:'pointer',
               transition:'border-color 0.2s, background 0.2s',
             }}
               onMouseEnter={e => { e.target.style.borderColor='rgba(0,194,168,0.4)'; e.target.style.background='rgba(0,194,168,0.06)' }}
-              onMouseLeave={e => { e.target.style.borderColor='rgba(255,255,255,0.12)'; e.target.style.background='rgba(255,255,255,0.04)' }}
+              onMouseLeave={e => { e.target.style.borderColor='rgba(148,163,184,0.28)'; e.target.style.background='#ffffff' }}
             >
               Download Brochure
             </button>

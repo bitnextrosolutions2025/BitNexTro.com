@@ -153,9 +153,9 @@ export default function TermsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+      <div className="relative overflow-hidden bg-linear-to-br from-white via-blue-900 to-white text-slate-900">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-size-[40px_40px]" />
-        <div className="absolute inset-0 bg-linear-to-t from-slate-900/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-white/50 to-transparent" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="text-center">
@@ -163,7 +163,7 @@ export default function TermsPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-500 blur-2xl opacity-50 animate-pulse" />
                 <div className="relative bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20">
-                  <FileText className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
+                  <FileText className="w-12 h-12 sm:w-16 sm:h-16 text-slate-900" />
                 </div>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function TermsPage() {
             <div className="absolute inset-0 bg-grid-white/[0.05] bg-size-[30px_30px]" />
             <div className="absolute inset-0 bg-linear-to-br from-blue-600/50 to-transparent" />
             
-            <div className="relative text-center text-white">
+            <div className="relative text-center text-slate-900">
               <div className="inline-block bg-white/10 backdrop-blur-sm p-4 rounded-2xl mb-6">
                 <Shield className="w-10 h-10 sm:w-12 sm:h-12 mx-auto" />
               </div>
@@ -296,7 +296,7 @@ export default function TermsPage() {
                 </a>
                 <a 
                   href="mailto:support@bitnextro.com"
-                  className="w-full sm:w-auto bg-blue-500/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 border border-white/20 text-center"
+                  className="w-full sm:w-auto bg-blue-500/20 backdrop-blur-sm text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 border border-white/20 text-center"
                 >
                   support@bitnextro.com
                 </a>
@@ -315,7 +315,7 @@ export default function TermsPage() {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-6 right-6 bg-linear-to-r from-blue-600 to-purple-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 z-40 ${
+        className={`fixed bottom-6 right-6 bg-linear-to-r from-blue-600 to-purple-600 text-slate-900 p-3 sm:p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 z-40 ${
           scrollProgress > 20 ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
         }`}
         aria-label="Scroll to top"
