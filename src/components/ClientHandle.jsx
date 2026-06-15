@@ -69,7 +69,7 @@ export default function App() {
         {/* Large flowing blobs */}
     <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-green-700/50 blur-[130px] animate-pulse"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-slate-900/50 blur-[100px]"></div>
+        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-blue-50 blur-[100px]"></div>
 
         {/* Additional decorative floating elements */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl">
@@ -86,10 +86,10 @@ export default function App() {
             <Briefcase className="w-4 h-4" />
             <span>Portfolio Highlights</span>
           </div> */}
-          <h1 className="text-3xl md:text-5xl  font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-400 mb-6">
+          <h1 className="text-3xl md:text-5xl  font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-slate-800 to-slate-900 mb-6">
             Trusted by industry leaders.
           </h1>
-          <p className="text-lg text-green-500 leading-8">
+          <p className="text-lg text-green-300 leading-8">
             we partner with forward-thinking companies to build scalable solutions.
             From early-stage startups to established enterprises.
           </p>

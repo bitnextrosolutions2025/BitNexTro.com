@@ -33,7 +33,7 @@ export default function Refund() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Header Section */}
-      <div className="bg-linear-to-r from-slate-800 via-slate-700 to-blue-900 text-white py-20 px-6 mt-3">
+      <div className="bg-linear-to-r from-white via-slate-700 to-blue-900 text-slate-900 py-20 px-6 mt-3">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
@@ -75,7 +75,7 @@ export default function Refund() {
               className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-slate-200"
             >
               <div className="flex items-start gap-4">
-                <div className="shrink-0 bg-linear-to-br from-blue-500 to-slate-700 text-white p-3 rounded-lg">
+                <div className="shrink-0 bg-linear-to-br from-blue-500 to-blue-100 text-slate-900 p-3 rounded-lg">
                   {policy.icon}
                 </div>
                 <div className="flex-1">
@@ -106,7 +106,7 @@ export default function Refund() {
         </div>
 
         {/* Contact Section */}
-        <div className="bg-linear-to-br from-slate-800 to-blue-900 text-white rounded-2xl shadow-xl p-8 md:p-10">
+        <div className="bg-linear-to-br from-white to-blue-900 text-slate-900 rounded-2xl shadow-xl p-8 md:p-10">
           <div className="text-center mb-8">
             <div className="inline-block bg-white/10 backdrop-blur-sm p-4 rounded-2xl mb-4">
               <Mail className="w-10 h-10 text-blue-200 mx-auto" />
@@ -145,7 +145,7 @@ export default function Refund() {
 
         {/* Footer Note */}
         <div className="mt-12 text-center">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-600 text-sm">
             © 2025 Bitnextro Solutions Pvt Ltd. All rights reserved.
           </p>
         </div>

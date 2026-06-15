@@ -7,41 +7,41 @@ const WhyChooseUs = () => {
       id: 1,
       title: "Affordable & Flexible",
       description: "Pricing plans designed for you",
-      icon: <BadgeDollarSign className="w-8 h-8 text-white" />,
+      icon: <BadgeDollarSign className="w-8 h-8 text-slate-900" />,
       position: "top-left",
     },
     {
       id: 2,
       title: "Latest Technology",
       description: "Cutting-edge tools & stack",
-      icon: <Cpu className="w-8 h-8 text-white" />,
+      icon: <Cpu className="w-8 h-8 text-slate-900" />,
       position: "top-right",
     },
     {
       id: 3,
       title: "End-to-End Solutions",
       description: "Complete digital lifecycle",
-      icon: <Globe className="w-8 h-8 text-white" />,
+      icon: <Globe className="w-8 h-8 text-slate-900" />,
       position: "bottom-left",
     },
     {
       id: 4,
       title: "Long Term Growth",
       description: "Commitment to your success",
-      icon: <TrendingUp className="w-8 h-8 text-white" />,
+      icon: <TrendingUp className="w-8 h-8 text-slate-900" />,
       position: "bottom-right",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 md:p-10 font-sans">
+    <div className="min-h-screen bg-white text-gray-900 flex items-center justify-center p-4 md:p-10 font-sans">
       
       <div className="relative w-full max-w-4xl h-auto md:h-[600px] flex flex-col md:block items-center">
         
         {/* Mobile Header (Hidden on Desktop) */}
         <div className="md:hidden mb-8 text-center">
-          <h1 className="text-3xl font-bold text-white ">Why Choose Us?</h1>
-          <p className="text-green-500 mt-2">Discover our key advantages</p>
+          <h1 className="text-3xl font-bold text-blue-600 ">Why Choose Us?</h1>
+          <p className="text-green-600 mt-2">Discover our key advantages</p>
         </div>
 
         {/* --- DESKTOP ARROWS (SVG Layer) --- */}
@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
         </svg>
 
         {/* --- CENTRAL HUB (Rectangle) --- */}
-        <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-64 h-32 bg-linear-to-r from-blue-600 to-teal-500 rounded-xl shadow-xl flex-col items-center justify-center text-white transition-transform hover:scale-105 duration-300">
+        <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-64 h-32 bg-linear-to-r from-blue-600 to-teal-500 rounded-xl shadow-xl flex-col items-center justify-center text-slate-900 transition-transform hover:scale-105 duration-300">
           <h2 className="text-2xl font-bold uppercase tracking-wide">Why Choose Us</h2>
           <div className="w-12 h-1 bg-white/30 mt-2 rounded-full"></div>
         </div>
@@ -89,7 +89,7 @@ const WhyChooseUs = () => {
                 className={`
                   ${positionClass}
                   group
-                  flex flex-row md:flex-col items-center 
+                  flex flex-row md:flex-col items-center
                   bg-white md:bg-transparent 
                   p-4 md:p-0 rounded-xl shadow-sm md:shadow-none
                   md:w-48 transition-all duration-300 hover:-translate-y-1
@@ -103,7 +103,7 @@ const WhyChooseUs = () => {
                 {/* Text Content */}
                 <div className="ml-4 md:ml-0 md:mt-4 text-left md:text-center">
                   <h3 className="font-bold text-green-500 text-lg">{item.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                  <p className="text-sm text-slate-800 leading-relaxed">{item.description}</p>
                 </div>
               </div>
             );

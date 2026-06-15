@@ -59,7 +59,7 @@ export default function Websitedev() {
     <div
       className="relative min-h-screen overflow-hidden"
       style={{
-        background: "linear-gradient(155deg, #010510 0%, #030c20 22%, #051228 48%, #071530 68%, #030c20 100%)",
+        background: "#ffffff",
         fontFamily: "'Outfit', sans-serif",
       }}
     >
@@ -99,7 +99,7 @@ export default function Websitedev() {
 
         .card-glass {
           position: relative;
-          background: rgba(255, 255, 255, 0.04);
+          background: rgba(255, 255, 255, 0.96);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
           border: 1px solid rgba(59, 130, 246, 0.12);
@@ -116,11 +116,11 @@ export default function Websitedev() {
         }
         .card-glass:hover {
           transform: translateY(-10px) scale(1.025);
-          background: rgba(30, 58, 138, 0.18);
+          background: rgba(239, 246, 255, 0.98);
           border-color: rgba(96, 165, 250, 0.5);
           box-shadow:
             0 0 0 1px rgba(96, 165, 250, 0.25),
-            0 20px 50px rgba(29, 78, 216, 0.4),
+            0 20px 50px rgba(29, 78, 216, 0.14),
             0 0 80px rgba(59, 130, 246, 0.18),
             inset 0 1px 0 rgba(147, 197, 253, 0.15);
         }
@@ -135,10 +135,10 @@ export default function Websitedev() {
         .card-glass:hover .card-tag {
           background: rgba(37, 99, 235, 0.2);
           border-color: rgba(96, 165, 250, 0.55);
-          color: #bfdbfe;
+          color: #1d4ed8;
         }
         .card-glass:hover .card-title {
-          background: linear-gradient(135deg, #fff 0%, #bfdbfe 100%);
+          background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -207,7 +207,7 @@ export default function Websitedev() {
           font-family: 'Playfair Display', serif;
           font-size: 19px;
           font-weight: 700;
-          color: #fff;
+          color: #0f172a;
           margin-bottom: 12px;
           line-height: 1.25;
           transition: all 0.3s;
@@ -363,7 +363,7 @@ export default function Websitedev() {
 
           {/* H1 */}
           <h1
-            className="font-black text-white leading-tight mb-6"
+            className="font-black text-slate-900 leading-tight mb-6"
             style={{
               fontFamily: "'', serif",
               fontSize: "clamp(42px, 6vw, 82px)",
@@ -386,7 +386,7 @@ export default function Websitedev() {
           </h1>
 
           <p
-            className="text-slate-400 max-w-lg mx-auto font-light leading-relaxed mb-12"
+            className="text-slate-600 max-w-lg mx-auto font-light leading-relaxed mb-12"
             style={{ fontSize: "16.5px", lineHeight: "1.78" }}
           >
             From concept to launch — crafting digital experiences that captivate audiences,
@@ -455,7 +455,7 @@ export default function Websitedev() {
           <div
             className="relative text-center rounded-3xl overflow-hidden w-full max-w-xl"
             style={{
-              background: "rgba(255,255,255,0.04)",
+              background: "#ffffff",
               backdropFilter: "blur(28px)",
               WebkitBackdropFilter: "blur(28px)",
               border: "1px solid rgba(59,130,246,0.15)",
@@ -480,7 +480,7 @@ export default function Websitedev() {
             </p>
 
             <h2
-              className="text-white font-black leading-tight mb-4 relative z-10"
+              className="text-slate-900 font-black leading-tight mb-4 relative z-10"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(28px, 4vw, 46px)",

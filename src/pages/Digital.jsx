@@ -193,13 +193,13 @@ function ServiceCard({ service, index }) {
       className="relative flex flex-col items-start gap-5 rounded-2xl overflow-hidden cursor-default"
       style={{
         padding: "38px 28px 34px",
-        background: hovered ? "rgba(30,58,138,0.28)" : "rgba(255,255,255,0.06)",
+        background: hovered ? "rgba(239,246,255,0.96)" : "#ffffff",
         backdropFilter: "blur(22px)",
         WebkitBackdropFilter: "blur(22px)",
-        border: hovered ? "1px solid rgba(96,165,250,0.5)" : "1px solid rgba(255,255,255,0.1)",
+        border: hovered ? "1px solid rgba(96,165,250,0.5)" : "1px solid rgba(148,163,184,0.24)",
         boxShadow: hovered
-          ? "0 20px 60px rgba(29,78,216,0.35), 0 6px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(147,197,253,0.3)"
-          : "0 6px 28px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1)",
+          ? "0 20px 60px rgba(29,78,216,0.16), 0 6px 24px rgba(59,130,246,0.12), inset 0 1px 0 rgba(147,197,253,0.3)"
+          : "0 6px 28px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.1)",
         transform: hovered ? "translateY(-10px) scale(1.05)" : "translateY(0) scale(1)",
         transition: "all 0.42s cubic-bezier(0.23,1,0.32,1)",
         animation: "cardIn 0.7s ease both",
@@ -218,7 +218,7 @@ function ServiceCard({ service, index }) {
       <div
         className="absolute top-0 left-0 right-0 h-px transition-opacity duration-400"
         style={{
-          background: "linear-gradient(90deg, transparent, rgba(96,165,250,0.6), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(96,165,250), transparent)",
           opacity: hovered ? 1 : 0.2,
         }}
       />
@@ -229,8 +229,8 @@ function ServiceCard({ service, index }) {
           transform: hovered ? "scale(1.18) rotate(-5deg)" : "scale(1) rotate(0deg)",
           transition: "transform 0.42s cubic-bezier(0.23,1,0.32,1)",
           filter: hovered
-            ? "drop-shadow(0 0 14px rgba(96,165,250,0.9))"
-            : "drop-shadow(0 0 4px rgba(96,165,250,0.4))",
+            ? "drop-shadow(0 0 14px rgba(96,165,250))"
+            : "drop-shadow(0 0 4px rgba(96,165,250))",
         }}
       >
         {service.icon}
@@ -239,7 +239,7 @@ function ServiceCard({ service, index }) {
       {/* Title + bar */}
       <div>
         <div
-          className="text-white font-bold"
+          className="text-slate-900 font-bold"
           style={{
             fontFamily: '"Outfit", sans-serif',
             fontSize: "1.08rem",
@@ -301,7 +301,7 @@ export default function Digital() {
       <section
         className="relative min-h-screen w-full overflow-hidden flex flex-col items-center px-6 py-20"
         style={{
-          background: "linear-gradient(135deg, #010a1f 0%, #020d26 25%, #051535 50%, #071a42 75%, #020d26 100%)",
+          background: "#ffffff",
           backgroundSize: "300% 300%",
           animation: "navyShift 12s ease infinite",
           fontFamily: '"DM Sans", sans-serif',
@@ -387,7 +387,7 @@ export default function Digital() {
             </svg>
           </div>
           <span
-            className="text-white/90 font-bold tracking-widest text-sm"
+            className="text-slate-900/90 font-bold tracking-widest text-sm"
             style={{ fontFamily: '"Outfit", sans-serif' }}
           >
             GROWTHLAB
@@ -405,7 +405,7 @@ export default function Digital() {
           }}
         >
           <span
-            className="text-white font-semibold uppercase tracking-[0.2em]"
+            className="text-slate-900 font-semibold uppercase tracking-[0.2em]"
             style={{ fontFamily: '"Outfit", sans-serif', fontSize: "0.7rem" }}
           >
             Full-Funnel Marketing Agency
@@ -414,7 +414,7 @@ export default function Digital() {
 
         {/* Title */}
         <h1
-          className="relative z-10 text-white text-center font-black leading-tight"
+          className="relative z-10 text-slate-900 text-center font-black leading-tight"
           style={{
             fontFamily: '"Outfit", sans-serif',
             fontSize: "clamp(2.4rem, 6vw, 4.4rem)",
@@ -478,7 +478,7 @@ export default function Digital() {
               }}
             >
               <span
-                className="text-white font-extrabold text-2xl"
+                className="text-slate-900 font-extrabold text-2xl"
                 style={{
                   fontFamily: '"Outfit", sans-serif',
                   letterSpacing: "-0.02em",
@@ -536,7 +536,7 @@ export default function Digital() {
           style={{ animation: "heroIn 0.7s ease 0.95s both" }}
         >
           <button
-            className="px-10 py-4 rounded-xl text-white font-bold text-base border-none transition-all duration-200"
+            className="px-10 py-4 rounded-xl text-slate-900 font-bold text-base border-none transition-all duration-200"
             style={{
               fontFamily: '"Outfit", sans-serif',
               letterSpacing: "0.01em",
@@ -555,7 +555,7 @@ export default function Digital() {
             Contact us →
           </button>
           <button
-            className="px-10 py-4 rounded-xl text-white font-semibold text-base transition-all duration-200"
+            className="px-10 py-4 rounded-xl text-slate-900 font-semibold text-base transition-all duration-200"
             style={{
               fontFamily: '"Outfit", sans-serif',
               border: "1px solid rgba(96,165,250,0.35)",

@@ -74,8 +74,8 @@ function ServiceCard({ service, index }) {
         border transition-all duration-500
         backdrop-blur-xl
         ${hovered
-          ? "border-blue-400/60 bg-blue-950/40 shadow-[0_0_40px_rgba(59,130,246,0.25),0_20px_60px_rgba(0,0,0,0.6)] -translate-y-2 scale-[1.02]"
-          : "border-blue-800/30 bg-slate-900/40 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          ? "border-blue-400/60 bg-blue-50 shadow-[0_0_40px_rgba(59,130,246,0.18),0_20px_60px_rgba(59,130,246,0.12)] -translate-y-2 scale-[1.02]"
+          : "border-blue-800/30 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         }
       `}
     >
@@ -119,7 +119,7 @@ function ServiceCard({ service, index }) {
       {/* Title */}
       <h3
         className={`font-mono text-sm font-bold uppercase tracking-wider mb-3 transition-colors duration-300 ${
-          hovered ? "text-white" : "text-blue-100/80"
+          hovered ? "text-blue-700" : "text-slate-900"
         }`}
         style={{ fontFamily: "'Orbitron', 'Courier New', monospace" }}
       >
@@ -129,7 +129,7 @@ function ServiceCard({ service, index }) {
       {/* Description */}
       <p
         className={`font-mono text-xs leading-relaxed mb-5 transition-colors duration-300 ${
-          hovered ? "text-blue-100/90" : "text-slate-400/80"
+          hovered ? "text-slate-700" : "text-slate-600/80"
         }`}
       >
         {service.desc}
@@ -171,9 +171,9 @@ export default function Cybersecurity() {
   
   return (
     <div
-      className="min-h-screen  text-white relative overflow-hidden"
+      className="min-h-screen  text-slate-900 relative overflow-hidden"
       style={{
-        background: "linear-linear(135deg, #020818 0%, #050d24 40%, #030a1a 70%, #020510 100%)",
+        background: "#ffffff",
         fontFamily: "'Share Tech Mono', monospace",
       }}
     >
@@ -218,7 +218,7 @@ export default function Cybersecurity() {
 
       {/* Background grid */}
       <div
-        className="fixed bg-blue-950 inset-0 pointer-events-none z-0"
+        className="fixed bg-white inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `
             linear-linear(rgba(59,130,246,0.05) 1px, transparent 1px),
@@ -262,9 +262,9 @@ export default function Cybersecurity() {
 
       {/* Ticker bar */}
       <div
-        className="relative z-10 overflow-hidden py-2 border-b bg-blue-950 mt-44"
+        className="relative z-10 overflow-hidden py-2 border-b bg-blue-50 mt-44"
         style={{
-          background: "rgba(15,30,80,0.7)",
+          background: "rgba(239,246,255,0.9)",
           backdropFilter: "blur(10px)",
           borderColor: "rgba(59,130,246,0.25)",
         }}
@@ -296,7 +296,7 @@ export default function Cybersecurity() {
             className="fade-in-1 inline-flex items-center gap-2.5 px-5 py-2 rounded-full border mb-7"
             style={{
               border: "1px solid rgba(59,130,246,0.4)",
-              background: "rgba(15,30,80,0.35)",
+            background: "rgba(239,246,255,0.9)",
               backdropFilter: "blur(12px)",
             }}
           >
@@ -314,7 +314,7 @@ export default function Cybersecurity() {
 
           {/* Heading */}
           <h1
-            className="fade-in-2 font-black uppercase leading-tight mb-6 text-white"
+            className="fade-in-2 font-black uppercase leading-tight mb-6 text-slate-900"
             style={{
               fontFamily: "'Orbitron', monospace",
               fontSize: "clamp(36px, 6vw, 72px)",
@@ -336,7 +336,7 @@ export default function Cybersecurity() {
 
           {/* Subtitle */}
           <p
-            className="fade-in-3 text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed"
+            className="fade-in-3 text-slate-600 max-w-xl mx-auto mb-10 leading-relaxed"
             style={{ fontSize: "clamp(13px, 2vw, 16px)", lineHeight: 1.9 }}
           >
             Advanced threat protection for the modern enterprise. Defend your digital
@@ -346,7 +346,7 @@ export default function Cybersecurity() {
           {/* CTA Buttons */}
           <div className="fade-in-4 flex gap-4 justify-center flex-wrap">
             <button
-              className="font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg text-white text-sm transition-all duration-300 hover:-translate-y-1"
+              className="font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg text-slate-900 text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
                 fontFamily: "'', monospace",
                 background: "linear-linear(135deg, #1d4ed8, #3b82f6)",
@@ -363,16 +363,16 @@ export default function Cybersecurity() {
                
                 fontFamily: "'',monospace ",
                 border: "1px solid rgba(59,130,246,0.4)",
-                background: "rgba(15,30,80,0.3)",
+                background: "rgba(239,246,255,0.9)",
                 backdropFilter: "blur(10px)",
               }}
               onMouseEnter={e => {
                 e.target.style.borderColor = "rgba(96,165,250,0.8)";
-                e.target.style.background = "rgba(30,58,138,0.35)";
+                e.target.style.background = "rgba(219,234,254,0.95)";
               }}
               onMouseLeave={e => {
                 e.target.style.borderColor = "rgba(59,130,246,0.4)";
-                e.target.style.background = "rgba(15,30,80,0.3)";
+                e.target.style.background = "rgba(239,246,255,0.9)";
               }}
             >
               View Threat Report
@@ -415,7 +415,7 @@ export default function Cybersecurity() {
                 {stat.val}
               </div>
               <div
-                className="text-slate-500 uppercase tracking-widest"
+                className="text-slate-600 uppercase tracking-widest"
                 style={{ fontSize: "10px", letterSpacing: "2px" }}
               >
                 {stat.label}
@@ -448,7 +448,7 @@ export default function Cybersecurity() {
           className="mt-20 text-center py-16 px-10 rounded-2xl border relative overflow-hidden"
           style={{
             borderColor: "rgba(59,130,246,0.25)",
-            background: "rgba(10,20,60,0.45)",
+            background: "rgba(255,255,255,0.95)",
             backdropFilter: "blur(20px)",
           }}
         >
@@ -466,7 +466,7 @@ export default function Cybersecurity() {
             }}
           />
           <h2
-            className="font-black uppercase tracking-widest text-white mb-4 relative z-10"
+            className="font-black uppercase tracking-widest text-slate-900 mb-4 relative z-10"
             style={{
               fontFamily: "'', monospace",
               fontSize: "clamp(20px, 4vw, 36px)",
@@ -474,11 +474,11 @@ export default function Cybersecurity() {
           >
            Secure your data from attacks?
           </h2>
-          <p className="text-slate-400 mb-8 text-sm leading-relaxed max-w-md mx-auto relative z-10">
+          <p className="text-slate-600 mb-8 text-sm leading-relaxed max-w-md mx-auto relative z-10">
             Get a free security assessment and discover your vulnerabilities before attackers do.
           </p>
           <button
-            className="relative z-10 font-bold uppercase tracking-widest px-12 py-4 rounded-lg text-white text-sm transition-all duration-300"
+            className="relative z-10 font-bold uppercase tracking-widest px-12 py-4 rounded-lg text-slate-900 text-sm transition-all duration-300"
             style={{
               fontFamily: "'', monospace",
               background: "linear-linear(135deg, #1e3a8a, #2563eb, #1e3a8a)",

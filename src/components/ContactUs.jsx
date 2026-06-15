@@ -44,7 +44,7 @@ const ContactSectionLight = () => {
     //         .catch((error) => {console.error('Error!', error.message); handleError("Some error is occurred")});
     // };
     return (
-        <div className="w-full min-h-screen  flex items-center justify-center bg-slate-950 py-20 px-4">
+        <div className="w-full min-h-screen  flex items-center justify-center bg-white py-20 px-4">
             <div className="max-w-5xl w-full mx-auto">
 
                 <div className="grid lg:grid-cols-2 gap-0 lg:gap-12 bg-white rounded-4xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden" style={{ borderBottomRightRadius: "164px", borderTopLeftRadius: "100px" }}>
@@ -98,25 +98,25 @@ const ContactSectionLight = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="bg-linear-to-br from-emerald-400 to-teal-400 p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
+                    <div className="bg-linear-to-br from-blue-600 to-blue-700 p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
                         {/* Background Shapes */}
                         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
                         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-purple-500/20 blur-3xl"></div>
 
                         <div className="relative z-10">
-                            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-linear-to-r from-gray-900 via-blue-800 to-gray-900 mb-4">Contact Information</h3>
-                            <p className="text-gray-900 text-xl mb-8">Say something to start a live chat!</p>
+                            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-gray-100 to-white mb-4">Contact Information</h3>
+                            <p className="text-white text-xl mb-8">Say something to start a live chat!</p>
 
                             <div className="space-y-6">
-                                <div className="flex items-center space-x-4 text-gray-900 font-bold text-xl">
+                                <div className="flex items-center space-x-4 text-white font-bold text-xl">
                                     <Phone className="w-6 h-6" />
                                     <span>+91 9330855877</span>
                                 </div>
-                                <div className="flex items-center space-x-4 text-gray-900 font-bold  text-xl">
+                                <div className="flex items-center space-x-4 text-white font-bold  text-xl">
                                     <Mail className="w-6 h-6" />
                                   <a href="mailto:info@bitnextro.com">  <span>info@bitnextro.com</span></a>
                                 </div>
-                                <div className="flex items-center space-x-4 text-gray-900 font-bold  text-xl">
+                                <div className="flex items-center space-x-4 text-white font-bold  text-xl">
                                     <MapPin className="w-6 h-6" />
                                     <span>5, Park lane,Park Street<br/> Kol - 700016,West Bengal,India</span>
 

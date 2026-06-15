@@ -6,8 +6,8 @@ const style = `
 
 
   :root {
-    --deep: #0d0520;
-    --void: #110828;
+    --deep: #ffffff;
+    --void: #f8fafc;
     --violet: #1a0a3c;
     --purple: #2d1163;
     --royal: #4a1fa8;
@@ -15,10 +15,10 @@ const style = `
     --bright: #a855f7;
     --glow: #c084fc;
     --lavender: #e9d5ff;
-    --white: #f5f0ff;
-    --muted: #c4b5fd;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(167,139,250,0.15);
+    --white: #0f172a;
+    --muted: #475569;
+    --card: rgba(255,255,255,0.92);
+    --border: rgba(59,130,246,0.18);
   }
 
   .db-root {
@@ -34,7 +34,7 @@ const style = `
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 20px 64px;
-    background: rgba(13,5,32,0.7);
+    background: rgba(255,255,255,0.88);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
@@ -68,7 +68,7 @@ const style = `
     position: relative;
     background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(124,58,237,0.18) 0%, transparent 70%),
                 radial-gradient(ellipse 50% 50% at 20% 80%, rgba(74,31,168,0.2) 0%, transparent 60%),
-                linear-gradient(160deg, var(--void) 0%, var(--deep) 50%, #0a0218 100%);
+                linear-gradient(160deg, #ffffff 0%, #f8fafc 50%, #eff6ff 100%);
     overflow: hidden;
   }
 
@@ -183,7 +183,7 @@ const style = `
   .db-center .db-section-sub { margin: 0 auto 60px; }
 
   /* SERVICES */
-  .db-services { background: var(--void); }
+  .db-services { background: #ffffff; }
   .db-services-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   }
@@ -221,7 +221,7 @@ const style = `
   }
 
   /* FEATURES */
-  .db-features { background: linear-gradient(180deg, var(--deep) 0%, var(--void) 100%); }
+  .db-features { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
   .db-features-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
     border: 1px solid var(--border); border-radius: 24px; overflow: hidden;
@@ -248,7 +248,7 @@ const style = `
 
   /* WHY US */
   .db-why {
-    background: var(--void);
+    background: #ffffff;
     overflow: hidden;
   }
   .db-why-inner {
@@ -301,7 +301,7 @@ const style = `
 
   /* FOOTER */
   .db-footer {
-    background: #080215;
+    background: #ffffff;
     border-top: 1px solid var(--border);
     padding: 70px 64px 32px;
   }

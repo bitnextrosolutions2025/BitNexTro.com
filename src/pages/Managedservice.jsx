@@ -96,7 +96,7 @@ export default function Managedservice() {
 
         /* ── Glass card — navy-black tinted with blue border glow ── */
         .glass-card {
-          background: linear-gradient(135deg, rgba(8,16,40,0.75) 0%, rgba(3,7,20,0.85) 100%);
+          background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(248,250,252,0.96) 100%);
           backdrop-filter: blur(24px) saturate(1.6);
           -webkit-backdrop-filter: blur(24px) saturate(1.6);
           border: 1px solid rgba(59,130,246,0.14);
@@ -104,10 +104,10 @@ export default function Managedservice() {
           transition: all 0.38s cubic-bezier(0.23,1,0.32,1);
         }
         .glass-card:hover {
-          background: linear-gradient(135deg, rgba(13,27,65,0.80) 0%, rgba(5,12,35,0.90) 100%);
+          background: linear-gradient(135deg, rgba(239,246,255,0.96) 0%, rgba(255,255,255,0.98) 100%);
           border-color: rgba(59,130,246,0.38);
           box-shadow:
-            0 24px 64px rgba(0,0,0,0.75),
+            0 24px 64px rgba(59,130,246,0.16),
             0 0 40px rgba(37,99,235,0.12),
             0 0 0 1px rgba(59,130,246,0.10) inset,
             0 1px 0 rgba(147,197,253,0.10) inset;
@@ -214,14 +214,14 @@ export default function Managedservice() {
 
         /* ── Navbar ── */
         .nav-glass {
-          background: rgba(0,0,0,0.86);
+          background: rgba(255,255,255,0.90);
           backdrop-filter:blur(30px) saturate(1.8);
           -webkit-backdrop-filter:blur(30px) saturate(1.8);
           border-bottom:1px solid rgba(59,130,246,0.10);
         }
         .nav-link {
           position:relative; text-decoration:none;
-          color:rgba(255,255,255,0.32); font-size:14px; font-weight:500; transition:color .2s;
+          color:rgba(15,23,42,0.62); font-size:14px; font-weight:500; transition:color .2s;
         }
         .nav-link::after {
           content:''; position:absolute; bottom:-2px; left:0;
@@ -247,7 +247,7 @@ export default function Managedservice() {
         .btn-primary:hover::before { opacity:1; }
 
         .btn-ghost {
-          background: rgba(8,16,40,0.55);
+          background: rgba(255,255,255,0.94);
           backdrop-filter:blur(12px);
           border:1px solid rgba(59,130,246,0.20);
           color:rgba(147,197,253,0.80); cursor:pointer;
@@ -287,8 +287,8 @@ export default function Managedservice() {
 
       {/* ── ROOT ── */}
       <div
-        style={{ background:'linear-gradient(160deg,#000000 0%,#020a1e 35%,#030c22 65%,#000000 100%)', fontFamily:"'DM Sans',sans-serif" }}
-        className="relative min-h-screen overflow-x-hidden text-white">
+        style={{ background:'#ffffff', fontFamily:"'DM Sans',sans-serif" }}
+        className="relative min-h-screen overflow-x-hidden text-slate-900">
 
         {/* Background layers */}
         <div className="orb-1" />
@@ -301,7 +301,7 @@ export default function Managedservice() {
 
           {/* ══ NAV ══ */}
           <header className="nav-glass sticky top-0 z-50 flex items-center justify-between px-6 md:px-16 py-4">
-            <div className="font-syne flex items-center gap-3 text-xl font-extrabold tracking-tight text-white">
+            <div className="font-syne flex items-center gap-3 text-xl font-extrabold tracking-tight text-slate-900">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center"
                 style={{ background:'linear-gradient(135deg,#1e3a8a,#3b82f6)', boxShadow:'0 0 18px rgba(59,130,246,0.40)' }}>
                 {ic.logo}
@@ -326,11 +326,11 @@ export default function Managedservice() {
                   Managed IT Services
                 </span>
               </div>
-              <h1 className="text-5xl xl:text-[66px] font-extrabold leading-[1.05] tracking-tight text-white mb-6">
+              <h1 className="text-5xl xl:text-[66px] font-extrabold leading-[1.05] tracking-tight text-slate-900 mb-6">
                 IT That <span className="text-grad">Never Sleeps.<br /></span>
                 Partners That Never Leave.
               </h1>
-              <p className="text-base leading-relaxed font-light max-w-lg mb-10" style={{ color:'rgba(191,219,254,0.45)' }}>
+              <p className="text-base leading-relaxed font-light max-w-lg mb-10" style={{ color:'#475569' }}>
                 A fully outsourced technology partner that monitors, protects, and evolves your
                 infrastructure 24/7 — so your team stays focused on what truly moves the business forward.
               </p>
@@ -356,7 +356,7 @@ export default function Managedservice() {
                   style={{ borderColor:'rgba(59,130,246,0.08)' }}>
                   <div className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-blue-500/50" />
-                    <span className="text-xs" style={{ color:'rgba(191,219,254,0.45)' }}>{m.name}</span>
+                    <span className="text-xs" style={{ color:'#475569' }}>{m.name}</span>
                   </div>
                   <span className="font-syne text-sm font-bold text-blue-300 tracking-tight">{m.val}</span>
                 </div>
@@ -371,11 +371,11 @@ export default function Managedservice() {
             <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">
               <div>
                 <div className="eyebrow"><span className="eyebrow-line"/><span className="eyebrow-text">Core Services</span></div>
-                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
+                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-slate-900 leading-[1.08]">
                   Six Pillars of<br /><span className="text-grad">Managed Excellence</span>
                 </h2>
               </div>
-              <p className="text-sm leading-relaxed font-light max-w-xs" style={{ color:'rgba(191,219,254,0.38)' }}>
+              <p className="text-sm leading-relaxed font-light max-w-xs" style={{ color:'#475569' }}>
                 Specialist service lines unified under one responsive account team — with transparent SLA reporting and a dedicated engineer on your account.
               </p>
             </div>
@@ -388,8 +388,8 @@ export default function Managedservice() {
                       {String(i+1).padStart(2,'0')}
                     </span>
                   </div>
-                  <h3 className="font-syne text-base font-bold text-white mb-2.5">{s.name}</h3>
-                  <p className="text-sm leading-relaxed font-light" style={{ color:'rgba(191,219,254,0.40)' }}>{s.desc}</p>
+                  <h3 className="font-syne text-base font-bold text-slate-900 mb-2.5">{s.name}</h3>
+                  <p className="text-sm leading-relaxed font-light" style={{ color:'#475569' }}>{s.desc}</p>
                   <div className="learn-more flex items-center gap-1.5 mt-5 text-xs font-semibold text-blue-400">
                     Learn more {ic.arrow}
                   </div>
@@ -404,10 +404,10 @@ export default function Managedservice() {
           <section className="px-6 md:px-16 py-24">
             <div className="mb-14">
               <div className="eyebrow"><span className="eyebrow-line"/><span className="eyebrow-text">Our Methodology</span></div>
-              <h2 className="text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08]">
+              <h2 className="text-4xl xl:text-[46px] font-extrabold tracking-tight text-slate-900 leading-[1.08]">
                 From Discovery<br />to <span className="text-grad">Always-On</span>
               </h2>
-              <p className="text-sm leading-relaxed font-light max-w-lg mt-3" style={{ color:'rgba(191,219,254,0.38)' }}>
+              <p className="text-sm leading-relaxed font-light max-w-lg mt-3" style={{ color:'#475569' }}>
                 A proven four-phase onboarding and service delivery model refined across hundreds of enterprise deployments.
               </p>
             </div>
@@ -415,11 +415,11 @@ export default function Managedservice() {
               style={{ border:'1px solid rgba(59,130,246,0.12)' }}>
               {steps.map((s,i)=>(
                 <div key={i} className="step-cell group flex flex-col p-10 border-b xl:border-b-0 xl:border-r last:border-r-0"
-                  style={{ background:'rgba(5,10,28,0.90)', backdropFilter:'blur(20px)', borderColor:'rgba(59,130,246,0.09)' }}>
+                  style={{ background:'rgba(255,255,255,0.94)', backdropFilter:'blur(20px)', borderColor:'rgba(59,130,246,0.14)' }}>
                   <div className="step-num mb-5">{s.n}</div>
                   <div className="icon-box w-11 h-11 rounded-full flex items-center justify-center mb-5 shrink-0">{ic[s.icon]}</div>
-                  <h4 className="font-syne text-sm font-bold text-white mb-2.5">{s.title}</h4>
-                  <p className="text-xs leading-relaxed font-light flex-1" style={{ color:'rgba(191,219,254,0.40)' }}>{s.desc}</p>
+                  <h4 className="font-syne text-sm font-bold text-slate-900 mb-2.5">{s.title}</h4>
+                  <p className="text-xs leading-relaxed font-light flex-1" style={{ color:'#475569' }}>{s.desc}</p>
                   <span className="mt-5 w-fit px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.18em] uppercase"
                     style={{ color:'rgba(147,197,253,0.50)', border:'1px solid rgba(59,130,246,0.20)', background:'rgba(29,78,216,0.10)' }}>
                     {s.tag}
@@ -451,7 +451,7 @@ export default function Managedservice() {
                   style={{ borderColor:'rgba(59,130,246,0.08)' }}>
                   <div className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-blue-500/50" />
-                    <span className="text-xs" style={{ color:'rgba(191,219,254,0.45)' }}>{m.name}</span>
+                    <span className="text-xs" style={{ color:'#475569' }}>{m.name}</span>
                   </div>
                   <span className="font-syne text-sm font-bold text-blue-300 tracking-tight">{m.val}</span>
                 </div>
@@ -485,10 +485,10 @@ export default function Managedservice() {
               </div>
 
               <div>
-                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+                <h2 className=" text-4xl xl:text-[46px] font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-5">
                   The Numbers<br /><span className="text-grad">Prove Everything</span>
                 </h2>
-                <p className="text-sm font-light leading-relaxed mb-9" style={{ color:'rgba(191,219,254,0.40)' }}>
+                <p className="text-sm font-light leading-relaxed mb-9" style={{ color:'#475569' }}>
                   We are not a break-fix vendor — we are a long-term technology partner. Our model is built on proactive prevention,
                   measurable outcomes, and radical transparency. Fixed monthly pricing means predictable IT spend with no hidden costs
                   and no surprises. Our clients trust us not because we promise results — but because our numbers consistently prove it,
@@ -500,8 +500,8 @@ export default function Managedservice() {
                       style={{ borderColor:'rgba(59,130,246,0.09)' }}>
                       <div className="icon-box w-10 h-10 rounded-xl shrink-0 flex items-center justify-center mt-0.5">{ic[f.k]}</div>
                       <div>
-                        <h5 className="font-syne text-sm font-bold text-white mb-1">{f.title}</h5>
-                        <p className="text-xs font-light leading-relaxed" style={{ color:'rgba(191,219,254,0.40)' }}>{f.desc}</p>
+                        <h5 className="font-syne text-sm font-bold text-slate-900 mb-1">{f.title}</h5>
+                        <p className="text-xs font-light leading-relaxed" style={{ color:'#475569' }}>{f.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -514,10 +514,10 @@ export default function Managedservice() {
           <div className="px-6 md:px-16 py-16">
             <div className="cta-wrap glass-card p-10 md:p-14 flex items-center justify-between gap-9 flex-wrap">
               <div className="relative z-10">
-                <h3 className="text-3xl xl:text-4xl font-extrabold text-white mb-2 leading-tight tracking-tight">
+                <h3 className="text-3xl xl:text-4xl font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
                   Ready to Hand Off Your IT?
                 </h3>
-                <p className="text-sm font-light" style={{ color:'rgba(191,219,254,0.42)' }}>
+                <p className="text-sm font-light" style={{ color:'#475569' }}>
                   Book a free infrastructure audit — no obligation, no sales pitch. Just total clarity.
                 </p>
               </div>

@@ -142,7 +142,7 @@ export default function Network() {
         body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           overflow-x: hidden;
-          background: #0a0a0a;
+          background: #FFFFFF ;
         }
 
         .network-section {
@@ -159,8 +159,7 @@ export default function Network() {
           width: 100%;
           height: 100%;
           z-index: 0;
-          background: linear-gradient(135deg, #0a0f1f 0%, #0d1b2d 25%, #0e2a4e 50%, #0d1b2d 75%, #0a0f1f 100%);
-          background-size: 400% 400%;
+          background: #ffff;
           animation: gradientShift 15s ease infinite;
         }
 
@@ -227,10 +226,10 @@ export default function Network() {
         .section-badge {
           display: inline-block;
           padding: 10px 24px;
-          background: rgba(59, 130, 246, 0.15);
+          background: #b9b9a6;
           border: 1px solid rgba(59, 130, 246, 0.3);
           border-radius: 50px;
-          color: #60a5fa;
+          color: black;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: 1px;
@@ -242,7 +241,7 @@ export default function Network() {
         .section-title {
           font-size: clamp(2.5rem, 5vw, 4rem);
           font-weight: 700;
-          background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+          background: linear-gradient(135deg, #0f172a, #2563eb);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -252,7 +251,7 @@ export default function Network() {
 
         .section-subtitle {
           font-size: clamp(1.1rem, 2vw, 1.3rem);
-          color: rgba(255, 255, 255, 0.7);
+          color: black;
           max-width: 700px;
           margin: 0 auto;
           line-height: 1.6;
@@ -269,7 +268,7 @@ export default function Network() {
           position: relative;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(20px);
-          border: 1px solid rgba(59, 130, 246, 0.2);
+          border:1px solid rgb(1 11 23);
           border-radius: 24px;
           padding: 40px;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -362,7 +361,7 @@ export default function Network() {
 
         .service-description {
           font-size: 1rem;
-          color: rgba(255, 255, 255, 0.6);
+          color: black;
           line-height: 1.7;
           margin-bottom: 24px;
           position: relative;
@@ -376,7 +375,7 @@ export default function Network() {
         }
 
         .service-features li {
-          color: rgba(255, 255, 255, 0.5);
+          color: black;
           font-size: 0.95rem;
           margin-bottom: 10px;
           padding-left: 24px;
@@ -450,6 +449,9 @@ export default function Network() {
 
         .trust-item {
           display: flex;
+          padding: 15px;
+          border: 1px solid rgb(0 0 0);
+          border-radius: 10px;
           flex-direction: column;
           align-items: center;
           gap: 12px;
@@ -477,12 +479,10 @@ export default function Network() {
         .trust-label {
           font-size: 1rem;
           font-weight: 600;
-          color: #ffffff;
         }
 
         .trust-value {
           font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.5);
         }
 
         @media (max-width: 768px) {

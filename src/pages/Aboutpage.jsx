@@ -139,13 +139,13 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-white text-slate-800 overflow-hidden font-sans selection:bg-emerald-500/30">
       
       {/* --- Animated Background --- */}
       <div className="fixed inset-0 z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-green-700/50 blur-[130px] animate-pulse"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-slate-900/50 blur-[100px]"></div>
+        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-white blur-[100px]"></div>
         {/* Grid Overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-linears.vercel.app/noise.svg')] opacity-5"></div>
       </div>
@@ -165,14 +165,14 @@ export default function AboutPage() {
                 Leading the Future of IT
               </div>
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-slate-900">
                 Building <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-400">Intelligent</span> <br />
                 Infrastructure.
               </h1>
               
-              <div className="space-y-6 text-slate-400 text-lg leading-relaxed max-w-xl">
+              <div className="space-y-6 text-slate-600 text-lg leading-relaxed max-w-xl">
                 <p>
-                  <strong className="text-white">BitNextro Solutions</strong> architects the digital backbone of modern enterprises. We transform complex challenges into streamlined, secure, and scalable technology ecosystems.
+                  <strong className="text-slate-900">BitNextro Solutions</strong> architects the digital backbone of modern enterprises. We transform complex challenges into streamlined, secure, and scalable technology ecosystems.
                 </p>
               </div>
               
@@ -180,7 +180,7 @@ export default function AboutPage() {
                 <button className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-8 py-4 rounded-lg font-bold transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transform hover:-translate-y-1 flex items-center gap-2">
                   Launch Project <ArrowRight className="w-5 h-5" />
                 </button>
-                <button className="bg-slate-800/50 hover:bg-slate-800 text-white border border-slate-700 hover:border-slate-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm">
+                <button className="bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 hover:border-slate-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm">
                   Explore Capabilities
                 </button>
               </div>
@@ -196,15 +196,15 @@ export default function AboutPage() {
       </section>
 
       {/* --- Stats Section --- */}
-      <div className="relative z-10 border-y border-white/5 bg-slate-900/30 backdrop-blur-sm">
+      <div className="relative z-10 border-y border-white/5 bg-white/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <RevealSection key={index} className="text-center group">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-2 font-mono group-hover:text-emerald-400 transition-colors duration-300">
+                <div className="text-4xl lg:text-5xl font-bold text-slate-900 mb-2 font-mono group-hover:text-emerald-400 transition-colors duration-300">
                   <AnimatedCounter end={stat.number} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm text-slate-400 uppercase tracking-widest font-semibold">{stat.label}</div>
+                <div className="text-sm text-slate-600 uppercase tracking-widest font-semibold">{stat.label}</div>
               </RevealSection>
             ))}
           </div>
@@ -215,8 +215,8 @@ export default function AboutPage() {
       <section className="relative py-20 lg:py-32 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection className="text-center mb-20">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">Core Capabilities</h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-6">Core Capabilities</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               We deploy end-to-end solutions that bridge the gap between current infrastructure and future innovation.
             </p>
           </RevealSection>
@@ -224,12 +224,12 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <RevealSection key={index}>
-                <div className="h-full bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-white/5 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
-                  <div className="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-all duration-300 text-slate-300">
+                <div className="h-full bg-white backdrop-blur-md rounded-2xl p-8 border border-white/5 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                  <div className="w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-all duration-300 text-slate-700">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">{service.title}</h3>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-emerald-400 transition-colors">{service.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </div>
@@ -240,15 +240,15 @@ export default function AboutPage() {
       </section>
 
       {/* --- Values Section --- */}
-      <section className="relative py-20 bg-slate-900/50 z-10">
+      <section className="relative py-20 bg-white z-10">
         <div className="absolute inset-0 bg-[url('https://grainy-linears.vercel.app/noise.svg')] opacity-5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <RevealSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
                 Engineered for <span className="text-emerald-400">Excellence</span>.
               </h2>
-              <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
                 Our methodology is rooted in the belief that technology should be an enabler, not a bottleneck. We adhere to strict principles of transparency, security, and velocity.
               </p>
               
@@ -261,8 +261,8 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold mb-1">{value.title}</h3>
-                      <p className="text-sm text-slate-500">{value.description}</p>
+                      <h3 className="text-slate-900 font-bold mb-1">{value.title}</h3>
+                      <p className="text-sm text-slate-600">{value.description}</p>
                     </div>
                   </div>
                 ))}
@@ -271,9 +271,9 @@ export default function AboutPage() {
             
             <RevealSection className="relative">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                 <div className="aspect-video bg-linear-to-br from-slate-800 to-slate-900 flex items-center justify-center relative group overflow-hidden">
+                 <div className="aspect-video bg-linear-to-br from-white to-white flex items-center justify-center relative group overflow-hidden">
                     {/* Simulated Code Block */}
-                    <div className="absolute inset-0 p-8 font-mono text-xs text-slate-200 opacity-30">
+                    <div className="absolute inset-0 p-8 font-mono text-xs text-slate-800 opacity-30">
                        <div>import &#123; Future &#125; from '@bitnextro/core';</div>
                        <br/>
                        <div>class EnterpriseScale extends Infrastructure &#123;</div>
@@ -304,13 +304,13 @@ export default function AboutPage() {
       <section className="relative py-24 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <RevealSection>
-            <div className="bg-linear-to-b from-emerald-900/40 to-slate-900/40 backdrop-blur-xl border border-emerald-500/20 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
+            <div className="bg-linear-to-b from-emerald-900/40 to-white/40 backdrop-blur-xl border border-emerald-500/20 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-linear-to-r from-transparent via-emerald-500 to-transparent"></div>
               
-              <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-6">
                 Ready to Scale?
               </h2>
-              <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+              <p className="text-xl text-slate-700 mb-10 max-w-2xl mx-auto">
                 Join the industry leaders who trust BitNextro with their digital evolution.
               </p>
               
@@ -318,7 +318,7 @@ export default function AboutPage() {
                 <button className="bg-white text-slate-950 px-10 py-4 rounded-lg font-bold hover:bg-emerald-50 transition-all duration-300 shadow-xl flex items-center justify-center gap-2">
                   <Globe className="w-5 h-5" /> Start Transformation
                 </button>
-                <button className="bg-transparent text-white border border-white/20 px-10 py-4 rounded-lg font-bold hover:bg-white/10 transition-all duration-300">
+                <button className="bg-transparent text-slate-900 border border-white/20 px-10 py-4 rounded-lg font-bold hover:bg-white/10 transition-all duration-300">
                   Schedule Consultation
                 </button>
               </div>

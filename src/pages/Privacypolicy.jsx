@@ -223,7 +223,7 @@ export default function Privacypolicy() {
 const styles = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#0a0e27',
+    backgroundColor: '#ffffff',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -303,7 +303,7 @@ const styles = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: 'clamp(2.5rem, 8vw, 5rem)',
     fontWeight: '700',
-    color: '#ffffff',
+    color: '#0f172a',
     marginBottom: '24px',
     lineHeight: '1.1',
     letterSpacing: '-0.02em',
@@ -316,7 +316,7 @@ const styles = {
   },
   heroDescription: {
     fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-    color: '#94a3b8',
+    color: '#475569',
     lineHeight: '1.7',
     maxWidth: '700px',
     margin: '0 auto 48px',
@@ -328,7 +328,7 @@ const styles = {
     gap: 'clamp(16px, 4vw, 48px)',
     flexWrap: 'wrap',
     padding: '32px',
-    backgroundColor: 'rgba(15, 23, 42, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     border: '1px solid rgba(59, 130, 246, 0.2)',
     borderRadius: '16px',
     backdropFilter: 'blur(20px)',
@@ -374,7 +374,7 @@ const styles = {
   card: {
     position: 'relative',
     padding: 'clamp(24px, 4vw, 32px)',
-    backgroundColor: 'rgba(15, 23, 42, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     border: '1px solid rgba(59, 130, 246, 0.2)',
     borderRadius: '20px',
     backdropFilter: 'blur(20px)',
@@ -416,13 +416,13 @@ const styles = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
     fontWeight: '600',
-    color: '#ffffff',
+    color: '#0f172a',
     marginBottom: '16px',
     lineHeight: '1.3',
   },
   cardContent: {
     fontSize: 'clamp(0.875rem, 1.8vw, 1rem)',
-    color: '#94a3b8',
+    color: '#475569',
     lineHeight: '1.7',
     marginBottom: '20px',
   },
@@ -468,12 +468,12 @@ const styles = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
     fontWeight: '700',
-    color: '#ffffff',
+    color: '#0f172a',
     marginBottom: '16px',
   },
   ctaText: {
     fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-    color: '#94a3b8',
+    color: '#475569',
     lineHeight: '1.7',
     marginBottom: '32px',
   },
@@ -483,7 +483,7 @@ const styles = {
     gap: '12px',
     padding: '16px 32px',
     background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-    color: '#ffffff',
+    color: '#0f172a',
     fontSize: 'clamp(0.938rem, 1.8vw, 1.063rem)',
     fontWeight: '600',
     borderRadius: '12px',
@@ -528,7 +528,7 @@ const styles = {
     zIndex: 1,
     padding: '40px 24px',
     borderTop: '1px solid rgba(59, 130, 246, 0.2)',
-    backgroundColor: 'rgba(10, 14, 39, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     backdropFilter: 'blur(10px)',
   },
   footerContent: {
@@ -563,4 +563,3 @@ const styles = {
     color: '#64748b',
   },
 };
- 
