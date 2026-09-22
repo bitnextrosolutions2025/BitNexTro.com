@@ -3,6 +3,7 @@ import './App.css'
 import HomePage from './components/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import {
   BrowserRouter,
   Routes,
@@ -56,10 +57,11 @@ function App() {
           <Navbar />
           <ToastContainer transition={Flip} />
           <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/career' element={<Career />} />
-            <Route path='/contact' element={<Contactpage />} />
+            <ScrollToTop />
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/career' element={<Career />} />
+              <Route path='/contact' element={<Contactpage />} />
             <Route path='/about' element={<Aboutpage />} />
             <Route path='/privacy' element={<Privacypolicy />} />
             <Route path='/terms' element={<Termspage />} />

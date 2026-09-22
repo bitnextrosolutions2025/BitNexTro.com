@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Menu, X, ArrowRight, Zap, Target, Users, CheckCircle, Star, Mail, Phone, MapPin, AlarmClock, ServerCog, Fingerprint, Telescope, Facebook, Linkedin, Twitter, Code, HardDrive, CloudUpload, Shield, Globe, Award, ArrowLeftCircle } from 'lucide-react';
-import logo_final from "../assets/f_logo.jpg"
+import logo_final from "../assets/t_logo.png"
 import pic1 from "../assets/pic1.png"
 import vedio from "../assets/vedio2.mp4"
 import img3 from "../assets/about.jpeg"
@@ -89,106 +91,97 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-500/30 overflow-hidden relative">
 
-      {/* Animated Background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden bg-white">
-
-        {/* Animated Gradient Waves */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient from-blue-50 via-white to-green-50 animate-gradient-shift"></div>
-        </div>
-
-        {/* Floating Blobs */}
-<div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-green-200/30 blur-[130px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-200/30 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-gray-200/20 blur-[100px]"></div>
-
-        {/* Animated Lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-10">
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="50%" stopColor="#A855F7" />
-              <stop offset="100%" stopColor="#EC4899" />
-            </linearGradient>
-          </defs>
-          <path className="animate-draw-line" d="M0,100 Q250,50 500,100 T1000,100" stroke="url(#lineGradient)" strokeWidth="2" fill="none" />
-          <path className="animate-draw-line animation-delay-2000" d="M0,300 Q250,250 500,300 T1000,300" stroke="url(#lineGradient)" strokeWidth="2" fill="none" />
-        </svg>
-      </div>
+      {/* Animated Background removed to maintain clean premium design */}
 
 
       {/* Navbar */}
 
       <WhatsAppContact />
-      {/* Hero Section */}
-      <section
-  id="home"
-  className="relative h-screen flex items-center justify-center overflow-hidden"
->
-  {/* Background Video */}
-  <video
-    className="absolute inset-0 w-full h-full object-cover md:block"
-    playsInline
-    muted
-    autoPlay
-    loop
-  >
-    <source src={vedio} type="video/mp4" />
-  </video>
+      {/* Cinematic Dark Hero */}
+      <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col pt-32 lg:pt-40 pb-16 bg-[#070d10]">
+        
+        {/* Full Bleed Background Video */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            playsInline
+            muted
+            autoPlay
+            loop
+          >
+            <source src={vedio} type="video/mp4" />
+          </video>
+        </div>
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/40"></div>
+        {/* Cinematic Dark Overlay */}
+        <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070d10] via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+        
+        {/* Architectural Grid Lines (Subtle White) */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
+          {/* Vertical line 1 */}
+          <div className="absolute top-0 bottom-0 left-[8%] w-[1px] bg-white/5"></div>
+          {/* Vertical line 2 */}
+          <div className="absolute top-0 bottom-0 left-[50%] w-[1px] bg-white/5"></div>
+          {/* Horizontal line */}
+          <div className="absolute top-[25%] left-0 right-0 h-[1px] bg-white/5"></div>
+        </div>
 
-  {/* Content */}
-  <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
-    <h1
-      className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-[#d5ff03] via-[#40ff00] to-[#6aff00] text-transparent bg-clip-text animate-fade-in-up"
-      style={{ fontFamily: "Lato" }}
-    >
-      Empowering <br /> The next generation of IT <br /> With Zero compromise
-    </h1>
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full flex flex-col">
+          
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
+            }}
+            className="flex flex-col items-start w-full lg:max-w-6xl"
+          >
 
-    <p className="text-xl md:text-3xl text-white font-bold mb-8 bg-blue-600 inline-block px-4 py-2 rounded-xl animate-bounce">
-      Professional services that drive growth, innovation, and success
-    </p>
-    <br />
 
-    {/* Glassmorphic Floating Buttons */}
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-2">
-      
-      {/* Button 1: Urgent Work (Green Highlight) */}
-      <button className="relative px-8 py-3 rounded-full bg-green-600/10 backdrop-blur-lg border border-green-600/50 text-green-700 font-bold tracking-wide shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] hover:bg-green-600/20 transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 cursor-pointer">
-        {/* Pulsing indicator for "Urgent" */}
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-600 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600"></span>
-        </span>
-        Urgent Work
-      </button>
+            {/* Scaled-down Typography - White Text */}
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}
+              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold text-white tracking-tight leading-[1.1] mb-6 max-w-3xl -mt-4 lg:-mt-10"
+            >
+              Transforming <br /> 
+              Business Reality <br />
+              <span className="italic font-serif font-light text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-green-400 pr-4">Through technology.</span>
+            </motion.h1>
 
-      {/* Button 2: Get a call (Blue Highlight) */}
-      <button className="relative px-8 py-3 rounded-full bg-blue-600/20 backdrop-blur-lg border border-blue-600/50 text-blue-700 font-bold tracking-wide shadow-[0_0_15px_rgba(59,130,246,0.4)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7)] hover:bg-blue-600/40 transition-all duration-300 flex items-center gap-2 group hover:-translate-y-1 cursor-pointer">
-        Get a call
-        {/* Phone Icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 group-hover:rotate-12 transition-transform"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
-      </button>
-      
-    </div>
-  </div>
-</section>
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
+              className="flex flex-col gap-8 w-full max-w-2xl items-start"
+            >
+              <p className="font-body text-[17px] sm:text-lg lg:text-xl text-white/80 font-medium leading-relaxed">
+                Managed IT, Cybersecurity & AI Solutions for Growing Businesses
+              </p>
+
+              {/* High-End CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mt-2 w-full sm:w-auto">
+                <button onClick={(e) => handleclick(e)} className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+                  <span className="relative z-10 text-[15px] tracking-wide">
+                    Start Your Project
+                  </span>
+                  <div className="relative z-10 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors duration-300">
+                    <ArrowRight size={16} />
+                  </div>
+                </button>
+
+                <button onClick={(e) => handlelink('#contact', e)} className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)]">
+                  <span className="text-[15px] tracking-wide">
+                    Talk to an Expert
+                  </span>
+                  <ArrowRight size={16} className="text-blue-400 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* <div className='mt-8 h-[600px]  animate-fade-in-up '>
 
@@ -198,60 +191,104 @@ const HomePage = () => {
       <section
         id="about"
         data-animate
-        className={`relative py-24 px-6 transition-all duration-1000 
-  ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        style={{
-          background: "linear-gradient(135deg, rgb(87 233 156), rgb(19 118 68))",
-          borderBottomLeftRadius: "20px",
-          borderBottomRightRadius: "20px",
-        }}
+        className={`relative py-16 lg:py-20 px-6 transition-all duration-1000 bg-[#FAFAFA] overflow-hidden
+          ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-blue-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-green-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
             {/* LEFT CONTENT */}
-            <div>
-              <div className='flex justify-center'>
-                <p className="inline-block text-center w-[150px] mb-3 px-4 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
-                  About BitNextro
-                </p>
+            <div className="order-2 lg:order-1 flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                <span className="text-sm font-semibold tracking-wide text-slate-800 uppercase">
+                  About BitNexTro
+                </span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-linear-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent text-center">
-                Building Smart Technology for Modern Businesses
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-8 leading-[1.15] tracking-tight">
+                Building Smart <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-green-500">Technology</span> for Modern Businesses
               </h2>
 
-
-
-              <p className="text-gray-900 text-xl font-bold leading-relaxed mb-5">
-                BitNextro Solutions is a next-generation IT company focused on transforming
-                ideas into powerful digital solutions. We design reliable software,
-                scalable infrastructure, and secure systems that simplify business operations
-                and accelerate growth.
+              <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+                BitNexTro Solutions is a next-generation IT company focused on transforming ideas into powerful digital solutions. We engineer reliable software, scalable infrastructure, and secure systems that simplify business operations and accelerate growth.
               </p>
 
-              <p className="text-gray-900 text-xl font-bold leading-relaxed">
-                Our mission is to deliver practical, end-to-end IT services — from networking
-                and cybersecurity to enterprise support — enabling organizations to thrive
-                in an ever-evolving digital landscape.
-              </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-10">
+                Our mission is to deliver practical, end-to-end IT services — from networking and cybersecurity to enterprise support — enabling organizations to thrive in an ever-evolving digital landscape.</p>
 
-              {/* CTA */}
-              <button className="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold shadow-md transition animate-bounce">
-                Learn More About Us
-              </button>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 w-full mt-4">
+                <div className="flex flex-col items-start p-5 bg-blue-50/50 rounded-2xl border border-blue-100 hover:shadow-md transition-all hover:-translate-y-1">
+                  
+                  <ServerCog className="w-8 h-8 text-blue-600 mb-3" />
+                    <h3 className="font-bold text-slate-900 text-[13px] mb-2 uppercase tracking-wider">Managed IT</h3>
+                  <p className="text-slate-600 text-sm leading-snug font-medium">Keep your business running.</p></div>
+                <div className="flex flex-col items-start p-5 bg-green-50/50 rounded-2xl border border-green-100 hover:shadow-md transition-all hover:-translate-y-1">
+                  
+                  <Shield className="w-8 h-8 text-green-600 mb-3" />
+                    <h3 className="font-bold text-slate-900 text-[13px] mb-2 uppercase tracking-wider">Cybersecurity</h3>
+                  <p className="text-slate-600 text-sm leading-snug font-medium">Protect your business from evolving threats.</p></div>
+                <div className="flex flex-col items-start p-5 bg-purple-50/50 rounded-2xl border border-purple-100 hover:shadow-md transition-all hover:-translate-y-1">
+                  
+                  <Zap className="w-8 h-8 text-purple-600 mb-3" />
+                    <h3 className="font-bold text-slate-900 text-[13px] mb-2 uppercase tracking-wider">AI & Automation</h3>
+                  <p className="text-slate-600 text-sm leading-snug font-medium">Work smarter. Automate more.</p></div>
+              </div>
+
+              <Link 
+                to="/about"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all duration-300 hover:bg-blue-600 hover:shadow-[0_8px_30px_rgb(37,99,235,0.3)] hover:-translate-y-0.5"
+              >
+                <span className="relative z-10">Learn More About Us</span>
+                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
-            {/* RIGHT VISUAL / STATS */}
-            <div className="relative">
-              <img className='rounded-2xl' src={img3} alt="binextro-homepage-pic" loading="lazy" decoding="async" />
+            {/* RIGHT VISUAL */}
+            <div className="order-1 lg:order-2 relative w-full max-w-[440px] mx-auto lg:ml-auto aspect-square group cursor-pointer perspective-1000">
+              {/* Animated Glow Behind */}
+              <div className="absolute inset-0 bg-linear-to-tr from-blue-500/30 to-green-400/30 rounded-[2rem] transform rotate-3 scale-100 transition-all duration-700 group-hover:rotate-6 group-hover:scale-105 group-hover:shadow-2xl opacity-50 blur-xl group-hover:blur-2xl group-hover:opacity-80" />
+              
+              {/* Offset Background Card */}
+              <div className="absolute inset-0 bg-linear-to-tr from-blue-100 to-green-50 rounded-[2rem] transform rotate-3 transition-transform duration-700 group-hover:rotate-8 group-hover:translate-x-3 group-hover:-translate-y-3" />
+              
+              {/* Main Image Container */}
+              <div className="absolute inset-0 bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 overflow-hidden transform -rotate-2 transition-all duration-700 group-hover:rotate-0 group-hover:-translate-y-5 group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
+                <img 
+                  className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 opacity-95 group-hover:opacity-100 filter group-hover:brightness-105" 
+                  src={img3} 
+                  alt="BitNexTro Office" 
+                  loading="lazy" 
+                  decoding="async" 
+                />
+                
+                {/* Overlay gradient for premium feel */}
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none transition-opacity duration-700 group-hover:opacity-80" />
+                
+                {/* Floating stat card */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.1)] flex items-center justify-between transform transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
+                  <div className="flex flex-col items-start">
+                    <span className="text-3xl font-black bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-green-500">10+</span>
+                    <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-1">Years</span>
+                  </div>
+                  <div className="w-px h-12 bg-slate-200" />
+                  <div className="flex flex-col items-end">
+                    <span className="text-3xl font-black text-slate-900">24/7</span>
+                    <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-1">Support</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-      <section id="services" className='mt-24'>
+      <section id="services">
         <ServicesSection />
       </section>
       {/* Why Choose Us */}
@@ -297,3 +334,8 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+
+

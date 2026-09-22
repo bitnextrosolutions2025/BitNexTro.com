@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import logo_final_p from "../assets/f_logo.jpg"
+import React, { useState, useRef, useEffect } from "react";
+import logo_final_p from "../assets/t_logo.png"
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import Head from "./Head";
 import { Link, useLocation } from "react-router";
@@ -189,15 +189,15 @@ const styles = `
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 4px 32px rgba(59, 130, 246, 0.1), 0 1px 0 rgba(59, 130, 246, 0.05) inset;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.25);
   }
 
   .nav-link {
     position: relative;
     font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.95rem;
     letter-spacing: 0.03em;
     color: rgba(31, 41, 55, 0.85);
     padding: 6px 12px;
@@ -245,8 +245,8 @@ const styles = `
 
   .services-btn {
     font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.95rem;
     letter-spacing: 0.03em;
     color: rgba(31, 41, 55, 0.85);
     padding: 6px 12px;
@@ -569,22 +569,30 @@ export default function Navbar() {
   };
 
   const handlescroll = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll handled by ScrollToTop component
   };
 
   const handlescrollmob = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
   const isActive = (path) => location.pathname === path;
+
+  useEffect(() => {
+    const handleOpenMegaMenu = () => {
+      window.scrollTo(0, 0);
+      setIsMegaOpen(true);
+    };
+    window.addEventListener('openMegaMenu', handleOpenMegaMenu);
+    return () => window.removeEventListener('openMegaMenu', handleOpenMegaMenu);
+  }, []);
 
   return (
     <>
       <style>{styles}</style>
       <div>
         <nav className="nav-glass fixed w-full z-40 transition-all duration-300">
-          <Head />
+          {/* <Head /> */}
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
@@ -849,3 +857,4 @@ export default function Navbar() {
     </>
   );
 }
+

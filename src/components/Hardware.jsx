@@ -295,10 +295,8 @@ const ServiceCard = ({ service, index }) => {
 export default function HardwareSupport() {
   const [headerVisible, setHeaderVisible] = useState(false);
   const headerRef = useRef(null);
-  //  const wphandle=()=>{
-     window.open(`https://wa.me/${+919330855877}`)
-  //  }
-  const wphandle=()=>{
+
+  const wphandle = () => {
     // window.open()
     console.log("Hello")
     window.open(`https://wa.me/${+919330855877}`)
@@ -348,7 +346,7 @@ export default function HardwareSupport() {
       >
         {/* Animated particle canvas */}
         <ParticleField />
-      
+
         {/* Ambient blobs */}
         <div style={{
           position: "absolute", top: "10%", left: "5%",
@@ -420,7 +418,7 @@ export default function HardwareSupport() {
             }}
           >
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#38bdf8", display: "inline-block", boxShadow: "0 0 8px #38bdf8" }} />
-           <h1>IT Services</h1> 
+            <h1>IT Services</h1>
           </div>
 
           {/* Title */}

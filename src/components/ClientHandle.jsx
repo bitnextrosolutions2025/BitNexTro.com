@@ -62,7 +62,7 @@ const ClientCard = ({ client }) => {
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-transparent font-sans text-slate-900 overflow-hidden">
+    <div className="relative min-h-[auto] py-12 bg-transparent font-sans text-slate-900 overflow-hidden">
 
 
       <div className="absolute inset-0 w-full h-full bg-transparent z-0">
@@ -78,7 +78,7 @@ export default function App() {
       </div>
 
       {/* --- Main Content --- */}
-      <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">

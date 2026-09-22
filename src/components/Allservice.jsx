@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {
-  Code, Layout, Smartphone, Zap, ArrowRight, Briefcase,
+import { CheckCircle, Code, Layout, Smartphone, Zap, ArrowRight, Briefcase,
   Cpu, Globe, Shield, Database, HardDrive, MonitorCloud,
   CloudUpload, Server, Lock, Layers
 } from 'lucide-react';
@@ -85,110 +84,59 @@ const services1 = [
 ];
 const services = [
   {
-    icon: <Code size={28} />,
-    title: "Software Development & Programming",
-    desc: ["Custom Software", "Web & Mobile Apps", "DevOps & Automation", "Maintenance & Testing"],
-    color: "text-indigo-400",
-    glow: "group-hover:shadow-indigo-500/20",
-    linear: "from-indigo-500 to-violet-400",
-    bg: "bg-indigo-500/10"
+    icon: <Server size={28} />,
+    title: "Managed IT Services",
+    desc: ["IT AMC", "Remote & onsite support", "PC/Laptop management", "Server management", "Network & Wi-Fi management", "Microsoft 365", "IT monitoring"],
+    color: "text-blue-400",
+    glow: "group-hover:shadow-blue-500/20",
+    linear: "from-blue-500 to-cyan-400",
+    bg: "bg-blue-500/10"
   },
   {
-    icon: <HardDrive size={28} />,
-    title: "Hardware & Infrastructure Services",
-    desc: ["Workstations & Servers", "OS & Virtualization", "Network Devices", "Hardware Maintenance"],
-    color: "text-purple-400",
-    glow: "group-hover:shadow-purple-500/20",
-    linear: "from-purple-500 to-pink-400",
-    bg: "bg-purple-500/10"
-  },
-  {
-    icon: <MonitorCloud size={28} />,
-    title: "Hardware Maintenance",
-    desc: ["Network Setup", "Managed Networking", "VoIP and Collaboration", "Network Security"],
-    color: "text-orange-400",
-    glow: "group-hover:shadow-orange-500/20",
-    linear: "from-orange-500 to-red-400",
-    bg: "bg-orange-500/10"
-  },
-  {
-    icon: <CloudUpload size={28} />,
-    title: "Cloud Computing & Virtualization",
-    desc: ["Cloud & Management", "IaaS ", "PaaS", "SaaS"],
+    icon: <Shield size={28} />,
+    title: "Cybersecurity",
+    desc: ["Endpoint Security / EDR", "Firewall & Network Security", "Vulnerability Assessment", "VAPT", "Email Security", "Backup & Ransomware", "Security Monitoring", "Security Audit", "Cybersecurity AMC"],
     color: "text-emerald-400",
     glow: "group-hover:shadow-emerald-500/20",
     linear: "from-emerald-500 to-teal-400",
     bg: "bg-emerald-500/10"
   },
   {
-    icon: <Database size={28} />,
-    title: "Data Storage, Backup & Analytics",
-    desc: [
-      "SAN/NAS & Cloud Storage Setup",
-      "Database Administration",
-      "Backup & Disaster Recovery",
-      "Data Analytics & BI Solutions"
-    ],
+    icon: <Globe size={28} />,
+    title: "Network & Infrastructure",
+    desc: ["LAN/WAN", "Structured Cabling", "Wi-Fi", "Firewall", "Switches & Routers", "Server installation", "NAS / Storage", "CCTV & surveillance"],
+    color: "text-purple-400",
+    glow: "group-hover:shadow-purple-500/20",
+    linear: "from-purple-500 to-pink-400",
+    bg: "bg-purple-500/10"
+  },
+  {
+    icon: <CloudUpload size={28} />,
+    title: "Cloud & Backup",
+    desc: ["Cloud migration", "Microsoft 365", "Cloud backup", "Server backup", "Disaster Recovery", "Business Continuity", "NAS / local + cloud backup"],
     color: "text-cyan-400",
     glow: "group-hover:shadow-cyan-500/20",
     linear: "from-cyan-500 to-blue-400",
     bg: "bg-cyan-500/10"
   },
   {
-    icon: <Shield size={28} />,
-    title: "Cybersecurity & Compliance",
-    desc: [
-      "Risk Assessment & Threat Protection",
-      "Encryption & Access Control",
-      "DLP & Security Monitoring",
-      "Identity & Compliance Management"
-    ],
-    color: "text-rose-400",
-    glow: "group-hover:shadow-rose-500/20",
-    linear: "from-rose-500 to-red-400",
-    bg: "bg-rose-500/10"
-  },
-  {
-    icon: <Globe size={28} />,
-    title: "Digital & Marketing Services",
-    desc: [
-      "Web Design & Development",
-      "Graphic & Multimedia Design",
-      "SEO & Social Media Management",
-      "Email & Digital Advertising"
-    ],
-    color: "text-amber-400",
-    glow: "group-hover:shadow-amber-500/20",
-    linear: "from-amber-500 to-orange-400",
-    bg: "bg-amber-500/10"
-  },
-  {
     icon: <Cpu size={28} />,
-    title: "Emerging Technology & Innovation",
-    desc: [
-      "AI & Machine Learning",
-      "Blockchain & Cryptocurrency",
-      "IoT & Smart Systems",
-      "AR/VR & RPA Solutions"
-    ],
+    title: "AI & Business Automation",
+    desc: ["AI chatbot", "AI customer support", "Workflow automation", "AI reporting", "CRM automation", "Custom AI solutions"],
+    color: "text-orange-400",
+    glow: "group-hover:shadow-orange-500/20",
+    linear: "from-orange-500 to-red-400",
+    bg: "bg-orange-500/10"
+  },
+  {
+    icon: <Code size={28} />,
+    title: "Software & Digital Solutions",
+    desc: ["Website development", "Custom software", "ERP/CRM integration", "Business applications", "API integration", "Domain & business email"],
     color: "text-indigo-400",
     glow: "group-hover:shadow-indigo-500/20",
     linear: "from-indigo-500 to-violet-400",
     bg: "bg-indigo-500/10"
-  },
-  // {
-  //   icon: <Briefcase size={28} />,
-  //   title: "Enterprise Solutions & Consulting",
-  //   desc: [
-  //     "IT Consulting & Strategy",
-  //     "Managed IT Services",
-  //     "E-commerce & ERP/CRM",
-  //     "Migration & Professional Services"
-  //   ],
-  //   color: "from-indigo-400 to-violet-300"
-  // }
-
-
+  }
 ];
 // --- Components ---
 
@@ -212,12 +160,7 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
 
-        {/* Animated Arrow */}
-        <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-          <div className={`p-2 rounded-full ${service.bg} ${service.color}`}>
-            <ArrowRight size={16} />
-          </div>
-        </div>
+        
       </div>
 
       <div className="relative z-10 grow">
@@ -225,17 +168,15 @@ const ServiceCard = ({ service }) => {
           {service.title}
         </h3>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-4">
+        {/* Premium List layout */}
+        <ul className="mt-5 space-y-2.5">
           {service.desc.map((item, idx) => (
-            <span
-              key={idx}
-              className="px-2.5 py-1 text-xs font-medium rounded-md border border-slate-200 bg-slate-50 text-slate-700 group-hover:border-blue-200 group-hover:text-blue-700 transition-colors"
-            >
-              {item}
-            </span>
+            <li key={idx} className="flex items-start gap-2.5 text-[13.5px] font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+              <CheckCircle size={16} className={`shrink-0 mt-0.5 opacity-80 ${service.color}`} />
+              <span className="leading-snug">{item}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Bottom linear Line */}
@@ -246,7 +187,7 @@ const ServiceCard = ({ service }) => {
 
 const ServicesSection = () => {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white text-gray-900 overflow-hidden min-h-screen font-sans">
+    <section className="relative py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-[#F8FAFC] text-gray-900 overflow-hidden min-h-[auto] font-sans">
 
       {/* Background Decor: Grid */}
       <div className="absolute inset-0 bg-[linear-linear(to_right,#80808012_1px,transparent_1px),linear-linear(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
@@ -303,7 +244,7 @@ const ServicesSection = () => {
           variants={{
             visible: { transition: { staggerChildren: 0.1 } }
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, idx) => (
             <ServiceCard key={idx} service={service} />
@@ -318,7 +259,10 @@ const ServicesSection = () => {
           transition={{ delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <button className="group relative px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] transition-all duration-300">
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('openMegaMenu'))}
+            className="group relative px-8 py-4 bg-white border border-blue-200 text-slate-900 font-bold rounded-full hover:border-transparent hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] transition-all duration-300"
+          >
             <span className="relative z-10 flex items-center gap-2">
               View All Services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
