@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, MessageSquare, ArrowRight, Globe, Shield, CheckCircle } from 'lucide-react';
 import { handleError } from '../components/ErrorMessage';
@@ -54,6 +55,8 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
 };
 
 export default function ContactPage() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const [formData, setFormData] = useState({
     fullname: '',
     email: '',
@@ -202,7 +205,7 @@ export default function ContactPage() {
 
           {/* Left Column: Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/5 shadow-2xl relative overflow-hidden">
+            <div className="bg-white backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/5 shadow-2xl relative overflow-hidden">
               {/* Form Glow Effect */}
               <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-500 via-purple-500 to-indigo-500"></div>
 
@@ -222,55 +225,55 @@ export default function ContactPage() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" ref={form}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
+                <form onSubmit={handleSubmit} className="space-y-4" ref={form}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
                       <label htmlFor="name" className="text-sm font-semibold text-slate-700 ml-1">Full Name</label>
                       <input
                         type="text"
                         name="fullname"
                         value={formData.fullname}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3.5 rounded-xl bg-white/50 border ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-white/50 border ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600`}
                         placeholder="John Doe"
                       />
                       {errors.name && <p className="text-red-400 text-xs ml-1">{errors.name}</p>}
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       <label htmlFor="email" className="text-sm font-semibold text-slate-700 ml-1">Work Email</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3.5 rounded-xl bg-white/50 border ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-white/50 border ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600`}
                         placeholder="john@company.com"
                       />
                       {errors.email && <p className="text-red-400 text-xs ml-1">{errors.email}</p>}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
                       <label htmlFor="phone" className="text-sm font-semibold text-slate-700 ml-1">Phone</label>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600"
+                        className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600"
                         placeholder="+91 ..."
                       />
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       <label htmlFor="subject" className="text-sm font-semibold text-slate-700 ml-1">Inquiry Type</label>
                       <select
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-700"
+                        className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-700"
                       >
                         <option value="">Select Category</option>
                         <option value="Enterprise">Enterprise Solutions</option>
@@ -281,14 +284,14 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <label htmlFor="message" className="text-sm font-semibold text-slate-700 ml-1">Project Details</label>
                     <textarea
                       name="message"
-                      rows="5"
+                      rows="4"
                       value={formData.message}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3.5 rounded-xl bg-white/50 border ${errors.message ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600 resize-none`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-white/50 border ${errors.message ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 focus:border-blue-500'} focus:ring-1 focus:ring-blue-500 outline-none transition-all duration-300 text-slate-900 placeholder-slate-600 resize-none`}
                       placeholder="Describe your requirements, timeline, and goals..."
                     ></textarea>
                     {errors.message && <p className="text-red-400 text-xs ml-1">{errors.message}</p>}
@@ -313,16 +316,23 @@ export default function ContactPage() {
           {/* Right Column: Map & Value Props */}
           <div className="lg:col-span-5 space-y-8">
 
-            {/* Stylized Map Placeholder */}
-            <div className="bg-white backdrop-blur-md rounded-3xl overflow-hidden border border-white/5 shadow-xl group">
-              <div className="h-64 relative bg-slate-100">
-                {/* Abstract Map UI */}
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.4900536014266!2d88.35408027475646!3d22.55173033373591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1b53dab08d9575%3A0x8d2860d0a734ab9f!2sBITNEXTRO%20SOLUTIONS%20PRIVATE%20LIMITED!5e1!3m2!1sen!2sin!4v1769104804015!5m2!1sen!2sin" width="600" height="450"></iframe>
+            {/* Stylized Map Container */}
+            <div className="relative bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] group">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent pointer-events-none z-10" />
+              <div className="h-64 relative w-full bg-slate-100">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.4900536014266!2d88.35408027475646!3d22.55173033373591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1b53dab08d9575%3A0x8d2860d0a734ab9f!2sBITNEXTRO%20SOLUTIONS%20PRIVATE%20LIMITED!5e1!3m2!1sen!2sin!4v1769104804015!5m2!1sen!2sin" 
+                  className="w-full h-full border-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bitnextro Solutions Office Location"
+                ></iframe>
               </div>
             </div>
 
             {/* Service Level Agreements (Stats) */}
-            <div className="bg-white backdrop-blur-md rounded-3xl p-8 border border-white/5 shadow-xl">
+            <div className="pt-4">
               <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-emerald-400" /> Service Guarantees
               </h3>
@@ -363,12 +373,6 @@ export default function ContactPage() {
                     <p className="text-sm text-slate-600">Guaranteed initial response time for critical issues.</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/5">
-                <button className="w-full py-3 rounded-lg border border-slate-200 text-slate-700 hover:bg-white/5 transition-colors text-sm font-medium">
-                  View Full SLA Documentation
-                </button>
               </div>
             </div>
 

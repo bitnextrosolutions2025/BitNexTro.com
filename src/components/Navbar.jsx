@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import logo_final_p from "../assets/t_logo.png"
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Head from "./Head";
 import { Link, useLocation } from "react-router";
 
@@ -185,11 +185,19 @@ const servicesData = [
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
 
+  .nav-glass-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: none;
+    box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.25);
+  }
+
   .nav-glass {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+    border: none;
     box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.25);
   }
 
@@ -282,7 +290,7 @@ const styles = `
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(28px) saturate(200%);
     -webkit-backdrop-filter: blur(28px) saturate(200%);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: none;
     box-shadow: 0 24px 64px rgba(59, 130, 246, 0.15), 0 1px 0 rgba(59, 130, 246, 0.1) inset;
   }
 
@@ -547,6 +555,7 @@ export default function Navbar() {
   const [activeCategory, setActiveCategory] = useState(servicesData[0].id);
   const megaTimeout = useRef(null);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const handleno = () => {
@@ -587,11 +596,23 @@ export default function Navbar() {
     return () => window.removeEventListener('openMegaMenu', handleOpenMegaMenu);
   }, []);
 
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
   return (
     <>
       <style>{styles}</style>
       <div>
-        <nav className="nav-glass fixed w-full z-40 transition-all duration-300">
+        <nav className={`fixed z-40 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out ${scrolled ? "top-4 w-[95%] md:w-[85%] rounded-3xl nav-glass-scrolled shadow-lg" : "top-0 w-full rounded-none nav-glass"}`}>
           {/* <Head /> */}
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -600,7 +621,7 @@ export default function Navbar() {
               {/* Logo */}
               <Link to="/" onClick={handlescroll} className="flex items-center shrink-0">
                 <img
-                  className="w-40 md:w-[190px] object-contain rounded-3xl"
+                  className={`object-contain rounded-3xl transition-all duration-500 ease-in-out ${scrolled ? "w-32 md:w-[140px]" : "w-40 md:w-[190px]"}`}
                   src={logo_final_p}
                   alt="bitnextro-logo"
                 />
@@ -637,77 +658,70 @@ export default function Navbar() {
 
                   {isMegaOpen && (
                     <div
-                      className={`mega-glass mega-enter absolute top-full left-1/2 z-50 rounded-xl mt-2
-                        w-[88vw] md:w-[78vw] lg:w-[68vw] max-w-5xl
-                        -translate-x-1/2`}
+                      className="absolute top-full left-1/2 z-50 rounded-3xl mt-4 w-[90vw] md:w-[82vw] lg:w-[72vw] max-w-5xl -translate-x-1/2 overflow-hidden bg-white/95 backdrop-blur-2xl border border-slate-200/80 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] animate-in fade-in slide-in-from-top-4 duration-300"
                       style={{ transformOrigin: "top center" }}
                     >
-                      <div className="grid grid-cols-3 gap-0 max-h-[68vh] mega-scroll overflow-y-auto rounded-xl">
+                      <div className="grid grid-cols-12 h-[420px] max-h-[70vh]">
                         {/* Categories panel */}
-                        <div
-                          className="col-span-1 p-4 border-r overflow-y-auto"
-                          style={{ borderColor: "rgba(255,255,255,0.06)" }}
-                        >
-                          <p
-                            className="text-xs font-semibold mb-3 px-2 tracking-widest"
-                            style={{
-                              fontFamily: "Outfit, sans-serif",
-                              color: "rgba(56,189,248,0.7)",
-                            }}
-                          >
-                            OUR SERVICES
+                        <div className="col-span-4 bg-slate-50/80 p-5 border-r border-slate-100 overflow-y-auto mega-scroll" data-lenis-prevent="true">
+                          <p className="text-[11px] font-bold mb-3 px-3 tracking-widest text-blue-500 uppercase">
+                            Our Services
                           </p>
-                          <ul className="space-y-0.5">
-                            {servicesData.map((cat) => (
-                              <li key={cat.id} onMouseEnter={() => setActiveCategory(cat.id)}>
-                                <Link to={cat.link} onClick={handlescroll}>
-                                  <button
-                                    onClick={handleno}
-                                    className={`mega-cat-btn ${activeCategory === cat.id ? "mega-cat-btn-active" : ""}`}
-                                  >
-                                    {cat.title}
-                                  </button>
-                                </Link>
-                              </li>
-                            ))}
+                          <ul className="space-y-1">
+                            {servicesData.map((cat) => {
+                              const isActiveCat = activeCategory === cat.id;
+                              return (
+                                <li key={cat.id} onMouseEnter={() => setActiveCategory(cat.id)}>
+                                  <Link to={cat.link} onClick={handlescroll}>
+                                    <button
+                                      onClick={handleno}
+                                      className={`w-full text-left px-3 py-2.5 rounded-xl transition-all duration-300 font-medium text-[13px] flex items-center justify-between group ${
+                                        isActiveCat 
+                                          ? "bg-white shadow-sm text-blue-600 border border-slate-200/80 ring-1 ring-black/5" 
+                                          : "text-slate-600 hover:bg-slate-200/50 hover:text-slate-900 border border-transparent"
+                                      }`}
+                                    >
+                                      <span className="tracking-wide">{cat.title}</span>
+                                      <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-300 ${isActiveCat ? "text-blue-600 translate-x-1 opacity-100" : "text-slate-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0"}`} />
+                                    </button>
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
 
                         {/* Detail panel */}
-                        <div className="col-span-2 p-6">
+                        <div className="col-span-8 p-6 lg:p-8 overflow-y-auto mega-scroll bg-white" data-lenis-prevent="true">
                           {servicesData.map((cat) => {
                             const active = cat.id === activeCategory && isMegaOpen;
                             return (
                               <div
                                 key={cat.id}
                                 aria-hidden={!active}
-                                className={`transition-all duration-200 ${active ? "opacity-100 block" : "opacity-0 hidden"}`}
+                                className={`transition-all duration-400 ease-out ${active ? "opacity-100 translate-y-0 block" : "opacity-0 translate-y-4 hidden"}`}
                               >
-                                <h4
-                                  className="text-sm font-bold mb-3"
-                                  style={{
-                                    fontFamily: "Outfit, sans-serif",
-                                    color: "black",
-                                    letterSpacing: "0.02em",
-                                  }}
-                                >
-                                  {cat.title}
-                                </h4>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                                <div className="mb-5 flex items-end justify-between pb-4 border-b border-slate-100">
+                                  <h4 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                                    {cat.title}
+                                  </h4>
+                                  <Link 
+                                    to={cat.link} 
+                                    onClick={handleno} 
+                                    className="text-[13px] font-bold text-blue-600 flex items-center gap-1 hover:text-blue-700 hover:bg-blue-50 px-3 py-1.5 rounded-full transition-colors group"
+                                  >
+                                    View Full Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                                  </Link>
+                                </div>
+                                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                                   {cat.items.map((it, i) => (
-                                    <div key={i} className="mega-item flex items-center gap-2">
-                                      <span
-                                        style={{
-                                          width: 4,
-                                          height: 4,
-                                          borderRadius: "50%",
-                                          background: "#38bdf8",
-                                          flexShrink: 0,
-                                          opacity: 0.6,
-                                          display: "inline-block",
-                                        }}
-                                      />
-                                      {it}
+                                    <div key={i} className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-blue-50/80 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm cursor-default">
+                                      <div className="w-4 h-4 rounded-full bg-blue-100/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 group-hover:shadow-md group-hover:shadow-blue-500/20 transition-all duration-300">
+                                        <div className="w-1 h-1 rounded-full bg-blue-600 group-hover:bg-white transition-colors duration-300" />
+                                      </div>
+                                      <span className="text-[13px] font-medium text-slate-700 group-hover:text-slate-950 transition-colors truncate" title={it}>
+                                        {it}
+                                      </span>
                                     </div>
                                   ))}
                                 </div>
@@ -857,4 +871,8 @@ export default function Navbar() {
     </>
   );
 }
+
+
+
+
 

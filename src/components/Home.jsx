@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import MagneticButton from './MagneticButton';
 import { Menu, X, ArrowRight, Zap, Target, Users, CheckCircle, Star, Mail, Phone, MapPin, AlarmClock, ServerCog, Fingerprint, Telescope, Facebook, Linkedin, Twitter, Code, HardDrive, CloudUpload, Shield, Globe, Award, ArrowLeftCircle } from 'lucide-react';
 import logo_final from "../assets/t_logo.png"
+import bnLogo3d from "../assets/trans_BN_logo.png"
 import pic1 from "../assets/pic1.png"
 import vedio from "../assets/vedio2.mp4"
 import img3 from "../assets/about.jpeg"
@@ -12,6 +14,31 @@ import WhatsAppContact from './Wpmessage';
 import App from './ClientHandle';
 import WhyChooseUs from './Why';
 const HomePage = () => {
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 1000], [0, 350]);
+
+  // --- Interactive Hologram Chamber Hooks ---
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+  const rotateX = useTransform(springY, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const x = (e.clientX - rect.left) / width - 0.5;
+    const y = (e.clientY - rect.top) / height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
@@ -101,7 +128,7 @@ const HomePage = () => {
       <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col pt-32 lg:pt-40 pb-16 bg-[#070d10]">
         
         {/* Full Bleed Background Video */}
-        <div className="absolute inset-0 overflow-hidden">
+        <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden -top-[10%] h-[120%]">
           <video
             className="absolute inset-0 w-full h-full object-cover"
             playsInline
@@ -111,7 +138,7 @@ const HomePage = () => {
           >
             <source src={vedio} type="video/mp4" />
           </video>
-        </div>
+        </motion.div>
 
         {/* Cinematic Dark Overlay */}
         <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px]"></div>
@@ -162,7 +189,8 @@ const HomePage = () => {
 
               {/* High-End CTAs */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mt-2 w-full sm:w-auto">
-                <button onClick={(e) => handleclick(e)} className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+                <MagneticButton>
+                  <button onClick={(e) => handleclick(e)} className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
                   <span className="relative z-10 text-[15px] tracking-wide">
                     Start Your Project
                   </span>
@@ -170,6 +198,7 @@ const HomePage = () => {
                     <ArrowRight size={16} />
                   </div>
                 </button>
+                </MagneticButton>
 
                 <button onClick={(e) => handlelink('#contact', e)} className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)]">
                   <span className="text-[15px] tracking-wide">
@@ -248,41 +277,118 @@ const HomePage = () => {
               </Link>
             </div>
 
-            {/* RIGHT VISUAL */}
-            <div className="order-1 lg:order-2 relative w-full max-w-[440px] mx-auto lg:ml-auto aspect-square group cursor-pointer perspective-1000">
-              {/* Animated Glow Behind */}
-              <div className="absolute inset-0 bg-linear-to-tr from-blue-500/30 to-green-400/30 rounded-[2rem] transform rotate-3 scale-100 transition-all duration-700 group-hover:rotate-6 group-hover:scale-105 group-hover:shadow-2xl opacity-50 blur-xl group-hover:blur-2xl group-hover:opacity-80" />
-              
-              {/* Offset Background Card */}
-              <div className="absolute inset-0 bg-linear-to-tr from-blue-100 to-green-50 rounded-[2rem] transform rotate-3 transition-transform duration-700 group-hover:rotate-8 group-hover:translate-x-3 group-hover:-translate-y-3" />
-              
-              {/* Main Image Container */}
-              <div className="absolute inset-0 bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 overflow-hidden transform -rotate-2 transition-all duration-700 group-hover:rotate-0 group-hover:-translate-y-5 group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)]">
-                <img 
-                  className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 opacity-95 group-hover:opacity-100 filter group-hover:brightness-105" 
-                  src={img3} 
-                  alt="BitNexTro Office" 
-                  loading="lazy" 
-                  decoding="async" 
-                />
-                
-                {/* Overlay gradient for premium feel */}
-                <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none transition-opacity duration-700 group-hover:opacity-80" />
-                
-                {/* Floating stat card */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.1)] flex items-center justify-between transform transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
-                  <div className="flex flex-col items-start">
-                    <span className="text-3xl font-black bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-green-500">10+</span>
-                    <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-1">Years</span>
-                  </div>
-                  <div className="w-px h-12 bg-slate-200" />
-                  <div className="flex flex-col items-end">
-                    <span className="text-3xl font-black text-slate-900">24/7</span>
-                    <span className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-1">Support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* RIGHT VISUAL - Holographic Chamber */}
+            <motion.div 
+              className="order-1 lg:order-2 relative w-full lg:h-[500px] h-[400px] max-w-[500px] mx-auto lg:ml-auto flex items-center justify-center group"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+               <style>
+                 {`
+                   @keyframes spinY {
+                     0% { transform: perspective(1200px) rotateY(0deg); }
+                     100% { transform: perspective(1200px) rotateY(360deg); }
+                   }
+                 `}
+               </style>
+
+               {/* Animated Colorful Tech Rings (Spins independently, does NOT tilt on hover) */}
+               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                 {/* Outer Ring */}
+                 <motion.div 
+                   className="absolute w-[360px] h-[360px] rounded-full border border-slate-300/15"
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                 />
+                 <motion.div 
+                   className="absolute w-[360px] h-[360px] rounded-full border-t-[2px] border-l-[2px] border-transparent border-t-blue-500/25"
+                   animate={{ rotate: -360 }}
+                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                 />
+
+                 {/* Inner Ring (Track + Accent) */}
+                 <motion.div 
+                   className="absolute w-[230px] h-[230px] rounded-full border border-slate-300/15"
+                   animate={{ rotate: -360 }}
+                   transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                 />
+                 <motion.div 
+                   className="absolute w-[230px] h-[230px] rounded-full border-b-[2px] border-r-[2px] border-transparent border-b-emerald-500/25"
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                 />
+
+                 {/* Floating Data Nodes (Orbiting Dots) */}
+                 <motion.div 
+                   className="absolute w-[360px] h-[360px]"
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                 >
+                   <div className="absolute top-0 left-1/2 w-2 h-2 rounded-full bg-blue-500/40 -translate-x-1/2 -translate-y-1"></div>
+                   <div className="absolute bottom-1/4 right-0 w-1.5 h-1.5 rounded-full bg-emerald-500/40 translate-x-1"></div>
+                 </motion.div>
+
+                 <motion.div 
+                   className="absolute w-[230px] h-[230px]"
+                   animate={{ rotate: -360 }}
+                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                 >
+                   <div className="absolute bottom-0 left-1/2 w-2 h-2 rounded-full bg-emerald-500/50 -translate-x-1/2 translate-y-1"></div>
+                   <div className="absolute top-1/3 left-0 w-1.5 h-1.5 rounded-full bg-blue-500/50 -translate-x-1"></div>
+                 </motion.div>
+                 
+                 {/* Slow drifting background dots */}
+                 <motion.div className="absolute w-2 h-2 rounded-full bg-blue-500/30" animate={{ x: [-80, -120, -80], y: [80, 120, 80] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
+                 <motion.div className="absolute w-1.5 h-1.5 rounded-full bg-emerald-500/30" animate={{ x: [100, 140, 100], y: [-60, -90, -60] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
+                 <motion.div className="absolute w-1 h-1 rounded-full bg-slate-400/40" animate={{ x: [-100, -60, -100], y: [-100, -130, -100] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} />
+               </div>
+
+               {/* The 3D Parallax Container (Moves on hover) */}
+               <motion.div 
+                 className="relative w-full h-full flex items-center justify-center"
+                 style={{ 
+                   transformStyle: "preserve-3d", 
+                   rotateX: rotateX, 
+                   rotateY: rotateY,
+                   perspective: 1500
+                 }}
+               >
+
+                 {/* 3D Logo Block - Visible slab depth, OPTIMIZED for performance */}
+                 <div className="relative w-[75%] max-w-[380px] aspect-square" style={{ transformStyle: "preserve-3d", animation: "spinY 15s linear infinite", willChange: "transform" }}>
+                   
+                   {/* Back Face */}
+                   <img 
+                       src={bnLogo3d} 
+                       alt="" 
+                       className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
+                       style={{ transform: "translateZ(-4.5px)" }} 
+                   />
+
+                   {/* Stacked Edge Layers (6 layers, 1.5px gap for balanced depth) */}
+                   {[...Array(6)].map((_, i) => (
+                     <img 
+                       key={i}
+                       src={bnLogo3d} 
+                       alt="" 
+                       className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
+                       style={{ 
+                         transform: `translateZ(${(i - 3) * 1.5}px)`,
+                         opacity: 1
+                       }}
+                     />
+                   ))}
+                   
+                   {/* Front Face */}
+                   <img 
+                       src={bnLogo3d} 
+                       alt="bitnextro-front" 
+                       className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
+                       style={{ transform: "translateZ(4.5px)" }} 
+                   />
+                 </div>
+               </motion.div>
+            </motion.div>
 
           </div>
         </div>

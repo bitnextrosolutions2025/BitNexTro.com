@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async'
+import { ReactLenis } from 'lenis/react'
 
 import { Flip, ToastContainer } from 'react-toastify'
 import FandQ from './components/FandQ'
@@ -51,7 +52,7 @@ const LoadingFallback = () => (
 function App() {
 
   return (
-    <>
+    <ReactLenis root>
       <HelmetProvider>
         <BrowserRouter>
           <Navbar />
@@ -87,7 +88,7 @@ function App() {
         <Footer />
       </BrowserRouter>
       </HelmetProvider>
-    </>
+    </ReactLenis>
   )
 }
 

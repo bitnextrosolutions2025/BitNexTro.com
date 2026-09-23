@@ -1,7 +1,10 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React from 'react'
 import { Shield, Clock, CreditCard, AlertCircle, FileText, Mail } from 'lucide-react'
 
 export default function Refund() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const policies = [
     {
       icon: <Shield className="w-6 h-6" />,

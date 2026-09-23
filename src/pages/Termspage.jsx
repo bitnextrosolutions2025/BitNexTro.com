@@ -1,7 +1,10 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { FileText, Shield, AlertCircle, ChevronRight, Clock, Scale, Users, Globe } from 'lucide-react';
 
 export default function TermsPage() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const [activeSection, setActiveSection] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 

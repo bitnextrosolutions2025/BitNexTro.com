@@ -1,389 +1,179 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { TerminalSquare, GitBranch, Boxes, Repeat, ShieldCheck, Activity, Terminal, PlayCircle } from 'lucide-react';
+import usePageMeta from '../hooks/usePageMeta';
+import { getServiceMetadata, getServiceSchema } from '../config/serviceMetadata';
 
 const services = [
   {
+    id: 1,
+    icon: <PlayCircle className="w-8 h-8 text-blue-500" />,
     title: 'CI/CD Pipeline Setup',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <circle cx="6" cy="16" r="4" stroke="#00e5ff" strokeWidth="1.5"/>
-        <circle cx="26" cy="16" r="4" stroke="#00e5ff" strokeWidth="1.5"/>
-        <circle cx="16" cy="6" r="4" stroke="#00e5ff" strokeWidth="1.5"/>
-        <circle cx="16" cy="26" r="4" stroke="#00e5ff" strokeWidth="1.5"/>
-        <line x1="10" y1="16" x2="22" y2="16" stroke="#00e5ff" strokeWidth="1.2" strokeDasharray="2 2"/>
-        <line x1="16" y1="10" x2="16" y2="22" stroke="#00e5ff" strokeWidth="1.2" strokeDasharray="2 2"/>
-      </svg>
-    ),
+    desc: 'Automate your software delivery process with continuous integration and continuous deployment pipelines for faster, reliable releases.',
+    color: 'text-blue-500',
+    bg: 'bg-blue-50'
   },
   {
+    id: 2,
+    icon: <TerminalSquare className="w-8 h-8 text-indigo-500" />,
     title: 'Infrastructure as Code',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="4" y="8" width="24" height="16" rx="3" stroke="#00e5ff" strokeWidth="1.5"/>
-        <polyline points="10,14 14,18 10,22" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <line x1="16" y1="22" x2="22" y2="22" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    desc: 'Provision and manage your cloud infrastructure through machine-readable definition files using Terraform and Ansible.',
+    color: 'text-indigo-500',
+    bg: 'bg-indigo-50'
   },
   {
+    id: 3,
+    icon: <Boxes className="w-8 h-8 text-emerald-500" />,
     title: 'Container Orchestration',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="4" y="4" width="11" height="11" rx="2" stroke="#00e5ff" strokeWidth="1.5"/>
-        <rect x="17" y="4" width="11" height="11" rx="2" stroke="#00e5ff" strokeWidth="1.5"/>
-        <rect x="4" y="17" width="11" height="11" rx="2" stroke="#00e5ff" strokeWidth="1.5"/>
-        <rect x="17" y="17" width="11" height="11" rx="2" stroke="#00e5ff" strokeWidth="1.5"/>
-      </svg>
-    ),
+    desc: 'Deploy and manage containerized applications at scale using Kubernetes and Docker Swarm for high availability.',
+    color: 'text-emerald-500',
+    bg: 'bg-emerald-50'
   },
   {
+    id: 4,
+    icon: <Repeat className="w-8 h-8 text-purple-500" />,
     title: 'Cloud Automation',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M8 22a6 6 0 010-12 6 6 0 0111.3-2.5A5 5 0 1124 22H8z" stroke="#00e5ff" strokeWidth="1.5" strokeLinejoin="round"/>
-        <polyline points="16,26 16,18 13,21" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <line x1="16" y1="18" x2="19" y2="21" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    desc: 'Eliminate manual tasks with intelligent cloud automation, auto-scaling rules, and automated resource provisioning.',
+    color: 'text-purple-500',
+    bg: 'bg-purple-50'
   },
   {
+    id: 5,
+    icon: <Activity className="w-8 h-8 text-orange-500" />,
     title: 'Monitoring & Observability',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <polyline points="4,22 9,14 13,18 18,10 23,16 28,8" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="16" cy="16" r="12" stroke="#00e5ff" strokeWidth="1.5" strokeDasharray="3 3"/>
-      </svg>
-    ),
+    desc: 'Implement comprehensive logging, metrics, and tracing to proactively detect and resolve issues before they affect users.',
+    color: 'text-orange-500',
+    bg: 'bg-orange-50'
   },
   {
+    id: 6,
+    icon: <ShieldCheck className="w-8 h-8 text-cyan-500" />,
     title: 'DevSecOps Integration',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M16 4L6 8v8c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V8L16 4z" stroke="#00e5ff" strokeWidth="1.5" strokeLinejoin="round"/>
-        <polyline points="11,16 14,19 21,12" stroke="#00e5ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-  },
-]
+    desc: 'Embed security into every phase of your software development lifecycle with automated vulnerability scanning and compliance checks.',
+    color: 'text-cyan-500',
+    bg: 'bg-cyan-50'
+  }
+];
 
-function ParticleCanvas() {
-  const canvasRef = useRef(null)
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let animFrame
-    let W = canvas.width = canvas.offsetWidth
-    let H = canvas.height = canvas.offsetHeight
-    const nodes = Array.from({length: 22}, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      dx: (Math.random() - 0.5) * 0.18, dy: (Math.random() - 0.5) * 0.18,
-    }))
-    const particles = Array.from({length: 45}, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.8 + 0.4,
-      dx: (Math.random() - 0.5) * 0.25, dy: (Math.random() - 0.5) * 0.25,
-      alpha: Math.random() * 0.45 + 0.08,
-    }))
-    const clouds = Array.from({length: 4}, (_, i) => ({
-      x: (i / 3) * W, y: Math.random() * H * 0.5,
-      dx: (Math.random() - 0.5) * 0.08,
-      rx: 120 + Math.random() * 80, ry: 50 + Math.random() * 40,
-    }))
-    function draw() {
-      ctx.clearRect(0, 0, W, H)
-      clouds.forEach(c => {
-        const grad = ctx.createRadialGradient(c.x, c.y, 10, c.x, c.y, c.rx)
-        grad.addColorStop(0, 'rgba(0,100,180,0.07)')
-        grad.addColorStop(1, 'rgba(0,100,180,0)')
-        ctx.beginPath()
-        ctx.ellipse(c.x, c.y, c.rx, c.ry, 0, 0, Math.PI * 2)
-        ctx.fillStyle = grad
-        ctx.fill()
-        c.x += c.dx
-        if (c.x > W + c.rx) c.x = -c.rx
-        if (c.x < -c.rx) c.x = W + c.rx
-      })
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x
-          const dy = nodes[i].y - nodes[j].y
-          const dist = Math.sqrt(dx*dx + dy*dy)
-          if (dist < 160) {
-            ctx.beginPath()
-            ctx.moveTo(nodes[i].x, nodes[i].y)
-            ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(0,229,255,${0.06 * (1 - dist/160)})`
-            ctx.lineWidth = 0.6
-            ctx.stroke()
-          }
-        }
-      }
-      nodes.forEach(n => {
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, 1.8, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(0,229,255,0.2)'
-        ctx.fill()
-        n.x += n.dx; n.y += n.dy
-        if (n.x < 0 || n.x > W) n.dx *= -1
-        if (n.y < 0 || n.y > H) n.dy *= -1
-      })
-      particles.forEach(p => {
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255,255,255,${p.alpha})`
-        ctx.fill()
-        p.x += p.dx; p.y += p.dy
-        if (p.x < 0 || p.x > W) p.dx *= -1
-        if (p.y < 0 || p.y > H) p.dy *= -1
-      })
-      animFrame = requestAnimationFrame(draw)
-    }
-    draw()
-    const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
-    window.addEventListener('resize', resize)
-    return () => { cancelAnimationFrame(animFrame); window.removeEventListener('resize', resize) }
-  }, [])
-  return (
-    <canvas ref={canvasRef} style={{
-      position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', pointerEvents: 'none',
-    }} />
-  )
-}
-
-function ServiceCard({ service, index }) {
-  const [hovered, setHovered] = useState(false)
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        position: 'relative',
-        borderRadius: 20,
-        padding: '38px 30px 34px',
-        background: hovered ? 'rgba(239,246,255,0.96)' : '#ffffff',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        border: hovered ? '1px solid rgba(0,229,255,0.55)' : '1px solid rgba(148,163,184,0.24)',
-        boxShadow: hovered
-          ? '0 16px 48px rgba(0,229,255,0.16), 0 4px 20px rgba(59,130,246,0.12), inset 0 1px 0 rgba(255,255,255,0.2)'
-          : '0 4px 24px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.08)',
-        transform: hovered ? 'translateY(-10px) scale(1.04)' : 'translateY(0) scale(1)',
-        transition: 'all 0.4s cubic-bezier(0.23,1,0.32,1)',
-        cursor: 'default',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        gap: 20,
-        animation: `cardIn 0.65s ease both`,
-        animationDelay: `${index * 0.1}s`,
-        overflow: 'hidden',
-      }}
-    >
-      {/* Top-right shimmer */}
-      <div style={{
-        position: 'absolute', top: 0, right: 0,
-        width: 80, height: 80,
-        background: hovered ? 'radial-gradient(circle at top right, rgba(0,229,255, transparent 70%)' : 'none',
-        transition: 'all 0.4s',
-        borderRadius: '0 20px 0 0',
-        pointerEvents: 'none',
-      }} />
-      {/* Icon */}
-      <div style={{
-        width: 56, height: 56, borderRadius: 14,
-        background: 'rgba(0,229,255,0.08)',
-        border: '1px solid rgba(0,229,255,0.2)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
+const ServiceCard = ({ service, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.1, duration: 0.5 }}
+    className="group relative h-full flex flex-col p-8 rounded-[2rem] bg-white border border-slate-200 hover:border-cyan-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+  >
+    <div className="absolute top-0 right-0 w-32 h-32 bg-[linear-gradient(to_bottom_left,#e0f2fe,transparent)] rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="relative z-10 flex flex-col h-full">
+      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${service.bg} mb-6 group-hover:scale-110 transition-transform duration-500`}>
         {service.icon}
       </div>
-      {/* Text */}
-      <div style={{ color: 'black', fontSize: 17, fontWeight: 600, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+      <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-cyan-600 transition-colors">
         {service.title}
-      </div>
+      </h3>
+      <p className="text-slate-600 leading-relaxed mb-8 flex-grow">
+        {service.desc}
+      </p>
     </div>
-  )
-}
+  </motion.div>
+);
 
 export default function Devops() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
+  const metadata = getServiceMetadata('devops');
+  const schema = getServiceSchema('DevOps Services', 'Enterprise DevOps solutions, CI/CD automation, and infrastructure as code.', 'devops');
+  
+  usePageMeta({
+    ...metadata,
+    ogImage: "https://www.bitnextro.com/og-image.png",
+    ogUrl: metadata.canonicalUrl,
+    twitterImage: "https://www.bitnextro.com/og-image.png",
+    twitterTitle: metadata.ogTitle,
+    twitterDescription: metadata.ogDescription,
+    schema
+  });
+
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-        @keyframes cardIn {
-          from { opacity: 0; transform: translateY(30px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.6; }
-          50% { opacity: 1; }
-        }
-      `}</style>
+    <div className="min-h-screen bg-slate-50 pt-24 pb-20 font-sans relative overflow-hidden">
+      
+      {/* DevOps Visual Animated Background */}
+      <motion.div style={{ y }} className="absolute top-0 inset-x-0 h-[600px] overflow-hidden pointer-events-none opacity-60">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* Animated DevOps Pipeline/Git Nodes */}
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[10%] left-[10%] opacity-20 text-cyan-500"
+        >
+          <Repeat size={120} />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[40%] right-[15%] opacity-20 text-indigo-500"
+        >
+          <GitBranch size={90} />
+        </motion.div>
 
-      <div style={{
-        minHeight: '100vh',
-        background: '#ffffff',
-        fontFamily: "'', sans-serif",
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <ParticleCanvas />
-
-        {/* Ambient light blobs — navy-blue toned */}
-        <div style={{
-          position: 'absolute', top: -180, left: -120,
-          width: 600, height: 600,
-          background: 'radial-gradient(circle, rgba(0,60,140,0.35) 0%, transparent 70%)',
-          borderRadius: '50%', pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute', bottom: -200, right: -100,
-          width: 700, height: 700,
-          background: 'radial-gradient(circle, rgba(0,40,100,0.3) 0%, transparent 70%)',
-          borderRadius: '50%', pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%,-50%)',
-          width: 500, height: 300,
-          background: 'radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1100, margin: '0 auto', padding: '60px 32px 80px' }}>
-
-          {/* Logo top right */}
-          <div style={{
-            position: 'absolute', top: 60, right: 32,
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 13, fontWeight: 500,
-            color: 'rgba(0,229,255,0.7)',
-            letterSpacing: '0.15em',
-            animation: 'fadeUp 0.6s ease both',
-          }}>
-            CLOUDFORGE
-          </div>
-
-          {/* Badge */}
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            background: 'rgba(0,229,255,0.08)',
-            border: '1px solid rgba(0,229,255,0.25)',
-            borderRadius: 100, padding: '6px 16px',
-            marginBottom: 28,
-            marginTop:'20px',
-            animation: 'fadeUp 0.5s ease both',
-          }}>
-            <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#00e5ff', animation: 'pulse 2s infinite' }} />
-            <span style={{ color: 'rgba(0,229,255,0.9)', fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', fontFamily: "'JetBrains Mono', monospace" }}>
-              BITNEXTRO Cloud Services
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 style={{
-            fontSize: 'clamp(42px, 7vw, 80px)',
-            fontWeight: 800,
-            lineHeight: 1.05,
-            letterSpacing: '-0.03em',
-            color: '#0f172a',
-            marginBottom: 20,
-            maxWidth: 700,
-            animation: 'fadeUp 0.6s ease both',
-            animationDelay: '0.05s',
-          }}>
-            DevOps &{' '}
-            <span style={{ color: '#00e5ff' }}>Cloud Engineering</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p style={{
-            fontSize: 18,
-            color: '#475569',
-            maxWidth: 520,
-            lineHeight: 1.6,
-            marginBottom: 44,
-            animation: 'fadeUp 0.6s ease both',
-            animationDelay: '0.1s',
-          }}>
-            Automating Infrastructure for Scalable Innovation
-          </p>
-
-          {/* Stats row */}
-          <div style={{
-            display: 'flex', gap: 40, flexWrap: 'wrap',
-            marginBottom: 56,
-            animation: 'fadeUp 0.6s ease both',
-            animationDelay: '0.15s',
-          }}>
-            {[['70%', 'Uptime SLA'], ['10x', 'Faster Deploy'], ].map(([val, label]) => (
-              <div key={label}>
-                <div style={{ fontSize: 28, fontWeight: 800, color: '#00e5ff', letterSpacing: '-0.02em' }}>{val}</div>
-                <div style={{ fontSize: 12, color: 'rgba(160,200,230,0.6)', marginTop: 2, letterSpacing: '0.06em', fontFamily: "'JetBrains Mono', monospace" }}>{label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div style={{
-            height: 1,
-            background: 'linear-gradient(90deg, rgba(0,229,255,0.3) 0%, rgba(0,229,255,0.05) 60%, transparent 100%)',
-            marginBottom: 52,
-            animation: 'fadeUp 0.6s ease both',
-            animationDelay: '0.18s',
-          }} />
-
-          {/* Cards Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: 24,
-            marginBottom: 64,
-          }}>
-            {services.map((service, i) => (
-              <ServiceCard key={service.title} service={service} index={i} />
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', animation: 'fadeUp 0.6s ease both', animationDelay: '0.7s' }}>
-            <button
-              style={{
-                padding: '14px 32px', borderRadius: 12, border: 'none', cursor: 'pointer',
-                background: 'linear-gradient(135deg, #00e5ff, #0099cc)',
-                color: '#04080f', fontWeight: 700, fontSize: 15,
-                fontFamily: "'', sans-serif",
-                letterSpacing: '0.01em',
-                boxShadow: '0 8px 30px rgba(0,229,255,0.35)',
-                transition: 'all 0.25s ease',
-              }}
-              onMouseEnter={e => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 14px 40px rgba(0,229,255,0.5)' }}
-              onMouseLeave={e => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 8px 30px rgba(0,229,255,0.35)' }}
-            >
-              contact us
-            </button>
-            {/* <button
-              style={{
-                padding: '14px 32px', borderRadius: 12, cursor: 'pointer',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                color: '#e8f4ff', fontWeight: 600, fontSize: 15,
-                fontFamily: "'', sans-serif",
-                letterSpacing: '0.01em',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.25s ease',
-              }}
-              onMouseEnter={e => { e.target.style.borderColor = 'rgba(0,229,255,0.6)'; e.target.style.background = 'rgba(0,229,255,0.08)' }}
-              onMouseLeave={e => { e.target.style.borderColor = 'rgba(255,255,255,0.2)'; e.target.style.background = 'rgba(255,255,255,0.06)' }}
-            >
-              View Architecture Docs
-            </button> */}
-          </div>
-
+        <motion.div 
+          animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] left-[25%] opacity-30 text-blue-500"
+        >
+          <Boxes size={100} />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ opacity: [0.1, 0.4, 0.1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[25%] right-[30%] opacity-20 text-emerald-500"
+        >
+          <Terminal size={70} />
+        </motion.div>
+      </motion.div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Hero Section */}
+        <div className="text-center max-w-3xl mx-auto mb-20 pt-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-100/50 border border-cyan-200 mb-8"
+          >
+            <GitBranch className="w-4 h-4 text-cyan-600" />
+            <span className="text-sm font-bold text-cyan-700 tracking-wide uppercase">DevOps Engineering</span>
+          </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6"
+          >
+            Accelerate delivery with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-500">continuous automation</span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl mx-auto"
+          >
+            Bridge the gap between development and operations. Streamline your software delivery lifecycle with automated pipelines, infrastructure as code, and container orchestration.
+          </motion.p>
         </div>
+
+        {/* Services grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          {services.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
+          ))}
+        </div>
+
       </div>
-    </>
-  )
+    </div>
+  );
 }

@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import {
   Play,
@@ -25,6 +26,8 @@ const galleryImages = [
 ];
 
 export default function Blog() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [blogPosts, setBlogPosts] = useState([])
   const handlescroll = () => {

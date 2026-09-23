@@ -25,14 +25,14 @@ export default function Footer() {
     // Scroll handled by ScrollToTop component
   }
   return (
-    <footer className="relative z-10 bg-[#0A192F] text-slate-300 py-20 px-8 overflow-hidden">
+    <footer className="relative z-10 bg-[#0A192F] text-slate-300 pt-16 pb-8 px-8 overflow-hidden">
 
       {/* Subtle Background Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-10">
 
           {/* Brand Section */}
           <div className="flex flex-col items-start">
@@ -151,7 +151,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 pb-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-6 pb-2 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <a href="https://www.linkedin.com/in/sekh-rijwan-026740311/" target='_blank' rel="noopener noreferrer" className="group">
             <p className="text-slate-500 text-sm font-medium flex items-center gap-2 group-hover:text-slate-300 transition-colors">
               Made with <span className="text-red-500 animate-pulse group-hover:scale-125 transition-transform">❤</span> by Rijwan

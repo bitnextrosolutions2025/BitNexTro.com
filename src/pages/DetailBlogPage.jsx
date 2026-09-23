@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { handleError } from '../components/ErrorMessage';
@@ -21,6 +22,8 @@ const formatDate = (isoString) => {
 
 // Main Page Component
 export default function DetailBlogPage() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const { id } = useParams()
   const [BlogData, setBlogData] = useState({})
   const [mainloder, setMainloder] = useState(false)

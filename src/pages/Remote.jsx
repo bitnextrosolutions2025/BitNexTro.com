@@ -1,262 +1,170 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Headphones, Monitor, Wifi, UserCircle, ShieldAlert, Activity, Cpu, LifeBuoy } from 'lucide-react';
+import usePageMeta from '../hooks/usePageMeta';
+import { getServiceMetadata, getServiceSchema } from '../config/serviceMetadata';
 
-const items = [
-  { label: "24/7 Helpdesk", icon: "🛟", desc: "Round-the-clock assistance whenever you need it" },
-  { label: "Remote Desktop Support", icon: "🖥️", desc: "Instant screen access to resolve issues fast" },
-  { label: "Critical Incident Response", icon: "⚡", desc: "Rapid escalation for high-severity events" },
-  { label: "Proactive System Monitoring", icon: "📡", desc: "We catch issues before they affect you" },
-  { label: "Software Troubleshooting", icon: "🔧", desc: "Expert diagnosis across all platforms" },
-  { label: "Dedicated Account Manager", icon: "👤", desc: "Your personal point of contact, always" },
+const services = [
+  {
+    id: 1,
+    icon: <Headphones className="w-8 h-8 text-blue-500" />,
+    title: '24/7 Helpdesk',
+    desc: 'Round-the-clock assistance whenever you need it, ensuring your team is never left stranded with IT issues.',
+    color: 'text-blue-500',
+    bg: 'bg-blue-50'
+  },
+  {
+    id: 2,
+    icon: <Monitor className="w-8 h-8 text-indigo-500" />,
+    title: 'Remote Desktop Support',
+    desc: 'Instant secure screen access to troubleshoot and resolve your technical issues fast, no matter where you are.',
+    color: 'text-indigo-500',
+    bg: 'bg-indigo-50'
+  },
+  {
+    id: 3,
+    icon: <ShieldAlert className="w-8 h-8 text-rose-500" />,
+    title: 'Critical Incident Response',
+    desc: 'Rapid escalation protocols and immediate intervention for high-severity events and security alerts.',
+    color: 'text-rose-500',
+    bg: 'bg-rose-50'
+  },
+  {
+    id: 4,
+    icon: <Activity className="w-8 h-8 text-emerald-500" />,
+    title: 'Proactive System Monitoring',
+    desc: 'We catch and resolve background system issues silently before they ever affect your daily operations.',
+    color: 'text-emerald-500',
+    bg: 'bg-emerald-50'
+  },
+  {
+    id: 5,
+    icon: <Cpu className="w-8 h-8 text-purple-500" />,
+    title: 'Software Troubleshooting',
+    desc: 'Expert diagnosis and repair across all major operating systems, business applications, and platforms.',
+    color: 'text-purple-500',
+    bg: 'bg-purple-50'
+  },
+  {
+    id: 6,
+    icon: <UserCircle className="w-8 h-8 text-amber-500" />,
+    title: 'Dedicated Account Manager',
+    desc: 'Your personal point of contact who understands your specific IT environment inside and out.',
+    color: 'text-amber-500',
+    bg: 'bg-amber-50'
+  }
 ];
 
+const ServiceCard = ({ service, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.1, duration: 0.5 }}
+    className="group relative h-full flex flex-col p-8 rounded-[2rem] bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+  >
+    <div className="absolute top-0 right-0 w-32 h-32 bg-[linear-gradient(to_bottom_left,#eff6ff,transparent)] rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="relative z-10 flex flex-col h-full">
+      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${service.bg} mb-6 group-hover:scale-110 transition-transform duration-500`}>
+        {service.icon}
+      </div>
+      <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+        {service.title}
+      </h3>
+      <p className="text-slate-600 leading-relaxed mb-8 flex-grow">
+        {service.desc}
+      </p>
+    </div>
+  </motion.div>
+);
+
 export default function Remote() {
-  const [hovered, setHovered] = useState(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
+  const metadata = getServiceMetadata('remote');
+  const schema = getServiceSchema('Remote IT Support', '24/7 helpdesk, remote desktop troubleshooting, and proactive monitoring.', 'remote');
+  
+  usePageMeta({
+    ...metadata,
+    ogImage: "https://www.bitnextro.com/og-image.png",
+    ogUrl: metadata.canonicalUrl,
+    twitterImage: "https://www.bitnextro.com/og-image.png",
+    twitterTitle: metadata.ogTitle,
+    twitterDescription: metadata.ogDescription,
+    schema
+  });
+
   return (
-    <div
-      className="relative min-h-screen overflow-hidden flex items-center justify-center px-5 py-16"
-      style={{
-        background: "#ffffff",
-        fontFamily: "'DM Sans', sans-serif",
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+    <div className="min-h-screen bg-slate-50 pt-24 pb-20 font-sans relative overflow-hidden">
+      
+      {/* Remote Support Visual Animated Background */}
+      <motion.div style={{ y }} className="absolute top-0 inset-x-0 h-[600px] overflow-hidden pointer-events-none opacity-60">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* Animated Support Icons */}
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[10%] left-[10%] opacity-20 text-blue-500"
+        >
+          <LifeBuoy size={140} />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ y: [0, -30, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[35%] right-[15%] opacity-25 text-indigo-500"
+        >
+          <Monitor size={110} />
+        </motion.div>
 
-        @keyframes float1 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          50% { transform: translate(30px,-40px) scale(1.1); }
-        }
-        @keyframes float2 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          50% { transform: translate(-40px,30px) scale(0.9); }
-        }
-        @keyframes float3 {
-          0%,100% { transform: translate(0,0); }
-          50% { transform: translate(20px,20px); }
-        }
-        @keyframes pulse {
-          0%,100% { opacity: 0.6; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.15); }
-        }
-        @keyframes badgePulse {
-          0%,100% { box-shadow: 0 0 8px rgba(59,130,246,0.4); }
-          50% { box-shadow: 0 0 22px rgba(96,165,250,0.85); }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .badge-anim { animation: badgePulse 3s ease-in-out infinite; }
-        .header-anim { animation: fadeSlideUp 0.8s ease both; }
-        .orb1 { animation: float1 10s ease-in-out infinite; }
-        .orb2 { animation: float2 13s ease-in-out infinite; }
-        .orb3 { animation: float3 8s ease-in-out infinite; }
-        .icon-ring { animation: pulse 2s ease-in-out infinite; }
-      `}</style>
-
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* Ambient orbs */}
-      <div
-        className="orb1 absolute pointer-events-none rounded-full"
-        style={{
-          top: "-10%", left: "-10%",
-          width: "500px", height: "500px",
-          background: "radial-gradient(circle, rgba(29,78,216,0.35) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="orb2 absolute pointer-events-none rounded-full"
-        style={{
-          bottom: "-15%", right: "-10%",
-          width: "600px", height: "600px",
-          background: "radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="orb3 absolute pointer-events-none rounded-full"
-        style={{
-          top: "40%", left: "50%",
-          width: "300px", height: "300px",
-          background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-5xl">
-
-        {/* Header */}
-        <div className="header-anim text-center mb-14">
-          {/* <span
-            className="badge-anim inline-block text-blue-300 border border-blue-500/40 rounded-full px-5 py-1.5 mb-6 text-xs font-semibold tracking-[3px] uppercase"
-            style={{ background: "rgba(37,99,235,0.1)" }}
+        <motion.div 
+          animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] left-[30%] opacity-20 text-purple-500"
+        >
+          <Wifi size={90} />
+        </motion.div>
+      </motion.div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Hero Section */}
+        <div className="text-center max-w-3xl mx-auto mb-20 pt-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/50 border border-blue-200 mb-8"
           >
-            ALWAYS ON
-          </span> */}
-
-          <h1
-            className="text-slate-900 font-extrabold leading-[1.05] mb-5 tracking-tight"
-            style={{
-              fontFamily: ", sans-serif",
-              fontSize: "clamp(40px, 6vw, 72px)",
-            }}
+            <Headphones className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-bold text-blue-700 tracking-wide uppercase">Remote IT Support</span>
+          </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6"
           >
-            24/7 Remote
-            <br />
-            <span
-              style={{
-                background: "linear-gradient(90deg, #60a5fa, #3b82f6, #818cf8)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Support
-            </span>
-          </h1>
-
-          <p
-            className="text-slate-600 max-w-lg mx-auto leading-relaxed font-light"
-            style={{ fontSize: "17px", lineHeight: "1.75" }}
+            Instant assistance from <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">expert engineers</span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            Enterprise-grade remote assistance, engineered for zero downtime and maximum peace of mind.
-          </p>
+            Don't let technical issues stall your productivity. Get immediate, secure remote support from certified professionals whenever you need it.
+          </motion.p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-          {items.map((item, i) => (
-            <div
-              key={i}
-              className="relative flex items-start gap-5 rounded-2xl p-8 overflow-hidden cursor-pointer border transition-all duration-300"
-              style={{
-                background: hovered === i ? "rgba(219,234,254,0.85)" : "#ffffff",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                borderColor: hovered === i ? "rgba(96,165,250,0.45)" : "rgba(148,163,184,0.28)",
-                transform: hovered === i ? "translateY(-6px) scale(1.02)" : "translateY(0) scale(1)",
-                boxShadow: hovered === i
-                  ? "0 20px 60px rgba(29,78,216,0.3), 0 0 0 1px rgba(96,165,250,0.25)"
-                  : "none",
-              }}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              {/* Card inner glow */}
-              <div
-                className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-                style={{
-                  background: "radial-gradient(ellipse at top left, rgba(59,130,246,0.12) 0%, transparent 60%)",
-                  opacity: hovered === i ? 1 : 0,
-                }}
-              />
-
-              {/* Icon */}
-              <div className="relative shrink-0">
-                <div
-                  className="flex items-center justify-center w-13 h-13 rounded-xl border text-2xl transition-all duration-300"
-                  style={{
-                    width: "52px", height: "52px",
-                    background: "rgba(37,99,235,0.15)",
-                    borderColor: "rgba(59,130,246,0.25)",
-                    filter: hovered === i
-                      ? "drop-shadow(0 0 16px rgba(96,165,250,0.75))"
-                      : "drop-shadow(0 0 6px rgba(59,130,246,0.3))",
-                    transform: hovered === i ? "scale(1.12)" : "scale(1)",
-                  }}
-                >
-                  {item.icon}
-                </div>
-                {/* Ring */}
-                <div
-                  className="icon-ring absolute rounded-[18px] border border-blue-400/40 transition-opacity duration-300"
-                  style={{
-                    inset: "-4px",
-                    opacity: hovered === i ? 1 : 0,
-                  }}
-                />
-              </div>
-
-              {/* Text */}
-              <div className="flex-1 pt-1 relative z-10">
-                <h3
-                  className="font-bold mb-2 transition-colors duration-300"
-                  style={{
-                    fontFamily: "'', sans-serif",
-                    fontSize: "16px",
-                    letterSpacing: "0.2px",
-                    color: hovered === i ? "#1d4ed8" : "#0f172a",
-                  }}
-                >
-                  {item.label}
-                </h3>
-                <p
-                  className="text-slate-600 leading-relaxed font-light transition-all duration-300"
-                  style={{
-                    fontSize: "13.5px",
-                    lineHeight: "1.6",
-                    opacity: hovered === i ? 1 : 0.6,
-                    transform: hovered === i ? "translateY(0)" : "translateY(4px)",
-                  }}
-                >
-                  {item.desc}
-                </p>
-              </div>
-
-              {/* Bottom bar */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-transform duration-400"
-                style={{
-                  background: "linear-gradient(90deg, #1d4ed8, #60a5fa, #6366f1)",
-                  transform: hovered === i ? "scaleX(1)" : "scaleX(0)",
-                  transitionDuration: "0.4s",
-                  transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)",
-                }}
-              />
-            </div>
+        {/* Services grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          {services.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <button
-            className="font-bold tracking-widest uppercase text-slate-900 rounded-full px-14 py-5 border transition-all duration-300 text-sm"
-            style={{
-              fontFamily: "'', sans-serif",
-              letterSpacing: "2px",
-              background: "#ffffff",
-              border: "1px solid rgba(148,163,184,0.35)",
-              backdropFilter: "blur(10px)",
-              boxShadow: "0 0 20px rgba(59,130,246,0.3)",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = "rgba(37,99,235,0.2)";
-              e.currentTarget.style.boxShadow = "0 0 40px rgba(96,165,250,0.6), 0 0 80px rgba(59,130,246,0.3)";
-              e.currentTarget.style.borderColor = "rgba(96,165,250,0.5)";
-              e.currentTarget.style.letterSpacing = "3px";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = "#ffffff";
-              e.currentTarget.style.boxShadow = "0 0 20px rgba(59,130,246,0.3)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-              e.currentTarget.style.letterSpacing = "2px";
-            }}
-          >
-            GET STARTED NOW
-          </button>
-          <p className="mt-4 text-xs text-slate-600 tracking-wide">
-            No setup fees · Cancel anytime
-          </p>
-        </div>
       </div>
     </div>
   );

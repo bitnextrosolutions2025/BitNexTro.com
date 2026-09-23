@@ -1,6 +1,9 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useState } from 'react';
 
 export default function Privacypolicy() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
   const [activeSection, setActiveSection] = useState(null);
 
   const sections = [
