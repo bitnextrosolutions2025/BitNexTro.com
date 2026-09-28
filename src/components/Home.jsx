@@ -174,9 +174,9 @@ const HomePage = () => {
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold text-white tracking-tight leading-[1.1] mb-6 max-w-3xl -mt-4 lg:-mt-10"
             >
-              Transforming <br /> 
-              Business Reality <br />
-              <span className="italic font-serif font-light text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-green-400 pr-4">Through technology.</span>
+              Expert IT Support & <br /> 
+              Cybersecurity in <br />
+              <span className="italic font-serif font-light text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-green-400 pr-4">Kolkata.</span>
             </motion.h1>
 
             <motion.div 
