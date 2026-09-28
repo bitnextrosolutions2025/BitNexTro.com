@@ -258,7 +258,7 @@ export default function AboutPage() {
       </div>
 
       {/* --- Services Section --- */}
-      <section className="relative py-20 lg:py-32 z-10">
+      <section className="relative pt-20 pb-10 lg:pt-32 lg:pb-16 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection className="text-center mb-20">
             <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-6">Core Capabilities</h2>
@@ -288,7 +288,7 @@ export default function AboutPage() {
 
 
       {/* --- CTA Section --- */}
-      <section className="relative py-32 z-10">
+      <section className="relative pb-32 pt-10 lg:pt-16 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <RevealSection>
             <div className="relative overflow-hidden rounded-[3rem] bg-white border border-slate-200 shadow-2xl p-16 group hover:border-emerald-200 transition-colors duration-500">
