@@ -100,14 +100,14 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6 text-white tracking-wide">Our Services</h4>
             <ul className="space-y-4">
-                              {[
-                  { icon: <Server size={18} />, text: 'Managed IT Services', color: 'text-blue-400' },
-                  { icon: <Shield size={18} />, text: 'Cybersecurity', color: 'text-emerald-400' },
-                  { icon: <Globe size={18} />, text: 'Network & Infrastructure', color: 'text-purple-400' },
-                  { icon: <CloudUpload size={18} />, text: 'Cloud & Backup', color: 'text-cyan-400' },
-                  { icon: <Cpu size={18} />, text: 'AI & Business Automation', color: 'text-orange-400' },
-                  { icon: <Code size={18} />, text: 'Software & Digital Solutions', color: 'text-indigo-400' },
-                ].map((service, i) => (
+              {[
+                { icon: <Server size={18} />, text: 'Managed IT Services', color: 'text-blue-400' },
+                { icon: <Shield size={18} />, text: 'Cybersecurity', color: 'text-emerald-400' },
+                { icon: <Globe size={18} />, text: 'Network & Infrastructure', color: 'text-purple-400' },
+                { icon: <CloudUpload size={18} />, text: 'Cloud & Backup', color: 'text-cyan-400' },
+                { icon: <Cpu size={18} />, text: 'AI & Business Automation', color: 'text-orange-400' },
+                { icon: <Code size={18} />, text: 'Software & Digital Solutions', color: 'text-indigo-400' },
+              ].map((service, i) => (
                 <li key={i}>
                   <button
                     onClick={() => window.dispatchEvent(new CustomEvent('openMegaMenu'))}
@@ -151,12 +151,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 pb-2 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <a href="https://www.linkedin.com/in/sekh-rijwan-026740311/" target='_blank' rel="noopener noreferrer" className="group">
-            <p className="text-slate-500 text-sm font-medium flex items-center gap-2 group-hover:text-slate-300 transition-colors">
-              Made with <span className="text-red-500 animate-pulse group-hover:scale-125 transition-transform">❤</span> by Rijwan
-            </p>
-          </a>
+        <div className="pt-6 pb-2 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 text-sm font-medium">
+            © {new Date().getFullYear()} BitNextro. All rights reserved.
+          </p>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             {lastitem.map((item, index) => (
@@ -165,10 +163,6 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-
-          <p className="text-slate-500 text-sm font-medium">
-            © {new Date().getFullYear()} BitNextro. All rights reserved.
-          </p>
         </div>
 
       </div>
