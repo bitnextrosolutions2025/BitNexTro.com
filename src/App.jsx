@@ -12,8 +12,8 @@ import {
 import { HelmetProvider } from 'react-helmet-async'
 import { ReactLenis } from 'lenis/react'
 
-import { Flip, ToastContainer } from 'react-toastify'
 import FandQ from './components/FandQ'
+const ToastContainer = lazy(() => import('react-toastify').then(m => ({ default: m.ToastContainer })));
 
 // Lazy load all service and utility pages
 const Career = lazy(() => import('./pages/Career'));
@@ -56,7 +56,9 @@ function App() {
       <HelmetProvider>
         <BrowserRouter>
           <Navbar />
-          <ToastContainer transition={Flip} />
+          <Suspense fallback={null}>
+            <ToastContainer />
+          </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <ScrollToTop />
             <Routes>

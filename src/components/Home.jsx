@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import MagneticButton from './MagneticButton';
-import { Menu, X, ArrowRight, Zap, Target, Users, CheckCircle, Star, Mail, Phone, MapPin, AlarmClock, ServerCog, Fingerprint, Telescope, Facebook, Linkedin, Twitter, Code, HardDrive, CloudUpload, Shield, Globe, Award, ArrowLeftCircle } from 'lucide-react';
-import bnLogo3d from "../assets/trans_BN_logo.webp"
-import pic1 from "../assets/pic1.webp"
-import vedio from "../assets/vedio2.mp4"
-import img3 from "../assets/about.webp"
-import ServicesSection from './Allservice';
-import ContactSection from './ContactUs';
-import WhatsAppContact from './Wpmessage';
-import App from './ClientHandle';
-import WhyChooseUs from './Why';
+import { ArrowRight, Zap, ServerCog, Shield } from 'lucide-react';
+import bnLogo3d from "../assets/trans_BN_logo.webp";
+import vedio from "../assets/vedio2.mp4";
+
+// Lazy-load below-the-fold components
+const ServicesSection = lazy(() => import('./Allservice'));
+const ContactSection = lazy(() => import('./ContactUs'));
+const WhatsAppContact = lazy(() => import('./Wpmessage'));
+const ClientHandle = lazy(() => import('./ClientHandle'));
+const WhyChooseUs = lazy(() => import('./Why'));
+
 const HomePage = () => {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 350]);
@@ -42,7 +43,6 @@ const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [videoSrc, setVideoSrc] = useState(null);
-  const [IsShow, setIsShow] = useState(true);
 
   useEffect(() => {
     // Defer loading heavy 2MB video so it does not block initial FCP and LCP paint
@@ -67,13 +67,6 @@ const HomePage = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const handlemessagebtn = () => {
-    if (IsShow) {
-      return setIsShow(false)
-    }
-    setIsShow(true)
-
-  }
   const handleclick = (e) => {
     e.preventDefault(); // Prevent default anchor jump
     const target = document.querySelector('#services');
@@ -95,30 +88,6 @@ const HomePage = () => {
   }
 
 
-  const services = [
-    { icon: <Zap className="w-8 h-8" />, title: 'IT Infrastructure', desc: 'Custom websites and web applications built with cutting-edge technologies.' },
-    { icon: <Target className="w-8 h-8" />, title: 'Networking Solutions', desc: 'Strategic campaigns to boost your online presence and drive growth.' },
-    { icon: <Users className="w-8 h-8" />, title: 'Cloud Services', desc: 'Expert guidance to transform your business and achieve your goals.' },
-    { icon: <CheckCircle className="w-8 h-8" />, title: 'Data Protection & Backup', desc: 'Comprehensive branding solutions that make your business stand out.' },
-    { icon: <Users className="w-8 h-8" />, title: 'Cybersecurity', desc: 'Expert guidance to transform your business and achieve your goals.' },
-    { icon: <Users className="w-8 h-8" />, title: 'Server Management', desc: 'Expert guidance to transform your business and achieve your goals.' },
-    { icon: <CheckCircle className="w-8 h-8" />, title: 'Managed IT Services', desc: 'Comprehensive branding solutions that make your business stand out.' },
-    { icon: <CheckCircle className="w-8 h-8" />, title: 'System Integration', desc: 'Comprehensive branding solutions that make your business stand out.' },
-    { icon: <CheckCircle className="w-8 h-8" />, title: 'Web Development', desc: 'Comprehensive branding solutions that make your business stand out.' },
-  ];
-
-  const testimonials = [
-    { name: 'Sarah Johnson', role: 'CEO, TechStart', text: 'Outstanding service! They transformed our digital presence completely.', rating: 5 },
-    { name: 'Michael Chen', role: 'Founder, GrowthLab', text: 'Professional, creative, and results-driven. Highly recommended!', rating: 5 },
-    { name: 'Emily Rodriguez', role: 'Director, Innovate Co', text: 'Exceeded our expectations in every way. Truly exceptional work.', rating: 5 }
-  ];
-
-  const reasons = [
-    'Affordable and flexible pricing',
-    'Latest tools and technology',
-    'End to end digital solutions',
-    'Commitment to long term growth'
-  ];
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-500/30 overflow-hidden relative">
 
@@ -127,7 +96,9 @@ const HomePage = () => {
 
       {/* Navbar */}
 
-      <WhatsAppContact />
+      <Suspense fallback={null}>
+        <WhatsAppContact />
+      </Suspense>
       {/* Cinematic Dark Hero */}
       <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col pt-32 lg:pt-40 pb-16 bg-[#070d10]">
         
@@ -402,7 +373,9 @@ const HomePage = () => {
       </section>
 
       <section id="services">
-        <ServicesSection />
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <ServicesSection />
+        </Suspense>
       </section>
       {/* Why Choose Us */}
       {/* <section id="why" data-animate className={`py-20 px-4 bg-green-500 transition-all duration-1000 ${visibleSections.has('why') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-40'}`}>
@@ -434,13 +407,19 @@ const HomePage = () => {
         </div>
       </section> */}
       <section id='why'>
-        <WhyChooseUs/>
+        <Suspense fallback={<div className="min-h-[300px]" />}>
+          <WhyChooseUs />
+        </Suspense>
       </section>
-<App/>
+<Suspense fallback={<div className="min-h-[200px]" />}>
+        <ClientHandle />
+      </Suspense>
 
       {/* Contact Section */}
       <section id="contact" data-animate className={`transition-all duration-1000 ${visibleSections.has('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-        <ContactSection />
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <ContactSection />
+        </Suspense>
       </section>
     </div>
   );
