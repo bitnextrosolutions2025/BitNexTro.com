@@ -596,276 +596,297 @@ export default function Navbar() {
 
     useEffect(() => {
       const handleScroll = () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 60) {
           setScrolled(true);
         } else {
           setScrolled(false);
         }
       };
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+  const renderNavContent = (isFloating) => (
+    <div className="flex justify-between items-center h-16">
+      {/* Logo */}
+      <Link to="/" onClick={handlescroll} className="flex items-center shrink-0">
+        <img
+          className={`object-contain rounded-3xl transition-all duration-300 ${
+            isFloating ? "w-32 md:w-[140px]" : "w-40 md:w-[190px]"
+          }`}
+          src={logo_final_p}
+          alt="bitnextro-logo"
+          width="190"
+          height="67"
+        />
+      </Link>
+
+      {/* Desktop Nav */}
+      <div className="hidden md:flex items-center gap-1 lg:gap-1.5">
+        <Link
+          to="/"
+          onClick={handlescroll}
+          className={`nav-link ${isActive("/") ? "nav-link-active" : ""}`}
+        >
+          Home
+        </Link>
+
+        {/* Services mega menu */}
+        <div
+          className="relative"
+          onMouseEnter={openMega}
+          onMouseLeave={delayedCloseMega}
+        >
+          <button
+            onFocus={openMega}
+            onBlur={delayedCloseMega}
+            className="services-btn"
+          >
+            Services
+            <ChevronDown
+              size={15}
+              className={`services-chevron ${isMegaOpen ? "services-chevron-open" : ""}`}
+            />
+          </button>
+
+          {isMegaOpen && (
+            <div
+              className="absolute top-full left-1/2 z-50 rounded-3xl mt-4 w-[90vw] md:w-[82vw] lg:w-[72vw] max-w-5xl -translate-x-1/2 overflow-hidden bg-white/95 backdrop-blur-2xl border border-slate-200/80 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] animate-in fade-in slide-in-from-top-4 duration-300"
+              style={{ transformOrigin: "top center" }}
+            >
+              <div className="grid grid-cols-12 h-[420px] max-h-[70vh]">
+                {/* Categories panel */}
+                <div className="col-span-4 bg-slate-50/80 p-5 border-r border-slate-100 overflow-y-auto mega-scroll" data-lenis-prevent="true">
+                  <p className="text-[11px] font-bold mb-3 px-3 tracking-widest text-blue-500 uppercase">
+                    Our Services
+                  </p>
+                  <ul className="space-y-1">
+                    {servicesData.map((cat) => {
+                      const isActiveCat = activeCategory === cat.id;
+                      return (
+                        <li key={cat.id} onMouseEnter={() => setActiveCategory(cat.id)}>
+                          <Link to={cat.link} onClick={handlescroll}>
+                            <button
+                              onClick={handleno}
+                              className={`w-full text-left px-3 py-2.5 rounded-xl transition-all duration-300 font-medium text-[13px] flex items-center justify-between group ${
+                                isActiveCat 
+                                  ? "bg-white shadow-sm text-blue-600 border border-slate-200/80 ring-1 ring-black/5" 
+                                  : "text-slate-600 hover:bg-slate-200/50 hover:text-slate-900 border border-transparent"
+                              }`}
+                            >
+                              <span className="tracking-wide">{cat.title}</span>
+                              <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-300 ${isActiveCat ? "text-blue-600 translate-x-1 opacity-100" : "text-slate-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0"}`} />
+                            </button>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Detail panel */}
+                <div className="col-span-8 p-6 lg:p-8 overflow-y-auto mega-scroll bg-white" data-lenis-prevent="true">
+                  {servicesData.map((cat) => {
+                    const active = cat.id === activeCategory && isMegaOpen;
+                    return (
+                      <div
+                        key={cat.id}
+                        aria-hidden={!active}
+                        className={`transition-all duration-400 ease-out ${active ? "opacity-100 translate-y-0 block" : "opacity-0 translate-y-4 hidden"}`}
+                      >
+                        <div className="mb-5 flex items-end justify-between pb-4 border-b border-slate-100">
+                          <h4 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                            {cat.title}
+                          </h4>
+                          <Link 
+                            to={cat.link} 
+                            onClick={handleno} 
+                            className="text-[13px] font-bold text-blue-600 flex items-center gap-1 hover:text-blue-700 hover:bg-blue-50 px-3 py-1.5 rounded-full transition-colors group"
+                          >
+                            View Full Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </div>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {cat.items.map((it, i) => (
+                            <div key={i} className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-blue-50/80 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm cursor-default">
+                              <div className="w-4 h-4 rounded-full bg-blue-100/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 group-hover:shadow-md group-hover:shadow-blue-500/20 transition-all duration-300">
+                                <div className="w-1 h-1 rounded-full bg-blue-600 group-hover:bg-white transition-colors duration-300" />
+                              </div>
+                              <span className="text-[13px] font-medium text-slate-700 group-hover:text-slate-950 transition-colors truncate" title={it}>
+                                {it}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <Link to="/about" onClick={handlescroll} className={`nav-link ${isActive("/about") ? "nav-link-active" : ""}`}>
+          About
+        </Link>
+
+        <Link to="/career" onClick={handlescroll} className={`nav-link ${isActive("/career") ? "nav-link-active" : ""}`}>
+          Career
+        </Link>
+
+        <Link to="/contact" onClick={handlescroll} className={`nav-link ${isActive("/contact") ? "nav-link-active" : ""}`}>
+          Contact
+        </Link>
+
+        <Link to="/blog" onClick={handlescroll} className={`nav-link ${isActive("/blog") ? "nav-link-active" : ""}`}>
+          Blog
+        </Link>
+        
+        <Link to="/fq" onClick={handlescroll} className={`nav-link ${isActive("/fq") ? "nav-link-active" : ""}`}>
+          F&Q
+        </Link>
+
+        <a
+          href="https://support.bitnextro.com/"
+          target="_blank"
+          className="support-btn"
+          style={{ marginLeft: "6px" }}
+        >
+          Support ↗
+        </a>
+      </div>
+
+      {/* Mobile hamburger */}
+      <div className="md:hidden">
+        <button
+          onClick={() => setIsMenuOpen((s) => !s)}
+          aria-label="Toggle menu"
+          className="hamburger-btn"
+        >
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+    </div>
+  );
+
+  const renderMobileMenu = () => isMenuOpen && (
+    <div className="mobile-menu-glass mobile-menu-enter md:hidden pb-4 pt-2">
+      <Link
+        to="/"
+        onClick={handlescrollmob}
+        className={`mobile-link ${isActive("/") ? "mobile-link-active" : ""}`}
+      >
+        Home
+      </Link>
+
+      <div style={{ margin: "2px 8px" }}>
+        <button
+          onClick={() => setMobileServicesOpen((s) => !s)}
+          className="mobile-services-toggle"
+          style={{ width: "calc(100% - 0px)", margin: 0 }}
+        >
+          <span>Services</span>
+          <ChevronDown
+            size={16}
+            style={{
+              transition: "transform 0.25s ease",
+              transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+              color: "#38bdf8",
+            }}
+          />
+        </button>
+
+        {mobileServicesOpen && (
+          <div
+            className="mt-1 mb-2 pl-3 border-l"
+            style={{ borderColor: "rgba(56,189,248,0.2)" }}
+          >
+            {servicesData.map((cat) => (
+              <details key={cat.id} className="mobile-details mb-1">
+                <summary>{cat.title}</summary>
+                <ul className="pl-6 mt-2 mb-3 space-y-1">
+                  {cat.items.map((it, i) => (
+                    <li
+                      key={i}
+                      className="mega-item"
+                      style={{ fontSize: "0.78rem" }}
+                    >
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+                <Link to={`/${cat.link}`}>
+                  <button onClick={handlenophone} className="mobile-go-btn">
+                    Go to page
+                    <ArrowRight size={13} />
+                  </button>
+                </Link>
+              </details>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <Link to="/about" onClick={handlescrollmob} className={`mobile-link ${isActive("/about") ? "mobile-link-active" : ""}`}>
+        About
+      </Link>
+      <Link to="/career" onClick={handlescrollmob} className={`mobile-link ${isActive("/career") ? "mobile-link-active" : ""}`}>
+        Career
+      </Link>
+      <Link to="/contact" onClick={handlescrollmob} className={`mobile-link ${isActive("/contact") ? "mobile-link-active" : ""}`}>
+        Contact
+      </Link>
+      <Link to="/blog" onClick={handlescrollmob} className={`mobile-link ${isActive("/blog") ? "mobile-link-active" : ""}`}>
+        Blog
+      </Link>
+      <Link to="/fq" onClick={handlescrollmob} className={`mobile-link ${isActive("/fq") ? "mobile-link-active" : ""}`}>
+        F&Q
+      </Link>
+      <div style={{ padding: "8px 16px" }}>
+        <a
+          href="https://support.bitnextro.com/"
+          target="_blank"
+          className="support-btn"
+          style={{ display: "inline-block" }}
+        >
+          Support ↗
+        </a>
+      </div>
+    </div>
+  );
 
   return (
     <>
       <style>{styles}</style>
       <div>
-        <nav className={`fixed z-40 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out ${scrolled ? "top-4 w-[95%] md:w-[85%] rounded-3xl nav-glass-scrolled shadow-lg" : "top-0 w-full rounded-none nav-glass"}`}>
-          {/* <Head /> */}
-
-          <div className={`w-full mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out ${scrolled ? "max-w-7xl" : ""}`}>
-            <div className="flex justify-between items-center h-16">
-
-              {/* Logo */}
-              <Link to="/" onClick={handlescroll} className="flex items-center shrink-0">
-                <img
-                  className={`object-contain rounded-3xl transition-all duration-500 ease-in-out ${scrolled ? "w-32 md:w-[140px]" : "w-40 md:w-[190px]"}`}
-                  src={logo_final_p}
-                  alt="bitnextro-logo"
-                  width="190"
-                  height="67"
-                />
-              </Link>
-
-              {/* Desktop Nav */}
-              <div className="hidden md:flex items-center gap-1 lg:gap-1.5">
-
-                <Link
-                  to="/"
-                  onClick={handlescroll}
-                  className={`nav-link ${isActive("/") ? "nav-link-active" : ""}`}
-                >
-                  Home
-                </Link>
-
-                {/* Services mega menu */}
-                <div
-                  className="relative"
-                  onMouseEnter={openMega}
-                  onMouseLeave={delayedCloseMega}
-                >
-                  <button
-                    onFocus={openMega}
-                    onBlur={delayedCloseMega}
-                    className="services-btn"
-                  >
-                    Services
-                    <ChevronDown
-                      size={15}
-                      className={`services-chevron ${isMegaOpen ? "services-chevron-open" : ""}`}
-                    />
-                  </button>
-
-                  {isMegaOpen && (
-                    <div
-                      className="absolute top-full left-1/2 z-50 rounded-3xl mt-4 w-[90vw] md:w-[82vw] lg:w-[72vw] max-w-5xl -translate-x-1/2 overflow-hidden bg-white/95 backdrop-blur-2xl border border-slate-200/80 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] animate-in fade-in slide-in-from-top-4 duration-300"
-                      style={{ transformOrigin: "top center" }}
-                    >
-                      <div className="grid grid-cols-12 h-[420px] max-h-[70vh]">
-                        {/* Categories panel */}
-                        <div className="col-span-4 bg-slate-50/80 p-5 border-r border-slate-100 overflow-y-auto mega-scroll" data-lenis-prevent="true">
-                          <p className="text-[11px] font-bold mb-3 px-3 tracking-widest text-blue-500 uppercase">
-                            Our Services
-                          </p>
-                          <ul className="space-y-1">
-                            {servicesData.map((cat) => {
-                              const isActiveCat = activeCategory === cat.id;
-                              return (
-                                <li key={cat.id} onMouseEnter={() => setActiveCategory(cat.id)}>
-                                  <Link to={cat.link} onClick={handlescroll}>
-                                    <button
-                                      onClick={handleno}
-                                      className={`w-full text-left px-3 py-2.5 rounded-xl transition-all duration-300 font-medium text-[13px] flex items-center justify-between group ${
-                                        isActiveCat 
-                                          ? "bg-white shadow-sm text-blue-600 border border-slate-200/80 ring-1 ring-black/5" 
-                                          : "text-slate-600 hover:bg-slate-200/50 hover:text-slate-900 border border-transparent"
-                                      }`}
-                                    >
-                                      <span className="tracking-wide">{cat.title}</span>
-                                      <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-300 ${isActiveCat ? "text-blue-600 translate-x-1 opacity-100" : "text-slate-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0"}`} />
-                                    </button>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-
-                        {/* Detail panel */}
-                        <div className="col-span-8 p-6 lg:p-8 overflow-y-auto mega-scroll bg-white" data-lenis-prevent="true">
-                          {servicesData.map((cat) => {
-                            const active = cat.id === activeCategory && isMegaOpen;
-                            return (
-                              <div
-                                key={cat.id}
-                                aria-hidden={!active}
-                                className={`transition-all duration-400 ease-out ${active ? "opacity-100 translate-y-0 block" : "opacity-0 translate-y-4 hidden"}`}
-                              >
-                                <div className="mb-5 flex items-end justify-between pb-4 border-b border-slate-100">
-                                  <h4 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                                    {cat.title}
-                                  </h4>
-                                  <Link 
-                                    to={cat.link} 
-                                    onClick={handleno} 
-                                    className="text-[13px] font-bold text-blue-600 flex items-center gap-1 hover:text-blue-700 hover:bg-blue-50 px-3 py-1.5 rounded-full transition-colors group"
-                                  >
-                                    View Full Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                                  </Link>
-                                </div>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                                  {cat.items.map((it, i) => (
-                                    <div key={i} className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-blue-50/80 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm cursor-default">
-                                      <div className="w-4 h-4 rounded-full bg-blue-100/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 group-hover:shadow-md group-hover:shadow-blue-500/20 transition-all duration-300">
-                                        <div className="w-1 h-1 rounded-full bg-blue-600 group-hover:bg-white transition-colors duration-300" />
-                                      </div>
-                                      <span className="text-[13px] font-medium text-slate-700 group-hover:text-slate-950 transition-colors truncate" title={it}>
-                                        {it}
-                                      </span>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <Link to="/about" onClick={handlescroll} className={`nav-link ${isActive("/about") ? "nav-link-active" : ""}`}>
-                  About
-                </Link>
-
-                <Link to="/career" onClick={handlescroll} className={`nav-link ${isActive("/career") ? "nav-link-active" : ""}`}>
-                  Career
-                </Link>
-
-                <Link to="/contact" onClick={handlescroll} className={`nav-link ${isActive("/contact") ? "nav-link-active" : ""}`}>
-                  Contact
-                </Link>
-
-                <Link to="/blog" onClick={handlescroll} className={`nav-link ${isActive("/blog") ? "nav-link-active" : ""}`}>
-                  Blog
-                </Link>
-                
-                <Link to="/fq" onClick={handlescroll} className={`nav-link ${isActive("/fq") ? "nav-link-active" : ""}`}>
-                  F&Q
-                </Link>
-
-                <a
-                  href="https://support.bitnextro.com/"
-                  target="_blank"
-                  className="support-btn"
-                  style={{ marginLeft: "6px" }}
-                >
-                  Support ↗
-                </a>
-              </div>
-
-              {/* Mobile hamburger */}
-              <div className="md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen((s) => !s)}
-                  aria-label="Toggle menu"
-                  className="hamburger-btn"
-                >
-                  {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
-              </div>
-            </div>
+        {/* 1. Top Static Full-Width Navbar (Docked at top of page) */}
+        <header
+          className={`absolute top-0 left-0 w-full z-40 nav-glass transition-opacity duration-300 ${
+            scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
+          <div className="w-full px-4 sm:px-6 lg:px-10">
+            {renderNavContent(false)}
           </div>
+          {renderMobileMenu()}
+        </header>
 
-          {/* Mobile menu */}
-          {isMenuOpen && (
-            <div className="mobile-menu-glass mobile-menu-enter md:hidden pb-4 pt-2">
-              <Link
-                to="/"
-                onClick={handlescrollmob}
-                className={`mobile-link ${isActive("/") ? "mobile-link-active" : ""}`}
-              >
-                Home
-              </Link>
-
-              <div style={{ margin: "2px 8px" }}>
-                <button
-                  onClick={() => setMobileServicesOpen((s) => !s)}
-                  className="mobile-services-toggle"
-                  style={{ width: "calc(100% - 0px)", margin: 0 }}
-                >
-                  <span>Services</span>
-                  <ChevronDown
-                    size={16}
-                    style={{
-                      transition: "transform 0.25s ease",
-                      transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      color: "#38bdf8",
-                    }}
-                  />
-                </button>
-
-                {mobileServicesOpen && (
-                  <div
-                    className="mt-1 mb-2 pl-3 border-l"
-                    style={{ borderColor: "rgba(56,189,248,0.2)" }}
-                  >
-                    {servicesData.map((cat) => (
-                      <details key={cat.id} className="mobile-details mb-1">
-                        <summary>{cat.title}</summary>
-                        <ul className="pl-6 mt-2 mb-3 space-y-1">
-                          {cat.items.map((it, i) => (
-                            <li
-                              key={i}
-                              className="mega-item"
-                              style={{ fontSize: "0.78rem" }}
-                            >
-                              {it}
-                            </li>
-                          ))}
-                        </ul>
-                        <Link to={`/${cat.link}`}>
-                          <button onClick={handlenophone} className="mobile-go-btn">
-                            Go to page
-                            <ArrowRight size={13} />
-                          </button>
-                        </Link>
-                      </details>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <Link to="/about" onClick={handlescrollmob} className={`mobile-link ${isActive("/about") ? "mobile-link-active" : ""}`}>
-                About
-              </Link>
-              <Link to="/career" onClick={handlescrollmob} className={`mobile-link ${isActive("/career") ? "mobile-link-active" : ""}`}>
-                Career
-              </Link>
-              <Link to="/contact" onClick={handlescrollmob} className={`mobile-link ${isActive("/contact") ? "mobile-link-active" : ""}`}>
-                Contact
-              </Link>
-              <Link to="/blog" onClick={handlescrollmob} className={`mobile-link ${isActive("/blog") ? "mobile-link-active" : ""}`}>
-                Blog
-              </Link>
-              <Link to="/fq" onClick={handlescrollmob} className={`mobile-link ${isActive("/fq") ? "mobile-link-active" : ""}`}>
-                F&Q
-              </Link>
-              <div style={{ padding: "8px 16px" }}>
-                <a
-                  href="https://support.bitnextro.com/"
-                  target="_blank"
-                  className="support-btn"
-                  style={{ display: "inline-block" }}
-                >
-                  Support ↗
-                </a>
-              </div>
-            </div>
-          )}
+        {/* 2. Floating Glass Pill Navbar (Smoothly fades & slides in from top on scroll) */}
+        <nav
+          className={`fixed z-50 left-1/2 -translate-x-1/2 top-4 w-[95%] md:w-[85%] rounded-3xl nav-glass-scrolled shadow-lg transition-all duration-300 ease-out ${
+            scrolled
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-6 pointer-events-none"
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {renderNavContent(true)}
+          </div>
+          {renderMobileMenu()}
         </nav>
 
-        {/* Spacer */}
+        {/* Spacer to preserve content height */}
         <div className="h-16" />
       </div>
     </>
