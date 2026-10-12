@@ -12,10 +12,10 @@ import {
 import { HelmetProvider } from 'react-helmet-async'
 import { ReactLenis } from 'lenis/react'
 
-import FandQ from './components/FandQ'
 const ToastContainer = lazy(() => import('react-toastify').then(m => ({ default: m.ToastContainer })));
 
 // Lazy load all service and utility pages
+const FandQ = lazy(() => import('./components/FandQ'));
 const Career = lazy(() => import('./pages/Career'));
 const Contactpage = lazy(() => import('./pages/Contactpage'));
 const Aboutpage = lazy(() => import('./pages/Aboutpage'));
