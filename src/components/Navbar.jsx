@@ -613,7 +613,7 @@ export default function Navbar() {
         <nav className={`fixed z-40 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out ${scrolled ? "top-4 w-[95%] md:w-[85%] rounded-3xl nav-glass-scrolled shadow-lg" : "top-0 w-full rounded-none nav-glass"}`}>
           {/* <Head /> */}
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`w-full mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out ${scrolled ? "max-w-7xl" : ""}`}>
             <div className="flex justify-between items-center h-16">
 
               {/* Logo */}
