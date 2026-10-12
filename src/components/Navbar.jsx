@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import logo_final_p from "../assets/t_logo.png"
+import logo_final_p from "../assets/t_logo.webp"
 import { ArrowRight, ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Head from "./Head";
 import { Link, useLocation } from "react-router";
@@ -183,8 +183,6 @@ const servicesData = [
 ];
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
-
   .nav-glass-scrolled {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px) saturate(180%);
@@ -624,6 +622,8 @@ export default function Navbar() {
                   className={`object-contain rounded-3xl transition-all duration-500 ease-in-out ${scrolled ? "w-32 md:w-[140px]" : "w-40 md:w-[190px]"}`}
                   src={logo_final_p}
                   alt="bitnextro-logo"
+                  width="190"
+                  height="67"
                 />
               </Link>
 

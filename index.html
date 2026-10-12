@@ -62,9 +62,26 @@
     <meta name="business:contact_data:country_name" content="India" />
     <!-- Theme Color -->
     <meta name="theme-color" content="#0f4c81" />
-    <!-- Preconnect for Performance -->
+    <!-- Preconnect & Non-Render-Blocking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      />
+    </noscript>
     <!-- Schema.org (Structured Data for Google) -->
     <script type="application/ld+json">
       {
@@ -189,19 +206,22 @@
     </main>
 
     <script type="module" src="/src/main.jsx"></script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XJJD3GHLJH"
-    ></script>
+    <!-- Google tag (gtag.js) - Deferred to eliminate main-thread blocking -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-XJJD3GHLJH");
+
+      // Defer external tracking script until after load
+      window.addEventListener("load", function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-XJJD3GHLJH";
+        document.head.appendChild(s);
+      });
     </script>
   </body>
 </html>

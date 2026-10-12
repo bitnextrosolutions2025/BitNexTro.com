@@ -1,5 +1,5 @@
 import React from 'react'
-import logo_final from "../assets/t_logo.png"
+import logo_final from "../assets/t_logo.webp"
 import { Award, CloudUpload, Code, Facebook, Globe, Instagram, Linkedin, Shield, Twitter, X, Server, Cpu } from 'lucide-react'
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="flex flex-col items-start">
             <div className="bg-white p-1 rounded-xl mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)] inline-block">
-              <img className="h-20 md:h-24 object-cover rounded-lg" src={logo_final} alt="bitnextro-footer-logo" loading="lazy" decoding="async" />
+              <img className="h-20 md:h-24 object-cover rounded-lg" src={logo_final} alt="bitnextro-footer-logo" width="200" height="80" loading="lazy" decoding="async" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-xs font-medium">
               Empowering the next generation of IT with zero compromise. We build digital futures.

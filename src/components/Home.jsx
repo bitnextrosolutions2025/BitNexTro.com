@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { Menu, X, ArrowRight, Zap, Target, Users, CheckCircle, Star, Mail, Phone, MapPin, AlarmClock, ServerCog, Fingerprint, Telescope, Facebook, Linkedin, Twitter, Code, HardDrive, CloudUpload, Shield, Globe, Award, ArrowLeftCircle } from 'lucide-react';
-import logo_final from "../assets/t_logo.png"
-import bnLogo3d from "../assets/trans_BN_logo.png"
-import pic1 from "../assets/pic1.png"
+import bnLogo3d from "../assets/trans_BN_logo.webp"
+import pic1 from "../assets/pic1.webp"
 import vedio from "../assets/vedio2.mp4"
-import img3 from "../assets/about.jpeg"
+import img3 from "../assets/about.webp"
 import ServicesSection from './Allservice';
 import ContactSection from './ContactUs';
 import WhatsAppContact from './Wpmessage';
@@ -42,13 +41,18 @@ const HomePage = () => {
 
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
-  const [vedioshow, setvedioshow] = useState(true)
-  const [IsShow, setIsShow] = useState(true)
+  const [videoSrc, setVideoSrc] = useState(null);
+  const [IsShow, setIsShow] = useState(true);
+
+  useEffect(() => {
+    // Defer loading heavy 2MB video so it does not block initial FCP and LCP paint
+    const timer = setTimeout(() => {
+      setVideoSrc(vedio);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
-      setTimeout(() => {
-        setvedioshow(false)
-      }, 5000);
       setScrolled(window.scrollY > 20);
 
       const sections = document.querySelectorAll('[data-animate]');
@@ -127,17 +131,20 @@ const HomePage = () => {
       {/* Cinematic Dark Hero */}
       <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col pt-32 lg:pt-40 pb-16 bg-[#070d10]">
         
-        {/* Full Bleed Background Video */}
+        {/* Full Bleed Background Video - Streamed smoothly after initial paint */}
         <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden -top-[10%] h-[120%]">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            playsInline
-            muted
-            autoPlay
-            loop
-          >
-            <source src={vedio} type="video/mp4" />
-          </video>
+          {videoSrc && (
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              playsInline
+              muted
+              autoPlay
+              loop
+              preload="metadata"
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          )}
         </motion.div>
 
         {/* Cinematic Dark Overlay */}
@@ -359,7 +366,7 @@ const HomePage = () => {
                    
                    {/* Back Face */}
                    <img 
-                       src={bnLogo3d} 
+                       src={bnLogo3d} width="380" height="380" 
                        alt="" 
                        className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
                        style={{ transform: "translateZ(-4.5px)" }} 
@@ -369,7 +376,7 @@ const HomePage = () => {
                    {[...Array(6)].map((_, i) => (
                      <img 
                        key={i}
-                       src={bnLogo3d} 
+                       src={bnLogo3d} width="380" height="380" 
                        alt="" 
                        className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
                        style={{ 
@@ -381,7 +388,7 @@ const HomePage = () => {
                    
                    {/* Front Face */}
                    <img 
-                       src={bnLogo3d} 
+                       src={bnLogo3d} width="380" height="380" 
                        alt="bitnextro-front" 
                        className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
                        style={{ transform: "translateZ(4.5px)" }} 

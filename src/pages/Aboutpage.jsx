@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Globe, Users, Target, Award, ArrowRight, CheckCircle2, Server, Lock } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import aboutpic from "../assets/about.jpeg"
-import bnLogo3d from "../assets/trans_BN_logo.png"
+import aboutpic from "../assets/about.webp"
+import bnLogo3d from "../assets/trans_BN_logo.webp"
 import MagneticButton from '../components/MagneticButton';
 // --- Utility: Animated Counter ---
 const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {

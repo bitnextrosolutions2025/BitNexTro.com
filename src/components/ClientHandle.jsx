@@ -86,9 +86,9 @@ export default function App() {
             <Briefcase className="w-4 h-4" />
             <span>Portfolio Highlights</span>
           </div> */}
-          <h1 className="text-3xl md:text-5xl  font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-slate-800 to-slate-900 mb-6">
+          <h2 className="text-3xl md:text-5xl  font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-slate-800 to-slate-900 mb-6">
             Trusted by industry leaders.
-          </h1>
+          </h2>
           <p className="text-lg text-green-300 leading-8">
             we partner with forward-thinking companies to build scalable solutions.
             From early-stage startups to established enterprises.
