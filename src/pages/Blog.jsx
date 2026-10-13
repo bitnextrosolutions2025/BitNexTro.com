@@ -197,7 +197,14 @@ export default function Blog() {
         const data = await response.json();
         if (data && data.blogdata && data.blogdata.length > 0) {
           const revBlogdata = [...data.blogdata].reverse();
-          setBlogPosts(revBlogdata);
+          // Merge database articles first, followed by curated articles so the catalog is always complete
+          const merged = [
+            ...revBlogdata,
+            ...FALLBACK_POSTS.filter(
+              (fp) => !revBlogdata.some((dp) => dp._id === fp._id || dp.blog_title?.toLowerCase() === fp.blog_title?.toLowerCase())
+            ),
+          ];
+          setBlogPosts(merged);
         } else {
           setBlogPosts(FALLBACK_POSTS);
         }

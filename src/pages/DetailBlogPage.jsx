@@ -106,6 +106,8 @@ export default function DetailBlogPage() {
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
 
+  const [allPosts, setAllPosts] = useState(Object.values(FALLBACK_ARTICLES));
+
   // Reading progress scroll tracking
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -116,6 +118,31 @@ export default function DetailBlogPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // Fetch full catalog for recommendations
+    const fetchCatalog = async () => {
+      try {
+        const backendBase = import.meta.env.VITE_BACKEND_URL;
+        if (!backendBase) return;
+        const res = await fetch(`${backendBase}/api/v5/blog/fetch-all-blog`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data && data.blogdata && data.blogdata.length > 0) {
+          const rev = [...data.blogdata].reverse();
+          const fallbackArr = Object.values(FALLBACK_ARTICLES);
+          const merged = [
+            ...rev,
+            ...fallbackArr.filter(
+              (fp) => !rev.some((dp) => dp._id === fp._id || dp.blog_title?.toLowerCase() === fp.blog_title?.toLowerCase())
+            ),
+          ];
+          setAllPosts(merged);
+        }
+      } catch (e) {
+        // fallback catalog remains
+      }
+    };
+    fetchCatalog();
 
     const fetchWholeBlogData = async () => {
       setLoading(true);
@@ -198,10 +225,9 @@ export default function DetailBlogPage() {
 
   // Related recommended articles (exclude current)
   const relatedArticles = useMemo(() => {
-    const all = Object.values(FALLBACK_ARTICLES);
-    const filtered = all.filter((a) => a._id !== id);
+    const filtered = allPosts.filter((a) => a._id !== id);
     return filtered.slice(0, 2);
-  }, [id]);
+  }, [allPosts, id]);
 
   // Intelligent Formatter: splits text into structured sections, headings, and clean paragraphs
   const renderFormattedArticleContent = (rawText) => {
